@@ -2,3 +2,5 @@
 1.1) play all popular audio formats(.mp3; .aac; .flac; .cue(flac container?); .wma; .wav; .m4a; )
 2)UI
 2.1)Album Art support
+...
+2.x)Audiospectre :)
