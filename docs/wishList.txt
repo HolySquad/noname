@@ -1,5 +1,7 @@
 1. Audio
 1.1. play all popular audio formats(.mp3; .aac; .flac; .cue(flac container?); .wma; .wav; .m4a;)
+...
+1.x volume normalization
 
 2. UI
 2.0. Flat design (Metro style, mimimalysm, like Kibtech skin for aimp)
