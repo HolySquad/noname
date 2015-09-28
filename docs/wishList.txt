@@ -1,6 +1,21 @@
-1)Audio
-1.1) play all popular audio formats(.mp3; .aac; .flac; .cue(flac container?); .wma; .wav; .m4a; )
-2)UI
-2.1)Album Art support
+1. Audio
+1.1. play all popular audio formats(.mp3; .aac; .flac; .cue(flac container?); .wma; .wav; .m4a;)
+
+2. UI
+2.0. Flat design (Metro style, mimimalysm, like Kibtech skin for aimp)
+2.1. Album Art support
+2.2. 
 ...
-2.x)Audiospectre :)
+2.x. Audiospectre :)
+
+3. Features
+3.1 Playlists support
+3.2. Playback queues support
+3.3. List of recently added files
+3.4. Lsit of most played
+3.5. Search through library (some day)
+3.6. Playback modes
+3.6.1 Repeal all
+3.6.2 Repeat 1 song
+3.6.3 Repeat selected range???
+3.6.4 Shuffle
