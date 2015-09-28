@@ -1,5 +1,6 @@
 1. Audio
 1.1. play all popular audio formats(.mp3; .aac; .flac; .cue(flac container?); .wma; .wav; .m4a;)
+1.2 play stream data (like online radio)
 ...
 1.x volume normalization
 
