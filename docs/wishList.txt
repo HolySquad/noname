@@ -22,3 +22,4 @@
 3.6.2 Repeat 1 song
 3.6.3 Repeat selected range???
 3.6.4 Shuffle
+3.7 Music Cache
