@@ -9,7 +9,7 @@
 2.1. Album Art support
 2.2. 
 ...
-2.x. Audiospectre :)
+2.x. Audiospectre
 
 3. Features
 3.1 Playlists support
