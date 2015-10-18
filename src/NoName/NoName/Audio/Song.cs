@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace NoName.Audio
 {
-    class Audio : MediaFile
+    class Song : AudioFile
     {
-        public string Format { get; set; }
+        public Artist Artist { get; set; }
+        public Album Album { get; set; }
+        public TimeSpan Duration { get; set; }
     }
 }

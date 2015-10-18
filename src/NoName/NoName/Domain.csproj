@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\Album.cs" />
+    <Compile Include="Audio\Artist.cs" />
+    <Compile Include="Audio\AudioFile.cs" />
+    <Compile Include="Audio\Song.cs" />
+    <Compile Include="Genre.cs" />
     <Compile Include="MediaFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
