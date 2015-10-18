@@ -8,6 +8,6 @@ namespace NoName.Audio
 {
     class AudioFile : MediaFile
     {
-        public string Format { get; set; }
+        public string Format { get; protected set; }
     }
 }
