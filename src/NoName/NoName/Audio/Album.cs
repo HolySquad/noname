@@ -8,7 +8,7 @@ namespace NoName.Audio
 {
     class Album
     {
-        public Artist Performer { get; set; }
+        public Artist Artist { get; set; }
         public Genre Genre { get; set; }
         public TimeSpan Duration { get; set; }
         public byte TracksNumber { get; set; }

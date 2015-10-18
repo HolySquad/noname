@@ -8,7 +8,7 @@ namespace NoName.Audio
 {
     class Song : AudioFile
     {
-        public Artist Artist { get; set; }
+        public Artist Artist => Album.Artist;
         public Album Album { get; set; }
         public TimeSpan Duration { get; set; }
     }
