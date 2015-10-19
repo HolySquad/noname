@@ -13,5 +13,3 @@ namespace NoName.Audio
         public TimeSpan Duration { get; protected set; }
     }
 }
-
-//test git 
