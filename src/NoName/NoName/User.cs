@@ -9,7 +9,7 @@ namespace NoName
 {
     class User
     {
-        private string PasswordHASH { get; set; }
+        private string passwordHASH;
         private DateTime signupdate;
         private List<int> NewContentSinceLastVisit;
         private List<int> FavouriteContentIDs;
@@ -21,6 +21,13 @@ namespace NoName
             get { return signupdate; }
             private set { signupdate = value; }
         }
+
+        protected string PasswordHASH
+        {
+            get { return passwordHASH; }
+            private set { passwordHASH = value; }
+        }
+
         
         public DateTime LogOutTime { get; protected set; }
         public Bitmap Avatar { get; private set; }
