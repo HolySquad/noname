@@ -9,14 +9,21 @@ namespace NoName
 {
     class User
     {
-        public string UserName { get; }
         private string PasswordHASH { get; set; }
-        public DateTime SignUpDate { get; }
+        private DateTime signupdate;
+        private List<int> NewContentSinceLastVisit;
+        private List<int> FavouriteContentIDs;
+
+
+        public string UserName { get; }
+        public DateTime SignUpDate
+        {
+            get { return signupdate; }
+            private set { signupdate = value; }
+        }
+        
         public DateTime LogOutTime { get; protected set; }
         public Bitmap Avatar { get; private set; }
-
-        private List<int> NewContentSinceLastVisit;
-        private List<int> FavouriteConetntIDs; 
 
         public User() { }
         public User(string name, string passhash)
@@ -37,6 +44,7 @@ namespace NoName
         {
             try
             {
+                //some setter rules
                 Avatar = new Bitmap(bmp);
                 return true;
             }
