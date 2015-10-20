@@ -6,5 +6,6 @@
     {
         public string Name { get; protected set; }
         public string Path { get; protected set; }
+        public int ID { get; protected set; }
     }
 }
