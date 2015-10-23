@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace NoName.Audio
 {
-    class Album
+    public class Album
     {
+        //TODO one of most wanted feature album art
         public Artist Artist { get; protected set; }
         public Genre Genre { get; protected set; }
         public TimeSpan Duration { get; protected set; }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace NoName.Audio
 {
-    class AudioFile : MediaFile
+    public class AudioFile : MediaFile
     {
+        //TODO need to think about what we can add here
         public string Format { get; protected set; }
     }
 }

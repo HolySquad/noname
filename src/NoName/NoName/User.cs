@@ -1,50 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NoName
 {
-    class User
+    /* don't like this class
+       don't know why
+       this two private List<int> is annoying me >.<
+    */
+
+    public class User
     {
-        private string passwordHASH;
-        private DateTime signupdate;
+        private List<int> _favouriteContentIDs;
         private List<int> NewContentSinceLastVisit;
-        private List<int> FavouriteContentIDs;
-
-
-        public string UserName { get; }
-        public DateTime SignUpDate
-        {
-            get { return signupdate; }
-            private set { signupdate = value; }
-        }
-
-        protected string PasswordHASH
-        {
-            get { return passwordHASH; }
-            private set { passwordHASH = value; }
-        }
-
         
-        public DateTime LogOutTime { get; protected set; }
-        public Bitmap Avatar { get; private set; }
+        protected User()
+        {
+        }
 
-        public User() { }
         public User(string name, string passhash)
         {
             UserName = name;
-            PasswordHASH = passhash;
+            PasswordHash = passhash;
             SignUpDate = DateTime.Today;
             Avatar = null;
         }
 
+
+        public string UserName { get; }
+
+        public DateTime SignUpDate { get; private set; }
+
+        protected string PasswordHash { get; private set; }
+
+
+        public DateTime LogOutTime { get; protected set; }
+        public Bitmap Avatar { get; private set; }
+
         private bool ChangePassword()
         {
             //recalculate password hash of some sort in some way
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private bool ChangeAvatar(Bitmap bmp)
@@ -66,7 +62,7 @@ namespace NoName
 
         private void LogOutHandler()
         {
-            LogOutTime = DateTime.Now;;
+            LogOutTime = DateTime.Now;
         }
     }
 }
