@@ -29,12 +29,15 @@ namespace WebLayer.Controllers
         // GET: MediaFile
         public ActionResult Index()
         {
-            files.Add(new MediaFile("Test Item", "Test Path"));
-            foreach (var mediaFile in MediaFile.Files)
-            {
-                files.Add(mediaFile);
-            }           
-            return View(files);
+            //files.Add(new MediaFile("Test Item", "Test Path"));
+            //foreach (var mediaFile in MediaFile.Files)
+            //{
+            //    files.Add(mediaFile);
+            //}           
+
+            _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
+
+            return View();
         }
 
         // GET: MediaFile/Details/5

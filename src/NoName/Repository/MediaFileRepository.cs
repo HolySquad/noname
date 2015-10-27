@@ -9,7 +9,7 @@ using Repository.Interfaces;
 
 namespace Repository
 {
-    class MediaFileRepository:Repository, IMediaFileRepository
+  public  class MediaFileRepository:Repository, IMediaFileRepository
     {
         public MediaFileRepository(ISessionManager sessionManager) : base(sessionManager)
         {
