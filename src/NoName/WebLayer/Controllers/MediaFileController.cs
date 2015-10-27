@@ -27,6 +27,8 @@ namespace WebLayer.Controllers
         }
     
         // GET: MediaFile
+        [HttpGet]
+       
         public ActionResult Index()
         {
             //files.Add(new MediaFile("Test Item", "Test Path"));
@@ -35,9 +37,9 @@ namespace WebLayer.Controllers
             //    files.Add(mediaFile);
             //}           
 
-            _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
-
-            return View();
+           // _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
+            var rez = _mediaFileRepository.GetAllFiles();
+            return View(rez);
         }
 
         // GET: MediaFile/Details/5

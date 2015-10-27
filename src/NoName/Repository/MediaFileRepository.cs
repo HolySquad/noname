@@ -31,5 +31,24 @@ namespace Repository
                 }
             }
         }
+
+      public IList<MediaFile> GetAllFiles()
+      {
+          using (var tran = _session.BeginTransaction())
+          {
+              try
+              {
+                  var res = _session.QueryOver<MediaFile>()
+                        .List();
+                    return res;
+              }
+              catch (Exception ex)
+              {
+                  
+               tran.Rollback();
+                  return null;
+              }
+          }
+      }
     }
 }
