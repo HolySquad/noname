@@ -6,36 +6,19 @@ using NHibernate.Tool.hbm2ddl;
 
 namespace Repository
 {
-    public class SessionManager
+    public class SessionManager: ISessionManager
     {
-        private static readonly SessionManager _sessionGenerator = new SessionManager();
-        private static readonly ISessionFactory SessionFactory = CreateSessionFactory();
+        private readonly ISession _session;
+        private readonly ISessionFactory _sessionFactory = SessionGenerator.Instance.GetSessionFactory();
 
-        private SessionManager()
+        public SessionManager()
         {
-        }
-
-        public static SessionManager Instance
-        {
-            get { return _sessionGenerator; }
+            _session = _sessionFactory.OpenSession();
         }
 
         public ISession GetSession()
         {
-            return SessionFactory.OpenSession();
-        }
-
-        private static ISessionFactory CreateSessionFactory()
-        {
-            var configuration = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(builder => builder.Database("NoName")
-                    .Server("www.holystream.tk").Username("sa").Password("Overlord132")
-                    ))
-                .Mappings(x => x.FluentMappings.AddFromAssembly(typeof (MediaFileMap).Assembly))
-                .ExposeConfiguration(
-                    cfg => new SchemaUpdate(cfg).Execute(true, true));
-
-            return configuration.BuildSessionFactory();
+            return _session;
         }
     }
 }

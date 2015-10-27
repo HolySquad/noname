@@ -13,12 +13,12 @@ namespace WebLayer.Controllers
     {
         private readonly IRepository _repository;
         private  List<MediaFile> files = new List<MediaFile>();
-      
-            
-       [Obsolete]
+
+
+        [Obsolete]
         public MediaFileController()
         {
-            
+
         }
 
         public MediaFileController(IRepository repository)

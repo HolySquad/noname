@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumMap.cs" />
+    <Compile Include="ArtistMap.cs" />
     <Compile Include="AudioFileMap.cs" />
     <Compile Include="EntityMap.cs" />
     <Compile Include="MediaFileMap.cs" />

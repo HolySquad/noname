@@ -1,50 +1,86 @@
-﻿
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+﻿using System;
+using Domain;
 using NHibernate;
 using Repository.Interfaces;
-using Domain;
 
 namespace Repository
 {
     public abstract class Repository : IRepository
     {
-        protected readonly ISession _session = SessionManager.Instance.GetSession();
-        public void Save<TEntity>(TEntity entity) where TEntity : Entity
+        protected readonly ISession _session;
+        private readonly ISessionManager _sessionManager;
+
+        protected Repository(ISessionManager sessionManager)
         {
-            _session.Save(entity);
+            _sessionManager = sessionManager;
+            _session = _sessionManager.GetSession();
         }
 
-        void IRepository.Update<TEntity>(TEntity entity)
+        public void Save<TEntity>(TEntity entity) where TEntity : Entity
         {
-            Update(entity);
+            using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    _session.Save(entity);
+                    tran.Commit();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                }
+            }
+        }
+
+        public void SaveUpdate<TEntity>(TEntity entity) where TEntity : Entity
+        {
+            using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    _session.SaveOrUpdate(entity);
+                    tran.Commit();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                }
+            }
         }
 
         public void Delete<TEntity>(long id)
         {
-            throw new System.NotImplementedException();
+            using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    var entity = _session.Get<Entity>(id);
+                    _session.Delete(entity);
+                    tran.Commit();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                }
+            }
         }
 
-        void IRepository.Save<TEntity>(TEntity entity)
+        public TEntity GetEntityById<TEntity>(long id) where TEntity : Entity
         {
-            Save(entity);
+            using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    var res = _session.Get<TEntity>(id);
+                    tran.Commit();
+                    return res;
+                }
+                catch (Exception e)
+                {
+                    tran.Rollback();
+                    return null;
+                }
+            }
         }
-
-        public void Update<TEntity>(TEntity entity) where TEntity : Entity
-        {
-            _session.Update(entity);
-        }
-
-        public void Delete<TEntity>(TEntity entity) where TEntity : Entity
-        {
-            _session.Delete(entity);
-        }
-
-      
-
-        //public T GetItemById<T>(long id) where T : Entity
-        //}
-        //    throw new NotImplementedException();
-        //{
     }
 }

@@ -5,8 +5,8 @@ namespace Repository.Interfaces
     public interface IRepository
     {
         void Save<TEntity>(TEntity entity) where TEntity : Entity;
-        void Update<TEntity>(TEntity entity) where TEntity : Entity;
+        void SaveUpdate<TEntity>(TEntity entity) where TEntity : Entity;
         void Delete<TEntity>(long id);
-        //T GetItemById<T>(long id) where T : Entity;
+        TEntity GetEntityById<TEntity>(long id) where TEntity : Entity;
     }
 }

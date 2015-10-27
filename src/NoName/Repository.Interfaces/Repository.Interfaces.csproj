@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAudioFileRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,10 +63,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain.Mapping\Domain.Mapping.csproj">
-      <Project>{fe391907-703d-49e6-83db-084f4c4da555}</Project>
-      <Name>Domain.Mapping</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NoName\Domain.csproj">
       <Project>{067496d6-f8e1-4b57-b8df-89cb553a98c5}</Project>
       <Name>Domain</Name>
