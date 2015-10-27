@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "NoName\Domain.csproj", "{067496D6-F8E1-4B57-B8DF-89CB553A98C5}"
 EndProject
@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.Interfaces", "Re
 	ProjectSection(ProjectDependencies) = postProject
 		{067496D6-F8E1-4B57-B8DF-89CB553A98C5} = {067496D6-F8E1-4B57-B8DF-89CB553A98C5}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLayer", "WebLayer\WebLayer.csproj", "{2EA97111-CC17-417C-831A-36CC830A820D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{F5BC01DD-6C95-46B0-B5E4-7CE93AA676BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5BC01DD-6C95-46B0-B5E4-7CE93AA676BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5BC01DD-6C95-46B0-B5E4-7CE93AA676BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA97111-CC17-417C-831A-36CC830A820D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA97111-CC17-417C-831A-36CC830A820D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA97111-CC17-417C-831A-36CC830A820D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA97111-CC17-417C-831A-36CC830A820D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
