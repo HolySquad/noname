@@ -1,6 +1,9 @@
-﻿using FluentNHibernate.Cfg;
+﻿using Domain.Mapping;
+using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Tool.hbm2ddl;
 
 namespace Repository
 {
@@ -28,10 +31,10 @@ namespace Repository
             var configuration = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012.ConnectionString(builder => builder.Database("NoName")
                     .Server("92.115.133.188").Username("sa").Password("Overlord132")
-                    ));
-            //.Mappings(x=>x.FluentMappings.AddFromAssembly(typeof(PersMap).Assembly))
-            //.ExposeConfiguration(
-            //cfg => new SchemaUpdate(cfg).Execute(true,true));
+                    ))
+            .Mappings(x=>x.FluentMappings.AddFromAssembly(typeof(MediaFileMap).Assembly))
+            .ExposeConfiguration(
+            cfg => new SchemaUpdate(cfg).Execute(true,true));
 
             return configuration.BuildSessionFactory();
         }
