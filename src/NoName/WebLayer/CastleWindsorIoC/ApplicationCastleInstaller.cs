@@ -5,6 +5,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Repository;
+using Repository.Interfaces;
 
 namespace WebLayer.CastleWindsorIoC
 {
@@ -12,6 +13,10 @@ namespace WebLayer.CastleWindsorIoC
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+            container.Register(
+                Component.For(typeof(IRepository))
+                    .ImplementedBy(typeof(Repository.Repository))
+                    .LifestylePerWebRequest());
             container.Register(
                 Component.For(typeof (ISessionManager))
                     .ImplementedBy(typeof (SessionManager))

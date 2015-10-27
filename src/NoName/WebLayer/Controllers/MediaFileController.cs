@@ -11,7 +11,7 @@ namespace WebLayer.Controllers
 {
     public class MediaFileController : Controller
     {
-        private readonly IRepository _repository;
+        private readonly IMediaFileRepository _mediaFileRepository;
         private  List<MediaFile> files = new List<MediaFile>();
 
 
@@ -21,9 +21,9 @@ namespace WebLayer.Controllers
 
         }
 
-        public MediaFileController(IRepository repository)
+        public MediaFileController(IMediaFileRepository mediaFileRepository)
         {
-            _repository = repository;
+            _mediaFileRepository = mediaFileRepository;
         }
     
         // GET: MediaFile
