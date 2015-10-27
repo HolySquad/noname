@@ -4,8 +4,15 @@ using System.Linq;
 
 namespace ServerGUI
 {
-    public static class FileScanner
+    public class FileScanner
     {
+       // private static readonly FileScanner 
+
+        private FileScanner()
+        {
+            
+        }
+
         public static void ScanFolder(string path)
         {
             //list of supported Files
@@ -28,6 +35,7 @@ namespace ServerGUI
             var win = MainWindow.Instance;
             win.FileListBox.Items.Add(path);
             win.InfoBar.Text = win.FileListBox.Items.Count.ToString();
+            Repository.Repository
         }
     }
 }
