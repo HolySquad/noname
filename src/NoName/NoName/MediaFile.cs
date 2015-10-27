@@ -7,8 +7,8 @@ namespace Domain
     public abstract class MediaFile : Entity
     {
         //TODO somewhere here we need to scan files/read tags and some other stuff
-        public string Name { get; protected set; }
-        public string Path { get; protected set; }
+        public virtual string Name { get; protected set; }
+        public virtual string Path { get; protected set; }
 
         [Obsolete]
         protected MediaFile()

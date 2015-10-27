@@ -3,9 +3,9 @@ using Domain.Audio;
 
 namespace Factories
 {
-    internal static class SongFactory
+    public static class SongFactory
     {
-        public static Song CreateAudioFile()
+        public static Song CreateAudioFile(string pathToSong)
         {
             //TODO make same for artist , album
             //need some scanService and tag reader :)

@@ -5,23 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServerGUI"
         mc:Ignorable="d"
-        Title="NoName" Height="350" Width="525">
+        Title="NoName" Height="350" Width="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         
       <StackPanel Orientation="Horizontal">
             <TextBlock Text="Path" Margin="5" Padding="5"></TextBlock>
-            <TextBox Text="Your Path here" Name="PathTxt" Width="400" IsReadOnly="True" Margin="5" Padding="5"></TextBox>
-            <Button Content="Browse" Margin="5" Padding="5"></Button>
+            <TextBox Text="Your Path here" Name="PathTxt" Width="350" IsReadOnly="True" Margin="5" Padding="5" Foreground="LightGray"></TextBox>
+            <Button Content="Browse" Margin="5" Padding="5" Click="BrowseClick" ></Button>
+            <Button Content="Scan" Margin="5" Padding="5" Click="ScanClick" Name="ScanBtn"></Button>
          
-        </StackPanel> 
-        <TextBlock  Grid.Row="1" FontSize="48" Text="Still a lot work TODO" FontWeight="ExtraLight" FontFamily="Segoe UI"></TextBlock>
+        </StackPanel>
+        <ListBox Name="FileListBox" Grid.Row="1" Grid.Column="0"  ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+        
+        <TextBlock Grid.Row="2" Grid.Column="0" Name="InfoBar"></TextBlock>
     </Grid>
 </Window>
