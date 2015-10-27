@@ -19,9 +19,9 @@
       <StackPanel Orientation="Horizontal">
             <TextBlock Text="Path" Margin="5" Padding="5"></TextBlock>
             <TextBox Text="Your Path here" Name="PathTxt" Width="400" IsReadOnly="True" Margin="5" Padding="5"></TextBox>
-            <Button Content="Browse" Margin="5" Padding="5"></Button>
+            <Button Content="Browse" Margin="5" Padding="5" Click="BrowseClick"></Button>
          
         </StackPanel> 
-        <TextBlock  Grid.Row="1" FontSize="48" Text="Still a lot work TODO" FontWeight="ExtraLight" FontFamily="Segoe UI"></TextBlock>
+        <ListBox Grid.Row="1"></ListBox>
     </Grid>
 </Window>
