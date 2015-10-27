@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Forms;
-using Repository.Interfaces;
+using Scanner;
 using MessageBox = System.Windows.MessageBox;
 
 namespace ServerGUI
@@ -11,13 +11,14 @@ namespace ServerGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static MainWindow Instance { get; private set; }
         public MainWindow()
         {
             InitializeComponent();
             PathTxt.Foreground = SystemColors.GrayTextBrush;
             ScanBtn.IsEnabled = false;
         }
+
+        public static MainWindow Instance { get; private set; }
 
         private void BrowseClick(object sender, RoutedEventArgs e)
         {
@@ -43,7 +44,6 @@ namespace ServerGUI
             {
                 if (PathTxt.Text != "Your Path here")
                 {
-                    
                     FileScanner.ScanFolder(PathTxt.Text);
                 }
                 else MessageBox.Show("Choose a folder!");

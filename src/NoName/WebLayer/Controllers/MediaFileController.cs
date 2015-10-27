@@ -13,7 +13,7 @@ namespace WebLayer.Controllers
     {
         private readonly IRepository _repository;
         private  List<MediaFile> files = new List<MediaFile>();
-        
+      
             
        [Obsolete]
         public MediaFileController()
@@ -29,9 +29,12 @@ namespace WebLayer.Controllers
         // GET: MediaFile
         public ActionResult Index()
         {
-            var items = MediaFile.files;
-            var count = items.Count;
-            return View();
+            files.Add(new MediaFile("Test Item", "Test Path"));
+            foreach (var mediaFile in MediaFile.Files)
+            {
+                files.Add(mediaFile);
+            }           
+            return View(files);
         }
 
         // GET: MediaFile/Details/5

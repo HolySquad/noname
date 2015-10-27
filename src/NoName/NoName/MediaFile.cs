@@ -7,7 +7,7 @@ namespace Domain
     // To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
     public class MediaFile : Entity
     {
-        public static readonly List<MediaFile> files = new List<MediaFile>();
+        public static readonly List<MediaFile> Files = new List<MediaFile>();
 
         [Obsolete]
         protected MediaFile()
@@ -18,6 +18,11 @@ namespace Domain
         {
             Name = name;
             Path = path;
+        }
+
+        public static void AddFile(MediaFile file)
+        {
+            Files.Add(file);
         }
 
         //TODO somewhere here we need to scan files/read tags and some other stuff

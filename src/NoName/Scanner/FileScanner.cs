@@ -2,8 +2,7 @@
 using System.IO;
 using System.Linq;
 using Domain;
-
-namespace ServerGUI
+namespace Scanner
 {
     public static class FileScanner
     {
@@ -26,11 +25,11 @@ namespace ServerGUI
 
         public static void ProcessFile(string path)
         {
-            var win = MainWindow.Instance;
-            win.FileListBox.Items.Add(path);
-            win.InfoBar.Text = win.FileListBox.Items.Count.ToString();
+            //var win = MainWindow.Instance;
+            //win.FileListBox.Items.Add(path);
+            //win.InfoBar.Text = win.FileListBox.Items.Count.ToString();
             var mediaFile = new MediaFile(Path.GetFileName(path), path);
-            MediaFile.files.Add(mediaFile);
+            MediaFile.AddFile(mediaFile);
         }
     }
 }
