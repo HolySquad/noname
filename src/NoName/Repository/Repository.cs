@@ -11,7 +11,7 @@ namespace Repository
 {
     public abstract class Repository: IRepository
     {
-        protected readonly ISession _session = SessionGenerator.Instance.GetSession();
+        protected readonly ISession _session = SessionManager.Instance.GetSession();
         public void Save<TEntity>(TEntity entity) where TEntity : Entity
         {
             _session.Save(entity);

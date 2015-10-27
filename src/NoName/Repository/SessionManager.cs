@@ -4,16 +4,16 @@ using NHibernate;
 
 namespace Repository
 {
-    public class SessionGenerator
+    public class SessionManager
     {
-        private static readonly SessionGenerator _sessionGenerator = new SessionGenerator();
+        private static readonly SessionManager _sessionGenerator = new SessionManager();
         private static readonly ISessionFactory SessionFactory = CreateSessionFactory();
 
-        private SessionGenerator()
+        private SessionManager()
         {
         }
 
-        public static SessionGenerator Instance
+        public static SessionManager Instance
         {
             get { return _sessionGenerator; }
         }
@@ -27,7 +27,7 @@ namespace Repository
         {
             var configuration = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012.ConnectionString(builder => builder.Database("NoName")
-                    .Server("92.115.133.188").Username("sa").Password("overlord132")
+                    .Server("92.115.133.188").Username("sa").Password("Overlord132")
                     ));
             //.Mappings(x=>x.FluentMappings.AddFromAssembly(typeof(PersMap).Assembly))
             //.ExposeConfiguration(
