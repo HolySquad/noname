@@ -59,6 +59,7 @@
     <Compile Include="EntityMap.cs" />
     <Compile Include="MediaFileMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SongMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
