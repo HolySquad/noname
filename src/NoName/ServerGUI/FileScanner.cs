@@ -1,14 +1,19 @@
-﻿using System.IO;
-using Factories;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
-namespace Repository
+namespace ServerGUI
 {
     public static class FileScanner
     {
         public static void ScanFolder(string path)
         {
+            //list of supported Files
+            var ext = new List<string> { ".mp3", ".flac", ".m4a" };
             // Process the list of files found in the directory.
-            var fileEntries = Directory.GetFiles(path);
+            var fileEntries = Directory.GetFiles(path)
+                                        .Where(f=>ext.Any(x=>f.EndsWith(x)));
+
             foreach (var fileName in fileEntries)
                 ProcessFile(fileName);
 
@@ -20,7 +25,9 @@ namespace Repository
 
         public static void ProcessFile(string path)
         {
-         
+            var win = MainWindow.Instance;
+            win.FileListBox.Items.Add(path);
+            win.InfoBar.Text = win.FileListBox.Items.Count.ToString();
         }
     }
 }
