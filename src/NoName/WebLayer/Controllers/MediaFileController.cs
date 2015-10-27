@@ -6,13 +6,14 @@ using System.Web.Mvc;
 using Domain;
 using Microsoft.Ajax.Utilities;
 using Repository.Interfaces;
+using Scanner;
 
 namespace WebLayer.Controllers
 {
     public class MediaFileController : Controller
     {
         private readonly IMediaFileRepository _mediaFileRepository;
-        private  List<MediaFile> files = new List<MediaFile>();
+        private readonly List<MediaFile> _files = new List<MediaFile>();
 
 
         [Obsolete]
@@ -29,15 +30,18 @@ namespace WebLayer.Controllers
         // GET: MediaFile
         public ActionResult Index()
         {
-            //files.Add(new MediaFile("Test Item", "Test Path"));
-            //foreach (var mediaFile in MediaFile.Files)
-            //{
-            //    files.Add(mediaFile);
-            //}           
+         //   var path = @"E:\MusicCollection\";
+          //  FileScanner.ScanFolder(path);
+            _files.Add(new MediaFile("Test Item", "Test Path"));
+            foreach (var mediaFile in MediaFile.Files)
+            {
+                _files.Add(mediaFile);
+                _mediaFileRepository.AddMediaFile(mediaFile);
+            }
 
-            _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
-
-            return View();
+         
+         
+            return View(_files);
         }
 
         // GET: MediaFile/Details/5

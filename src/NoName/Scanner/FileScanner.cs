@@ -25,10 +25,7 @@ namespace Scanner
 
         public static void ProcessFile(string path)
         {
-            //var win = MainWindow.Instance;
-            //win.FileListBox.Items.Add(path);
-            //win.InfoBar.Text = win.FileListBox.Items.Count.ToString();
-            var mediaFile = new MediaFile(Path.GetFileName(path), path);
+             var mediaFile = new MediaFile(Path.GetFileName(path), path);
             MediaFile.AddFile(mediaFile);
         }
     }
