@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain.Mapping\Domain.Mapping.csproj">
+      <Project>{FE391907-703D-49E6-83DB-084F4C4DA555}</Project>
+      <Name>Domain.Mapping</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Factories\Factories.csproj">
       <Project>{6654386a-20d1-4fb8-933e-96f21caba1dd}</Project>
       <Name>Factories</Name>

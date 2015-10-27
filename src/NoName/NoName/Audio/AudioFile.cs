@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NoName.Audio
+namespace Domain.Audio
 {
     public class AudioFile : MediaFile
     {
         //TODO need to think about what we can add here
-        public string Format { get; protected set; }
+        public virtual string Format { get; protected set; }
+
+        [Obsolete]
+        protected AudioFile()
+        {
+        }
     }
 }

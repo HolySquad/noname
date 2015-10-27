@@ -7,8 +7,8 @@
     <ProjectGuid>{067496D6-F8E1-4B57-B8DF-89CB553A98C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NoName</RootNamespace>
-    <AssemblyName>NoName</AssemblyName>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -46,10 +46,14 @@
     <Compile Include="Audio\Artist.cs" />
     <Compile Include="Audio\AudioFile.cs" />
     <Compile Include="Audio\Song.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="MediaFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Video\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

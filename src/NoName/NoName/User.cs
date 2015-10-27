@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace NoName
+namespace Domain
 {
 
     /* don't like this class
