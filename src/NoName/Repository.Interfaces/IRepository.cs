@@ -1,4 +1,4 @@
-﻿using FluentNHibernate.Data;
+﻿using Domain;
 
 namespace Repository.Interfaces
 {
@@ -6,7 +6,7 @@ namespace Repository.Interfaces
     {
         void Save<TEntity>(TEntity entity) where TEntity : Entity;
         void Update<TEntity>(TEntity entity) where TEntity : Entity;
-        void Delete<TEntity>(TEntity entity) where TEntity : Entity;
+        void Delete<TEntity>(long id);
         //T GetItemById<T>(long id) where T : Entity;
     }
 }

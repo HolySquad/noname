@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Forms;
+using Repository.Interfaces;
 using MessageBox = System.Windows.MessageBox;
 
 namespace ServerGUI
@@ -42,7 +43,7 @@ namespace ServerGUI
             {
                 if (PathTxt.Text != "Your Path here")
                 {
-                    FileListBox.Items.Clear();
+                    
                     FileScanner.ScanFolder(PathTxt.Text);
                 }
                 else MessageBox.Show("Choose a folder!");

@@ -29,7 +29,7 @@ namespace Repository
         {
             var configuration = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012.ConnectionString(builder => builder.Database("NoName")
-                    .Server("92.115.133.188").Username("sa").Password("Overlord132")
+                    .Server("www.holystream.tk").Username("sa").Password("Overlord132")
                     ))
                 .Mappings(x => x.FluentMappings.AddFromAssembly(typeof (MediaFileMap).Assembly))
                 .ExposeConfiguration(

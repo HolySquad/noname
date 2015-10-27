@@ -99,6 +99,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NoName\Domain.csproj">
+      <Project>{067496d6-f8e1-4b57-b8df-89cb553a98c5}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository.Interfaces\Repository.Interfaces.csproj">
       <Project>{f5bc01dd-6c95-46b0-b5e4-7ce93aa676bb}</Project>
       <Name>Repository.Interfaces</Name>
