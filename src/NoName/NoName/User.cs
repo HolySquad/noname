@@ -4,9 +4,12 @@ using System.Drawing;
 
 namespace NoName
 {
+
     /* don't like this class
        don't know why
        this two private List<int> is annoying me >.<
+     * 
+     * not sure if this class included in mapping
     */
 
     public class User
@@ -27,7 +30,7 @@ namespace NoName
         }
 
 
-        public string UserName { get; }
+        public string UserName { get; protected set; }
 
         public DateTime SignUpDate { get; private set; }
 
