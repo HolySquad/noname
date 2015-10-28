@@ -11,7 +11,7 @@ namespace WebLayer.Controllers
 {
     public class MediaFileController : Controller
     {
-        private readonly IRepository _repository;
+        private readonly IMediaFileRepository _mediaFileRepository;
         private  List<MediaFile> files = new List<MediaFile>();
 
 
@@ -21,21 +21,25 @@ namespace WebLayer.Controllers
 
         }
 
-        public MediaFileController(IRepository repository)
+        public MediaFileController(IMediaFileRepository mediaFileRepository)
         {
-            _repository = repository;
+            _mediaFileRepository = mediaFileRepository;
         }
     
         // GET: MediaFile
+        [HttpGet]
+       
         public ActionResult Index()
         {
             //files.Add(new MediaFile("Test Item", "Test Path"));
             //foreach (var mediaFile in MediaFile.Files)
             //{
             //    files.Add(mediaFile);
-            //}         
-            _repository.Save(new MediaFile("Test Record", "TestPAth"));
-            return View();
+            //}           
+
+           // _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
+            var rez = _mediaFileRepository.GetAllFiles();
+            return View(rez);
         }
 
         // GET: MediaFile/Details/5

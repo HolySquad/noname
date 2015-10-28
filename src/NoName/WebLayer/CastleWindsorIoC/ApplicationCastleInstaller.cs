@@ -14,12 +14,21 @@ namespace WebLayer.CastleWindsorIoC
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
+                Component.For(typeof(IRepository))
+                    .ImplementedBy(typeof(Repository.Repository))
+                    .LifestylePerWebRequest());
+            container.Register(
                 Component.For(typeof (ISessionManager))
                     .ImplementedBy(typeof (SessionManager))
                     .LifestylePerWebRequest());
             container.Register(
                 Component.For(typeof(IRepository))
                     .ImplementedBy(typeof(Repository.Repository))
+                    .LifestylePerWebRequest());
+
+            container.Register(
+                Component.For(typeof(IMediaFileRepository))
+                    .ImplementedBy(typeof(MediaFileRepository))
                     .LifestylePerWebRequest());
 
             var contollers =
