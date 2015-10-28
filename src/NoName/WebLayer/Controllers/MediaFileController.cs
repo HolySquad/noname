@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using Domain;
 using Repository.Interfaces;
-using Utils;
 
 namespace WebLayer.Controllers
 {
@@ -47,29 +46,33 @@ namespace WebLayer.Controllers
         }
 
         // GET: MediaFile/Create
-        public ViewResult AddFiles()
+        public ActionResult AddFiles()
         {
             return View();
         }
 
         // POST: MediaFile/Create
         [HttpPost]
-        public ViewResult AddFiles(FormCollection collection)
+        public ActionResult AddFiles(HttpPostedFileBase file)
         {
             try
             {
-                foreach (string upload in Request.Files)
+                if (file.ContentLength > 0)
                 {
-                    if (!Request.Files[upload].HasFile()) continue;
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "uploads/";
-                    string filename = Path.GetFileName(Request.Files[upload].FileName);
-                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/Muzic"), fileName);
+                    file.SaveAs(path);
+                    var item = new MediaFile(fileName, path);
+                    _mediaFileRepository.AddMediaFile(item);
                 }
-                return View();
+                ViewBag.Message = "Upload successful";
+                
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                ViewBag.Message = "Upload failed";
+                return RedirectToAction("AddFiles");
             }
         }
 
