@@ -13,11 +13,7 @@ namespace WebLayer.CastleWindsorIoC
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(
-                Component.For(typeof(IRepository))
-                    .ImplementedBy(typeof(Repository.Repository))
-                    .LifestylePerWebRequest());
-            container.Register(
+          container.Register(
                 Component.For(typeof (ISessionManager))
                     .ImplementedBy(typeof (SessionManager))
                     .LifestylePerWebRequest());
