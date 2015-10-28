@@ -1,0 +1,33 @@
+﻿@model Domain.MediaFile
+
+@{
+    ViewBag.Title = "AddFiles";
+}
+
+<h2>AddFiles</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>MediaFile</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+                <form action="/" method="post" enctype="multipart/form-data">
+                    <input type="file" name="FileUpload1" /><br />
+                    <input type="submit" name="Submit" id="Submit" value="Upload" />
+                </form>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -245,6 +245,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\MediaFile\Index.cshtml" />
+    <Content Include="Views\MediaFile\AddFiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -272,6 +273,10 @@
     <ProjectReference Include="..\Scanner\Scanner.csproj">
       <Project>{aafb6ac1-3465-4e17-bf37-2a4c36419cb7}</Project>
       <Name>Scanner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{EF002C0F-BBB3-473D-ADCE-44A143C63C6D}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

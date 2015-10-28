@@ -29,4 +29,5 @@ namespace Domain
         public virtual string Name { get; protected set; }
         public virtual string Path { get; protected set; }
     }
+
 }

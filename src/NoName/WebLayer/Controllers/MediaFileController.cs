@@ -1,35 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using Domain;
-using Microsoft.Ajax.Utilities;
 using Repository.Interfaces;
+using Utils;
 
 namespace WebLayer.Controllers
 {
     public class MediaFileController : Controller
     {
         private readonly IMediaFileRepository _mediaFileRepository;
-        private  List<MediaFile> files = new List<MediaFile>();
+        private List<MediaFile> files = new List<MediaFile>();
 
 
         [Obsolete]
         public MediaFileController()
         {
-
         }
 
         public MediaFileController(IMediaFileRepository mediaFileRepository)
         {
             _mediaFileRepository = mediaFileRepository;
         }
-    
+
         // GET: MediaFile
         [HttpGet]
-       
-        public ActionResult Index()
+        public ViewResult Index()
         {
             //files.Add(new MediaFile("Test Item", "Test Path"));
             //foreach (var mediaFile in MediaFile.Files)
@@ -37,7 +35,7 @@ namespace WebLayer.Controllers
             //    files.Add(mediaFile);
             //}           
 
-           // _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
+            // _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
             var rez = _mediaFileRepository.GetAllFiles();
             return View(rez);
         }
@@ -49,20 +47,25 @@ namespace WebLayer.Controllers
         }
 
         // GET: MediaFile/Create
-        public ActionResult Create()
+        public ViewResult AddFiles()
         {
             return View();
         }
 
         // POST: MediaFile/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ViewResult AddFiles(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                foreach (string upload in Request.Files)
+                {
+                    if (!Request.Files[upload].HasFile()) continue;
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "uploads/";
+                    string filename = Path.GetFileName(Request.Files[upload].FileName);
+                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+                }
+                return View();
             }
             catch
             {
