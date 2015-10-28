@@ -32,14 +32,22 @@ namespace Repository
 
         private static ISessionFactory CreateSessionFactory()
         {
+            //var configuration = Fluently.Configure()
+            //    .Database(MsSqlConfiguration.MsSql2012.ConnectionString(builder => builder.Database("NoName")
+            //        .Server(@"www.holystream.tk")
+            //        .Username("sa").Password("Overlord132")
+            //        ))
+            //    .Mappings(x => x.FluentMappings.AddFromAssembly(typeof (EntityMap<>).Assembly))
+            //    .ExposeConfiguration( cfg => new SchemaUpdate(cfg).Execute(true, true));
+
             var configuration = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(builder => builder.Database("NoName")
-                    .Server("www.holystream.tk")
-                    .Username("sa").Password("Overlord132")
-                    ))
-                .Mappings(x => x.FluentMappings.AddFromAssembly(typeof (EntityMap<>).Assembly))
-                .ExposeConfiguration(
-                    cfg => new SchemaUpdate(cfg).Execute(false, true));
+               .Database(MsSqlConfiguration.MsSql2012
+                   .ConnectionString(builder => builder.Database("NoName")
+                       .Server(@"MDDSK40101").Username("Test1").Password("over")))
+               .Mappings(x => x.FluentMappings.AddFromAssembly(typeof(EntityMap<>).Assembly))
+               .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true));
+
+
 
             return configuration.BuildSessionFactory();
         }

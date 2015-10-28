@@ -5,6 +5,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Repository;
+using Repository.Interfaces;
 
 namespace WebLayer.CastleWindsorIoC
 {
@@ -15,6 +16,10 @@ namespace WebLayer.CastleWindsorIoC
             container.Register(
                 Component.For(typeof (ISessionManager))
                     .ImplementedBy(typeof (SessionManager))
+                    .LifestylePerWebRequest());
+            container.Register(
+                Component.For(typeof(IRepository))
+                    .ImplementedBy(typeof(Repository.Repository))
                     .LifestylePerWebRequest());
 
             var contollers =
