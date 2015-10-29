@@ -55,12 +55,13 @@ namespace WebLayer.Controllers
         [HttpPost]
         public ActionResult AddFiles(HttpPostedFileBase file)
         {
+            
             try
             {
                 if (file.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/App_Data/Muzic"), fileName);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/Music"), fileName);
                     file.SaveAs(path);
                     var item = new MediaFile(fileName, path);
                     _mediaFileRepository.AddMediaFile(item);
