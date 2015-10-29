@@ -61,7 +61,7 @@ namespace WebLayer.Controllers
                 if (file.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/App_Data/Music"), fileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Music"), fileName);
                     file.SaveAs(path);
                     var item = new MediaFile(fileName, path);
                     _mediaFileRepository.AddMediaFile(item);
