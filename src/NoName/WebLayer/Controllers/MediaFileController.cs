@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using Domain;
-using Microsoft.Ajax.Utilities;
 using Repository.Interfaces;
 
 namespace WebLayer.Controllers
@@ -12,24 +11,22 @@ namespace WebLayer.Controllers
     public class MediaFileController : Controller
     {
         private readonly IMediaFileRepository _mediaFileRepository;
-        private  List<MediaFile> files = new List<MediaFile>();
+        private List<MediaFile> files = new List<MediaFile>();
 
 
         [Obsolete]
         public MediaFileController()
         {
-
         }
 
         public MediaFileController(IMediaFileRepository mediaFileRepository)
         {
             _mediaFileRepository = mediaFileRepository;
         }
-    
+
         // GET: MediaFile
         [HttpGet]
-       
-        public ActionResult Index()
+        public ViewResult Index()
         {
             //files.Add(new MediaFile("Test Item", "Test Path"));
             //foreach (var mediaFile in MediaFile.Files)
@@ -37,7 +34,7 @@ namespace WebLayer.Controllers
             //    files.Add(mediaFile);
             //}           
 
-           // _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
+            // _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
             var rez = _mediaFileRepository.GetAllFiles();
             return View(rez);
         }
@@ -49,24 +46,34 @@ namespace WebLayer.Controllers
         }
 
         // GET: MediaFile/Create
-        public ActionResult Create()
+        public ActionResult AddFiles()
         {
             return View();
         }
 
         // POST: MediaFile/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult AddFiles(HttpPostedFileBase file)
         {
+            
             try
             {
-                // TODO: Add insert logic here
-
+                if (file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Music"), fileName);
+                    file.SaveAs(path);
+                    var item = new MediaFile(fileName, path);
+                    _mediaFileRepository.AddMediaFile(item);
+                }
+                ViewBag.Message = "Upload successful";
+                
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                ViewBag.Message = "Upload failed";
+                return RedirectToAction("AddFiles");
             }
         }
 

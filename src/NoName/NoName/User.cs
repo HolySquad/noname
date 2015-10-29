@@ -14,8 +14,8 @@ namespace Domain
 
     public class User
     {
-        private List<int> _favouriteContentIDs;
-        private List<int> NewContentSinceLastVisit;
+        private List<long> _favouriteContentIDs;
+        private List<long> NewContentSinceLastVisit;
         
         protected User()
         {

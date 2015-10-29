@@ -8,6 +8,8 @@ namespace Domain.Mapping
         {
             Map(x => x.Name).Not.Nullable();
             Map(x => x.Description);
+            HasMany(x => x.AlbumsList).Cascade.All();
+            HasMany(x => x.SongsList).Cascade.All();
         }
     }
 }
