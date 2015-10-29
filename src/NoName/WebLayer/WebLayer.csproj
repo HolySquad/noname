@@ -196,8 +196,46 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\360-player\360-button-pause-2x.png" />
+    <Content Include="Scripts\360-player\360-button-pause-light-2x.png" />
+    <Content Include="Scripts\360-player\360-button-pause-light.gif" />
+    <Content Include="Scripts\360-player\360-button-pause-light.png" />
+    <Content Include="Scripts\360-player\360-button-pause.gif" />
+    <Content Include="Scripts\360-player\360-button-pause.png" />
+    <Content Include="Scripts\360-player\360-button-play-2x.png" />
+    <Content Include="Scripts\360-player\360-button-play-light-2x.png" />
+    <Content Include="Scripts\360-player\360-button-play-light.gif" />
+    <Content Include="Scripts\360-player\360-button-play-light.png" />
+    <Content Include="Scripts\360-player\360-button-play.gif" />
+    <Content Include="Scripts\360-player\360-button-play.png" />
+    <Content Include="Scripts\360-player\360-button-vis-pause-light.gif" />
+    <Content Include="Scripts\360-player\360-button-vis-pause-light.png" />
+    <Content Include="Scripts\360-player\360-button-vis-pause.gif" />
+    <Content Include="Scripts\360-player\360-button-vis-pause.png" />
+    <Content Include="Scripts\360-player\360-button-vis-play-light.gif" />
+    <Content Include="Scripts\360-player\360-button-vis-play-light.png" />
+    <Content Include="Scripts\360-player\360-button-vis-play.gif" />
+    <Content Include="Scripts\360-player\360-button-vis-play.png" />
+    <Content Include="Scripts\360-player\360player-visualization.css" />
+    <Content Include="Scripts\360-player\360player.css" />
+    <Content Include="Scripts\360-player\canvas-visualization-basic.html" />
+    <Content Include="Scripts\360-player\canvas-visualization.html" />
+    <Content Include="Scripts\360-player\demo-slider-controls.css" />
+    <Content Include="Scripts\360-player\demo-slider-controls.js" />
+    <Content Include="Scripts\360-player\demo.css" />
+    <Content Include="Scripts\360-player\icon_loading_dots.gif" />
+    <Content Include="Scripts\360-player\icon_loading_spinner.gif" />
+    <Content Include="Scripts\360-player\icon_loading_spinner_bigger.gif" />
+    <Content Include="Scripts\360-player\index.html" />
+    <Content Include="Scripts\360-player\script\360player.js" />
+    <Content Include="Scripts\360-player\script\berniecode-animator.js" />
+    <Content Include="Scripts\360-player\script\excanvas.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\360-player\360 button %28retina - not playing%29.psd" />
+    <Content Include="Scripts\360-player\360 button %28retina - playing%29.psd" />
+    <Content Include="Scripts\360-player\360 button - large.psd" />
+    <Content Include="Scripts\360-player\360 button.psd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -207,6 +245,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\player\soundmanager2-jsmin.js" />
+    <Content Include="Scripts\player\soundmanager2-nodebug-jsmin.js" />
+    <Content Include="Scripts\player\soundmanager2-nodebug.js" />
+    <Content Include="Scripts\player\soundmanager2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -251,7 +293,8 @@
     <Content Include="Views\MediaFile\AddFiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Music\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Music\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
