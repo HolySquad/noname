@@ -48,18 +48,14 @@
 
 
 @Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/player/soundmanager2.js"></script>
-    <script src="~/Scripts/player/soundmanager2-jsmin.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/player/soundmanager2-nodebug-jsmin.js"></script>
     <script src="~/Scripts/360-player/script/360player.js"></script>
     <script src="~/Scripts/360-player/script/berniecode-animator.js"></script>
     <script src="~/Scripts/360-player/script/excanvas.js"></script>
 
 
 @RenderSection("scripts", false)
-    <script src="~/Scripts/360-player/script/360player.js"></script>
-    <script src="~/Scripts/360-player/script/berniecode-animator.js"></script>
-    <script src="~/Scripts/360-player/script/excanvas.js"></script>
 
 </body>
 </html>

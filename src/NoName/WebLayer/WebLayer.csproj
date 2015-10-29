@@ -226,7 +226,6 @@
     <Content Include="Scripts\360-player\icon_loading_dots.gif" />
     <Content Include="Scripts\360-player\icon_loading_spinner.gif" />
     <Content Include="Scripts\360-player\icon_loading_spinner_bigger.gif" />
-    <Content Include="Scripts\360-player\index.html" />
     <Content Include="Scripts\360-player\script\360player.js" />
     <Content Include="Scripts\360-player\script\berniecode-animator.js" />
     <Content Include="Scripts\360-player\script\excanvas.js" />
@@ -269,10 +268,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\player\soundmanager2-jsmin.js" />
     <Content Include="Scripts\player\soundmanager2-nodebug-jsmin.js" />
-    <Content Include="Scripts\player\soundmanager2-nodebug.js" />
-    <Content Include="Scripts\player\soundmanager2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
