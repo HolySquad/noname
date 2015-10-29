@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Version)
+         
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -29,10 +29,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Version)
+            <div class="ui360" style="display:inline-block">
+                <a href="@Server.MapPath("~/AppData/Music/"+item.Name)">  
+                </a>
+            </div> 
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+         @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Path)
@@ -41,9 +44,8 @@
             @Html.DisplayFor(modelItem => item.createdOn)
         </td>
         <td>
-            <div class="ui360">
-                <a href="@item.Name" class="sm2_link" >Play</a>
-                               </div> |
+           
+
             @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
             @Html.ActionLink("Details", "Details", new {id = item.Id}) |
             @Html.ActionLink("Delete", "Delete", new {id = item.Id})
