@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Utils
 {
     public class Logger
     {
         private static string Log;
-        private static string directory = "D:\\";
-        private static string filename = "Somesort of a log";
+        private static string directory = @"C:\Users"+ Environment.UserName + @"\Documents\HolyStream\logs\";
+        private static string filename = "logs.log";
 
         public static string Directory
         {
@@ -65,7 +62,8 @@ namespace Utils
             }
             catch (Exception e)
             {
-                AddToLog(String.Format("An attempt to export log to file has failed.\n\t Exception message is as follows: {0} \n\t Stack trace: \t {1}", e.Message, e.StackTrace));
+                AddToLog(String.Format(@"An attempt to export log to file has failed.\n
+                    \t Exception message is as follows: {0} \n\t Stack trace: \t {1}", e.Message, e.StackTrace));
             }
         }
 
@@ -79,14 +77,15 @@ namespace Utils
             }
             catch(Exception e)
             {
-                AddToLog(String.Format("An attempt to export log to file has failed.\n\t Exception message is as follows: {0} \n\t Stack trace: \t {1}", e.Message, e.StackTrace));
+                AddToLog(string.Format(@"An attempt to export log to file has failed.
+                    \n\t Exception message is as follows: {0} \n\t Stack trace: \t {1}", e.Message, e.StackTrace));
 
             }
         }
 
         public new static string ToString()
         {
-            return String.Format("Log ({0}): {1}", DateTime.Now, Log);
+            return string.Format("Log ({0}): {1}", DateTime.Now, Log);
         }
 
         public override bool Equals(object obj)
