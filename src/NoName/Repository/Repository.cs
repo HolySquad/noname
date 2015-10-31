@@ -2,6 +2,7 @@
 using Domain;
 using NHibernate;
 using Repository.Interfaces;
+using Utils;
 
 namespace Repository
 {
@@ -27,6 +28,7 @@ namespace Repository
                 }
                 catch (Exception ex)
                 {
+                    Logger.AddToLog(ex);
                     tran.Rollback();
                 }
             }
@@ -43,6 +45,7 @@ namespace Repository
                 }
                 catch (Exception ex)
                 {
+                    Logger.AddToLog(ex);
                     tran.Rollback();
                 }
             }
@@ -60,6 +63,7 @@ namespace Repository
                 }
                 catch (Exception ex)
                 {
+                    Logger.AddToLog(ex);
                     tran.Rollback();
                 }
             }
@@ -77,6 +81,7 @@ namespace Repository
                 }
                 catch (Exception e)
                 {
+                    Logger.AddToLog(e);
                     tran.Rollback();
                     return null;
                 }

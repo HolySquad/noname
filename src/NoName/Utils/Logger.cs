@@ -41,6 +41,13 @@ namespace Utils
             ExportToFileDefaultDirectory();
         }
 
+        public static void AddToLog(Exception exargs)
+        {
+            Log += Environment.NewLine + "[" + DateTime.Now + "] ";
+            Log += String.Format("\n\tException: {0}\n\tStack trace: {1}", exargs.Message, exargs.StackTrace);
+            ExportToFileDefaultDirectory();
+        }
+
         public static void AddToLog(string a, Exception exargs)
         {
             Log += Environment.NewLine + "[" + DateTime.Now + "] " + a;

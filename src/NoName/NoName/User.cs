@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Drawing;
+using NHibernate;
+using Utils;
 
 namespace Domain
 {
@@ -56,6 +59,7 @@ namespace Domain
             }
             catch (Exception e)
             {
+                Logger.AddToLog("Failed avatar change.", e);
                 //error message of some sort
                 //maybe some limits as to what size the avatar should be,
                 //or filetype limits

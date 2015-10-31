@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Domain;
 using Domain.Audio;
 using Repository.Interfaces;
+using Utils;
 
 namespace Repository
 {
@@ -27,6 +28,7 @@ namespace Repository
                 }
                 catch (Exception ex)
                 {
+                    Logger.AddToLog("Failed to add media file.", ex);
                     tran.Rollback();
                 }
             }
@@ -44,9 +46,9 @@ namespace Repository
               }
               catch (Exception ex)
               {
-                  
-               tran.Rollback();
-                  return null;
+                    Logger.AddToLog("Method \'GetAllFiles\' failed.", ex);
+                    tran.Rollback();
+                    return null;
               }
           }
       }
