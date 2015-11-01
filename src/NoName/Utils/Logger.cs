@@ -7,10 +7,10 @@ namespace Utils
     public class Logger
     {
         private static string Log;
-        private static string directory = @"C:\Users"+ Environment.UserName + @"\Documents\HolyStream\logs\";
+        private static string directory = @"C:\Users\"+ Environment.UserName + @"\Documents\HolyStream\logs\";
         private static string filename = "logs.log";
 
-        public static string Directory
+        public static string Folder
         {
             private get { return directory; }
             set
@@ -54,16 +54,18 @@ namespace Utils
 
         public static void ExportToFileDefaultDirectory()
         {
-            AddToLog("Log exported to file (" + Directory + "\\" + FileName + ".txt)");
             try
             {
-                using (StreamWriter file = new StreamWriter(Directory + "\\" + FileName + ".txt", false))
+                if(!Directory.Exists(Folder))
+                {
+                    Directory.CreateDirectory(Folder);
+                }
+                using (StreamWriter file = new StreamWriter(Folder +  FileName, true))
                     file.WriteLine(ToString());
             }
             catch (Exception e)
             {
-                AddToLog(String.Format(@"An attempt to export log to file has failed.\n
-                    \t Exception message is as follows: {0} \n\t Stack trace: \t {1}", e.Message, e.StackTrace));
+                throw e;
             }
         }
 
@@ -72,7 +74,7 @@ namespace Utils
             AddToLog("Log exported to file (" + pathWithoutFilename + "\\" + FileName + ".txt)");
             try
             {
-                using (StreamWriter file = new StreamWriter(Directory + "\\" + FileName + ".txt", false))
+                using (StreamWriter file = new StreamWriter(Folder + "\\" + FileName + ".txt", false))
                     file.WriteLine(ToString());
             }
             catch(Exception e)
