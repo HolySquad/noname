@@ -18,7 +18,10 @@ namespace Repository
                 _sessionManager = sessionManager;
                 _session = _sessionManager.GetSession();
             }
-            catch (Exception ex) { Logger.AddToLog(ex); }
+            catch (Exception ex)
+            {
+                Logger.AddToLog(ex);
+            }
         }
 
         public void Save<TEntity>(TEntity entity) where TEntity : Entity

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Domain;
+
 namespace Scanner
 {
     public static class FileScanner
@@ -25,7 +26,7 @@ namespace Scanner
 
         public static void ProcessFile(string path)
         {
-             var mediaFile = new MediaFile(Path.GetFileName(path), path);
+            var mediaFile = new MediaFile(Path.GetFileName(path), path);
             MediaFile.AddFile(mediaFile);
         }
     }

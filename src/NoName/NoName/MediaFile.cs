@@ -21,15 +21,14 @@ namespace Domain
             createdOn = DateTime.Now;
         }
 
-        public static void AddFile(MediaFile file)
-        {
-            Files.Add(file);
-        }
-
         //TODO somewhere here we need to scan files/read tags and some other stuff
         public virtual string Name { get; protected set; }
         public virtual string Path { get; protected set; }
         public virtual DateTime createdOn { get; protected set; }
-    }
 
+        public static void AddFile(MediaFile file)
+        {
+            Files.Add(file);
+        }
+    }
 }

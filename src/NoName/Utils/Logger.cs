@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Diagnostics;
 
 namespace Utils
 {
     public class Logger
     {
         private static string Log;
-        private static string directory = @"C:\Users\"+ Environment.UserName + @"\Documents\HolyStream\logs\";
+        private static string directory = @"C:\Users\" + Environment.UserName + @"\Documents\HolyStream\logs\";
         private static string filename = "logs.log";
 
         public static string Folder
@@ -30,8 +29,6 @@ namespace Utils
             }
         }
 
-        public Logger() { }
-
         public static void AddToLog(string a)
         {
             Log += Environment.NewLine + "[" + DateTime.Now + "] " + a;
@@ -41,14 +38,14 @@ namespace Utils
         public static void AddToLog(Exception exargs)
         {
             Log += Environment.NewLine + "[" + DateTime.Now + "] ";
-            Log += String.Format("\n\tException: {0}\n\tStack trace: {1}", exargs.Message, exargs.StackTrace);
+            Log += string.Format("\n\tException: {0}\n\tStack trace: {1}", exargs.Message, exargs.StackTrace);
             ExportToFileDefaultDirectory();
         }
 
         public static void AddToLog(string a, Exception exargs)
         {
             Log += Environment.NewLine + "[" + DateTime.Now + "] " + a;
-            Log += String.Format("\n\tException: {0}\n\tStack trace: {1}", exargs.Message, exargs.StackTrace);
+            Log += string.Format("\n\tException: {0}\n\tStack trace: {1}", exargs.Message, exargs.StackTrace);
             ExportToFileDefaultDirectory();
         }
 
@@ -56,11 +53,11 @@ namespace Utils
         {
             try
             {
-                if(!Directory.Exists(Folder))
+                if (!Directory.Exists(Folder))
                 {
                     Directory.CreateDirectory(Folder);
                 }
-                using (StreamWriter file = new StreamWriter(Folder +  FileName, true))
+                using (var file = new StreamWriter(Folder + FileName, true))
                     file.WriteLine(ToString());
             }
             catch (Exception e)
@@ -74,14 +71,13 @@ namespace Utils
             AddToLog("Log exported to file (" + pathWithoutFilename + "\\" + FileName + ".txt)");
             try
             {
-                using (StreamWriter file = new StreamWriter(Folder + "\\" + FileName + ".txt", false))
+                using (var file = new StreamWriter(Folder + "\\" + FileName + ".txt", false))
                     file.WriteLine(ToString());
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 AddToLog(string.Format(@"An attempt to export log to file has failed.
                     \n\t Exception message is as follows: {0} \n\t Stack trace: \t {1}", e.Message, e.StackTrace));
-
             }
         }
 

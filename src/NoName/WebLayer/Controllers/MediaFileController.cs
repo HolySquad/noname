@@ -55,7 +55,6 @@ namespace WebLayer.Controllers
         [HttpPost]
         public ActionResult AddFiles(HttpPostedFileBase file)
         {
-            
             try
             {
                 if (file.ContentLength > 0)
@@ -70,7 +69,7 @@ namespace WebLayer.Controllers
                     }
                 }
                 ViewBag.Message = "Upload successful";
-                
+
                 return RedirectToAction("Index");
             }
             catch

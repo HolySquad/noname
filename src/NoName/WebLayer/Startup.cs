@@ -1,7 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using WebLayer;
 
-[assembly: OwinStartupAttribute(typeof(WebLayer.Startup))]
+[assembly: OwinStartup(typeof (Startup))]
+
 namespace WebLayer
 {
     public partial class Startup
