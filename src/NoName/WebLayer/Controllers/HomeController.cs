@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Repository.Interfaces;
+using Utils;
 
 namespace WebLayer.Controllers
 {
@@ -11,7 +12,7 @@ namespace WebLayer.Controllers
     {
         public ActionResult Index()
         {
-         
+            Logger.AddToLog("Main Page loaded");
             return View();
         }
     }

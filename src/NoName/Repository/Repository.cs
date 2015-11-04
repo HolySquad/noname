@@ -2,6 +2,7 @@
 using Domain;
 using NHibernate;
 using Repository.Interfaces;
+using Utils;
 
 namespace Repository
 {
@@ -12,8 +13,12 @@ namespace Repository
 
         protected Repository(ISessionManager sessionManager)
         {
-            _sessionManager = sessionManager;
-            _session = _sessionManager.GetSession();
+            try
+            {
+                _sessionManager = sessionManager;
+                _session = _sessionManager.GetSession();
+            }
+            catch (Exception ex) { Logger.AddToLog(ex); }
         }
 
         public void Save<TEntity>(TEntity entity) where TEntity : Entity
@@ -27,6 +32,7 @@ namespace Repository
                 }
                 catch (Exception ex)
                 {
+                    Logger.AddToLog(ex);
                     tran.Rollback();
                 }
             }
@@ -43,6 +49,7 @@ namespace Repository
                 }
                 catch (Exception ex)
                 {
+                    Logger.AddToLog(ex);
                     tran.Rollback();
                 }
             }
@@ -60,6 +67,7 @@ namespace Repository
                 }
                 catch (Exception ex)
                 {
+                    Logger.AddToLog(ex);
                     tran.Rollback();
                 }
             }
@@ -77,6 +85,7 @@ namespace Repository
                 }
                 catch (Exception e)
                 {
+                    Logger.AddToLog(e);
                     tran.Rollback();
                     return null;
                 }

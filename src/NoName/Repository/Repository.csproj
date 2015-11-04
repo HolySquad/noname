@@ -80,6 +80,10 @@
       <Project>{F5BC01DD-6C95-46B0-B5E4-7CE93AA676BB}</Project>
       <Name>Repository.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{EF002C0F-BBB3-473D-ADCE-44A143C63C6D}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -15,7 +15,7 @@
     <AssemblyName>WebLayer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -229,7 +229,6 @@
     <Content Include="Scripts\360-player\script\360player.js" />
     <Content Include="Scripts\360-player\script\berniecode-animator.js" />
     <Content Include="Scripts\360-player\script\excanvas.js" />
-    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\360-player\360 button %28retina - not playing%29.psd" />
     <Content Include="Scripts\360-player\360 button %28retina - playing%29.psd" />
@@ -261,16 +260,12 @@
     <Content Include="Scripts\JQ Upload\js\jquery.iframe-transport.js" />
     <Content Include="Scripts\JQ Upload\js\main.js" />
     <Content Include="Scripts\JQ Upload\js\vendor\jquery.ui.widget.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\player\soundmanager2-nodebug-jsmin.js" />
-    <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
