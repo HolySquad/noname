@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Drawing;
-using NHibernate;
 using Utils;
 
 namespace Domain
 {
-
     /* don't like this class
        don't know why
        this two private List<int> is annoying me >.<
@@ -19,7 +16,7 @@ namespace Domain
     {
         private List<long> _favouriteContentIDs;
         private List<long> NewContentSinceLastVisit;
-        
+
         protected User()
         {
         }

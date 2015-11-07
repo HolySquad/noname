@@ -7,17 +7,18 @@
 <h2>Upload a file</h2>
 
 
-@using (Html.BeginForm("AddFiles", "MediaFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{ @Html.AntiForgeryToken()
+@using (Html.BeginForm("AddFiles", "MediaFile", FormMethod.Post, new {enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
 
     <fieldset>
         <div class="editor-field">
-             @Html.TextBox("file", "", new {type = "file"})
+            @Html.TextBox("file", "", new {type = "file"})
         </div>
         <div class="editor-field">
-            <input type="submit" class="btn-info" value="Upload" multiple="true" />
+            <input type="submit" class="btn-info" value="Upload" multiple="true"/>
         </div>
-    </fieldset> 
+    </fieldset>
 }
 <div>
     @Html.ActionLink("Back to List", "Index")

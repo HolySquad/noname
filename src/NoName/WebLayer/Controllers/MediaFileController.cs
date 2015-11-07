@@ -48,19 +48,21 @@ namespace WebLayer.Controllers
         [HttpPost]
         public ActionResult AddFiles(HttpPostedFileBase file)
         {
-            
             try
             {
                 if (file.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/Music"), fileName);
-                    file.SaveAs(path);
-                    var item = new MediaFile(fileName, path);
-                    _mediaFileRepository.AddMediaFile(item);
+                    if (fileName != null)
+                    {
+                        var path = Path.Combine(Server.MapPath("~/Content/Music"), fileName);
+                        file.SaveAs(path);
+                        var item = new MediaFile(fileName, path);
+                        _mediaFileRepository.AddMediaFile(item);
+                    }
                 }
                 ViewBag.Message = "Upload successful";
-                
+
                 return RedirectToAction("Index");
             }
             catch

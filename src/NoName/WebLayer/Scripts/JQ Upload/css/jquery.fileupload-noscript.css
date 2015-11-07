@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /*
  * jQuery File Upload Plugin NoScript CSS
  * https://github.com/blueimp/jQuery-File-Upload
@@ -11,12 +12,11 @@
  */
 
 .fileinput-button input {
-  position: static;
-  opacity: 1;
-  filter: none;
-  font-size: inherit;
-  direction: inherit;
+    direction: inherit;
+    filter: none;
+    font-size: inherit;
+    opacity: 1;
+    position: static;
 }
-.fileinput-button span {
-  display: none;
-}
+
+.fileinput-button span { display: none; }

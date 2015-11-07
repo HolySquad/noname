@@ -10,7 +10,6 @@ namespace Domain.Mapping
             Map(x => x.Duration).Not.Nullable();
             References(x => x.Album);
             References(x => x.Artist);
-
         }
     }
 }

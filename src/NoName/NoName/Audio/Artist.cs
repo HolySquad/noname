@@ -10,11 +10,6 @@ namespace Domain.Audio
             Name = name;
             Description = description;
         }
-        //TODO one the most wanted feature, artist art :)
-        public virtual string Name { get; protected set; }
-        public virtual string Description { get; protected set; }
-        public virtual IList<Album> AlbumsList { get; protected set; }
-        public virtual IList<Song> SongsList { get; protected set; }
 
         public Artist(string name)
         {
@@ -25,5 +20,11 @@ namespace Domain.Audio
         protected Artist()
         {
         }
+
+        //TODO one the most wanted feature, artist art :)
+        public virtual string Name { get; protected set; }
+        public virtual string Description { get; protected set; }
+        public virtual IList<Album> AlbumsList { get; protected set; }
+        public virtual IList<Song> SongsList { get; protected set; }
     }
 }

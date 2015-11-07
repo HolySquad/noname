@@ -1,4 +1,5 @@
 ﻿using NHibernate;
+using Utils;
 
 namespace Repository
 {
@@ -13,7 +14,7 @@ namespace Repository
             {
                 _session = _sessionFactory.OpenSession();
             }
-            else Utils.Logger.AddToLog("Failed to open session");
+            else Logger.AddToLog("Failed to open session");
         }
 
         public ISession GetSession()
