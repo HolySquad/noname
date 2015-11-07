@@ -28,13 +28,6 @@ namespace WebLayer.Controllers
         [HttpGet]
         public ViewResult Index()
         {
-            //files.Add(new MediaFile("Test Item", "Test Path"));
-            //foreach (var mediaFile in MediaFile.Files)
-            //{
-            //    files.Add(mediaFile);
-            //}           
-
-            // _mediaFileRepository.AddMediaFile(new MediaFile("testName", "testPath"));
             var rez = _mediaFileRepository.GetAllFiles();
             return View(rez);
         }

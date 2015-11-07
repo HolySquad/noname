@@ -4,13 +4,13 @@ namespace Domain.Audio
 {
     public class Album : Entity
     {
-        public Album(string albumName, Artist artist, Genre genre, TimeSpan duration, byte tracksNumber, DateTime releaseDate)
+
+
+        public Album(string albumName, Artist artist, Genre genre, DateTime? releaseDate)
         {
             AlbumName = albumName;
             Artist = artist;
             Genre = genre;
-            Duration = duration;
-            TracksNumber = tracksNumber;
             ReleaseDate = releaseDate;
         }
         //TODO one of most wanted feature album art
@@ -19,7 +19,10 @@ namespace Domain.Audio
         public virtual Genre Genre { get; protected set; }
         public virtual TimeSpan Duration { get; protected set; }
         public virtual byte TracksNumber { get; protected set; }
-        public virtual DateTime ReleaseDate { get; protected set; }
+        public virtual DateTime? ReleaseDate { get; protected set; }
+
+      
+
 
 
         [Obsolete]

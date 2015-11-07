@@ -2,10 +2,13 @@
 using System.IO;
 using System.Linq;
 using Domain;
+using Factories;
+
 namespace Scanner
 {
     public static class FileScanner
     {
+
         public static void ScanFolder(string path)
         {
             //list of supported Files
@@ -25,8 +28,8 @@ namespace Scanner
 
         public static void ProcessFile(string path)
         {
-             var mediaFile = new MediaFile(Path.GetFileName(path), path);
-            MediaFile.AddFile(mediaFile);
+           var song = SongFactory.CreateSong(path);
+            MediaFile.Files.Add(song);
         }
     }
 }

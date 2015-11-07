@@ -16,6 +16,11 @@ namespace Domain.Audio
         public virtual IList<Album> AlbumsList { get; protected set; }
         public virtual IList<Song> SongsList { get; protected set; }
 
+        public Artist(string name)
+        {
+            Name = name;
+        }
+
         [Obsolete]
         protected Artist()
         {

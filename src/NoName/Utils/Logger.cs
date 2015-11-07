@@ -69,22 +69,6 @@ namespace Utils
             }
         }
 
-        public void ExportToFileCustomDirectory(string pathWithoutFilename)
-        {
-            AddToLog("Log exported to file (" + pathWithoutFilename + "\\" + FileName + ".txt)");
-            try
-            {
-                using (StreamWriter file = new StreamWriter(Folder + "\\" + FileName + ".txt", false))
-                    file.WriteLine(ToString());
-            }
-            catch(Exception e)
-            {
-                AddToLog(string.Format(@"An attempt to export log to file has failed.
-                    \n\t Exception message is as follows: {0} \n\t Stack trace: \t {1}", e.Message, e.StackTrace));
-
-            }
-        }
-
         public new static string ToString()
         {
             return string.Format("Log ({0}): {1}", DateTime.Now, Log);
