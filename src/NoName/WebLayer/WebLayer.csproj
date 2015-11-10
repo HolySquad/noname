@@ -192,6 +192,24 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Img\member1.jpg" />
+    <Content Include="Content\Img\member2.jpg" />
+    <Content Include="Content\Img\member3.jpg" />
+    <Content Include="Content\Img\member4.jpg" />
+    <Content Include="Content\Img\p1.jpg" />
+    <Content Include="Content\Img\p2.jpg" />
+    <Content Include="Content\Img\p3.jpg" />
+    <Content Include="Content\Img\p4.jpg" />
+    <Content Include="Content\Img\p5.jpg" />
+    <Content Include="Content\Img\p6.jpg" />
+    <Content Include="Content\Img\p7.jpg" />
+    <Content Include="Content\Img\p8.jpg" />
+    <Content Include="Content\Img\slider\1.jpg" />
+    <Content Include="Content\Img\slider\2.jpg" />
+    <Content Include="Content\Img\slider\3.jpg" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\templatemo_style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -234,6 +252,8 @@
     <Content Include="Scripts\360-player\360 button %28retina - playing%29.psd" />
     <Content Include="Scripts\360-player\360 button - large.psd" />
     <Content Include="Scripts\360-player\360 button.psd" />
+    <Content Include="Content\Img\slider\.DS_Store" />
+    <Content Include="Content\Img\.DS_Store" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\JQ Upload\css\demo-ie8.css" />
@@ -262,11 +282,14 @@
     <Content Include="Scripts\JQ Upload\js\vendor\jquery.ui.widget.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\player\soundmanager2-nodebug-jsmin.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\smoothscroll.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -360,8 +383,6 @@
           <DevelopmentServerPort>61795</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/Holy</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
