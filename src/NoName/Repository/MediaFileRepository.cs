@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Domain;
+using Domain.Audio;
 using Repository.Interfaces;
 using Utils;
 
@@ -29,13 +30,13 @@ namespace Repository
             }
         }
 
-        public IList<MediaFile> GetAllFiles()
+        public IList<Song> GetAllFiles()
         {
             using (var tran = _session.BeginTransaction())
             {
                 try
                 {
-                    var res = _session.QueryOver<MediaFile>()
+                    var res = _session.QueryOver<Song>()
                         .List();
                     return res;
                 }

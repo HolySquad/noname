@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.MediaFile>
+﻿@model IEnumerable<Domain.Audio.Song>
 
 @{
     ViewBag.Title = "View";
@@ -14,11 +14,12 @@
         <th>
 
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Path)
+            @Html.DisplayNameFor(model => model.Duration)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.createdOn)
@@ -38,7 +39,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Path)
+                @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.createdOn)
