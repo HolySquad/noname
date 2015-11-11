@@ -11,7 +11,7 @@ namespace WebLayer.Controllers
     public class MediaFileController : Controller
     {
         private readonly IMediaFileRepository _mediaFileRepository;
-        private List<MediaFile> files = new List<MediaFile>();
+       // private List<MediaFile> files = new List<MediaFile>();
 
 
         [Obsolete]
@@ -28,8 +28,15 @@ namespace WebLayer.Controllers
         [HttpGet]
         public ViewResult Index()
         {
-            var rez = _mediaFileRepository.GetAllFiles();
-            return View(rez);
+            Scanner.FileScanner.ScanFolder(@"E:\m\");
+
+            foreach (var mediaFile in MediaFile.Files)
+            {
+                _mediaFileRepository.AddMediaFile(mediaFile);
+            }
+
+           // var rez = _mediaFileRepository.GetAllFiles();
+            return View();
         }
 
         // GET: MediaFile/Details/5

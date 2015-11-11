@@ -10,11 +10,9 @@ namespace Repository
 
         public SessionManager()
         {
-            if (_sessionFactory != null)
-            {
+           
                 _session = _sessionFactory.OpenSession();
-            }
-            else Logger.AddToLog("Failed to open session");
+
         }
 
         public ISession GetSession()

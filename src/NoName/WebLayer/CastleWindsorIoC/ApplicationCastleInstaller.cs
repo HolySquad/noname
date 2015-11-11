@@ -21,6 +21,11 @@ namespace WebLayer.CastleWindsorIoC
                 Component.For(typeof (IMediaFileRepository))
                     .ImplementedBy(typeof (MediaFileRepository))
                     .LifestylePerWebRequest());
+            container.Register(
+                Component.For(typeof (IRepository))
+                    .ImplementedBy(typeof (Repository.Repository))
+                    .LifestylePerWebRequest());
+                
 
             var contollers =
                 Assembly.GetExecutingAssembly().GetTypes().Where(x => x.BaseType == typeof (Controller)).ToList();
