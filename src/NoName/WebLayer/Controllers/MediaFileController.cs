@@ -67,7 +67,7 @@ namespace WebLayer.Controllers
                     var fileName = Path.GetFileName(file.FileName);
                     if (fileName != null)
                     {
-                        var path = Path.Combine(Server.MapPath("~/Content/Music"), fileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Music/"), fileName);
                         file.SaveAs(path);
                         var item = SongFactory.CreateSong(path);
                         _mediaFileRepository.AddMediaFile(item);
