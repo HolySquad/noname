@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Domain;
 using Factories;
 using Repository.Interfaces;
+using Utils;
 
 namespace WebLayer.Controllers
 {
@@ -76,9 +77,10 @@ namespace WebLayer.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
-                ViewBag.Message = "Upload failed";
+                ViewBag.Message = ex.Message;
+                Logger.AddToLog(ex);
                 return RedirectToAction("AddFiles");
             }
         }

@@ -6,7 +6,7 @@ namespace Utils
     public class Logger
     {
         private static string Log;
-        private static string directory = @"C:\Users\" + Environment.UserName + @"\Documents\HolyStream\logs\";
+        private static string directory = @"C:\HolyStream\logs\";
         private static string filename = "logs.log";
 
         public static string Folder
