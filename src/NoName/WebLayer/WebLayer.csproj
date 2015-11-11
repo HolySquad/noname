@@ -211,6 +211,7 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\templatemo_style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -254,6 +255,10 @@
     <Content Include="Scripts\360-player\360 button.psd" />
     <Content Include="Content\Img\slider\.DS_Store" />
     <Content Include="Content\Img\.DS_Store" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\JQ Upload\css\demo-ie8.css" />
