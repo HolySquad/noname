@@ -47,5 +47,23 @@ namespace Repository
                 }
             }
         }
+
+        public void DeleteMediaFile(long id)
+        {
+            using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    var file = _session.Load<MediaFile>(id);
+                    _session.Delete(file);
+                    tran.Commit();
+                }
+                catch (Exception ex)
+                {
+                    Logger.AddToLog(ex);
+                    tran.Rollback();
+                }
+            }
+        }
     }
 }

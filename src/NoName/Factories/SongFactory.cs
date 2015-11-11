@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using System.IO;
+using Domain;
 using Domain.Audio;
 using Id3;
 
@@ -20,7 +21,7 @@ namespace Factories
 
             var artist = new Artist(tag.Album.Value);
             var album = new Album(tag.Album.Value, artist, new Genre(tag.Genre.Value), tag.Year.AsDateTime);
-            song  = new Song(artist, album, file.Audio.Duration, tag.Title, pathToSong);
+            song  = new Song(artist, album, file.Audio.Duration, tag.Title, pathToSong, Path.GetFileName(pathToSong));
 
 
           

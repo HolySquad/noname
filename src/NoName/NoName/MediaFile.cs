@@ -14,9 +14,9 @@ namespace Domain
         {
         }
 
-        public MediaFile(string name, string path)
+        public MediaFile(string name,string filename, string path)
         {
-            Name = name;
+            Name = filename;
             Path = path;
             createdOn = DateTime.Now;
         }

@@ -245,14 +245,11 @@
     <Content Include="Scripts\360-player\icon_loading_dots.gif" />
     <Content Include="Scripts\360-player\icon_loading_spinner.gif" />
     <Content Include="Scripts\360-player\icon_loading_spinner_bigger.gif" />
+    <Content Include="Scripts\360-player\index.html" />
     <Content Include="Scripts\360-player\script\360player.js" />
     <Content Include="Scripts\360-player\script\berniecode-animator.js" />
     <Content Include="Scripts\360-player\script\excanvas.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\360-player\360 button %28retina - not playing%29.psd" />
-    <Content Include="Scripts\360-player\360 button %28retina - playing%29.psd" />
-    <Content Include="Scripts\360-player\360 button - large.psd" />
-    <Content Include="Scripts\360-player\360 button.psd" />
     <Content Include="Content\Img\slider\.DS_Store" />
     <Content Include="Content\Img\.DS_Store" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -260,6 +257,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <Content Include="Scripts\360-player\360 button %28retina - not playing%29.psd" />
+    <Content Include="Scripts\360-player\360 button %28retina - playing%29.psd" />
+    <Content Include="Scripts\360-player\360 button - large.psd" />
+    <Content Include="Scripts\360-player\360 button.psd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\JQ Upload\css\demo-ie8.css" />
     <Content Include="Scripts\JQ Upload\css\demo.css" />
@@ -292,7 +293,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\player\soundmanager2-nodebug-jsmin.js" />
+    <Content Include="Scripts\player\soundmanager2.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\smoothscroll.js" />
     <Content Include="Scripts\_references.js" />
@@ -337,6 +338,7 @@
     <Content Include="Views\MediaFile\AddFiles.cshtml" />
     <Content Include="Error.html" />
     <Content Include="Views\MediaFile\View.cshtml" />
+    <Content Include="Views\MediaFile\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

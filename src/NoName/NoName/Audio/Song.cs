@@ -14,7 +14,7 @@ namespace Domain.Audio
         public virtual TimeSpan Duration { get; protected set; }
 
 
-        public Song(Artist artist, Album album, TimeSpan duration, string name, string path ) : base (name, path)
+        public Song(Artist artist, Album album, TimeSpan duration, string name, string path, string fileName ) : base (name,fileName,  path)
         {
             Artist = artist;
             Album = album;

@@ -108,17 +108,18 @@ namespace WebLayer.Controllers
         // GET: MediaFile/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var file =_mediaFileRepository.GetEntityById<MediaFile>(id);
+            return View(file);
         }
 
         // POST: MediaFile/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(long id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                _mediaFileRepository.DeleteMediaFile(id);
+               
                 return RedirectToAction("Index");
             }
             catch

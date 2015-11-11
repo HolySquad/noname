@@ -6,8 +6,10 @@
     <title>@ViewBag.Title - HolyStream</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Scripts/360-player/360player-visualization.css" rel="stylesheet"/>
-    <link href="~/Scripts/360-player/360player.css" rel="stylesheet"/>
+
+    <link href="~/Scripts/360-player/360player.css" rel="stylesheet" />
+    <link href="~/Scripts/360-player/360player-visualization.css" rel="stylesheet" />
+    <link href="~/Scripts/360-player/demo-slider-controls.css" rel="stylesheet" />
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -15,6 +17,8 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/respond.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/player/soundmanager2.js"></script>
+  
 
 </head>
 <body>
@@ -52,24 +56,29 @@
                     <a href="#" class="fa fa-linkedin"></a>
                     <a href="#" class="fa fa-tumblr"></a>
                 </div>
-                <p>HolySquad © 2014 - @DateTime.Now.Year</p>  
+                <p>HolySquad © 2014 - @DateTime.Now.Year</p>
             </div>
         </div>
     </footer>
 </div>
 
+    <script src="~/Scripts/360-player/script/360player.js"></script>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-<script src="~/Scripts/player/soundmanager2-nodebug-jsmin.js"></script>
-<script src="~/Scripts/360-player/script/360player.js"></script>
-<script src="~/Scripts/360-player/script/berniecode-animator.js"></script>
-<script src="~/Scripts/360-player/script/excanvas.js"></script>
+    <script src="~/Scripts/360-player/script/berniecode-animator.js"></script>
 
-@RenderSection("scripts", false)
+    <script src="~/Scripts/360-player/script/excanvas.js"></script>
 
-<script src="~/Scripts/360-player/script/360player.js"></script>
-<script src="~/Scripts/360-player/script/berniecode-animator.js"></script>
-<script src="~/Scripts/360-player/script/excanvas.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap") 
+
+    <script src="~/Scripts/360-player/script/360player.js"></script>
+
+    <script src="~/Scripts/360-player/script/berniecode-animator.js"></script>
+
+    <script src="~/Scripts/360-player/script/excanvas.js"></script>
+    @RenderSection("scripts", false)
+
+  
+
 </body>
 </html>
