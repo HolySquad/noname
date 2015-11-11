@@ -7,7 +7,7 @@ namespace Domain.Mapping
     {
         public AudioFileMap()
         {
-            Map(x => x.Format).Not.Nullable();
+            Map(x => x.Format).Nullable();
         }
     }
 }

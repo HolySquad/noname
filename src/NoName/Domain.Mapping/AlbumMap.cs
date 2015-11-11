@@ -6,7 +6,7 @@ namespace Domain.Mapping
     {
         public AlbumMap()
         {
-            Map(x => x.AlbumName).Not.Nullable();
+            Map(x => x.AlbumName).Nullable();
         }
     }
 }

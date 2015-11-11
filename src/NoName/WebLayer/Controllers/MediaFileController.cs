@@ -4,6 +4,7 @@ using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using Domain;
+using Factories;
 using Repository.Interfaces;
 
 namespace WebLayer.Controllers
@@ -11,7 +12,7 @@ namespace WebLayer.Controllers
     public class MediaFileController : Controller
     {
         private readonly IMediaFileRepository _mediaFileRepository;
-       // private List<MediaFile> files = new List<MediaFile>();
+        // private List<MediaFile> files = new List<MediaFile>();
 
 
         [Obsolete]
@@ -22,21 +23,24 @@ namespace WebLayer.Controllers
         public MediaFileController(IMediaFileRepository mediaFileRepository)
         {
             _mediaFileRepository = mediaFileRepository;
+
+            
+
+            
         }
 
         // GET: MediaFile
         [HttpGet]
         public ViewResult Index()
         {
-            Scanner.FileScanner.ScanFolder(@"E:\m\");
+           // Scanner.FileScanner.ScanFolder("/Content/Music/");
+            //foreach (var mediaFile in MediaFile.Files)
+            //{
+            //    _mediaFileRepository.AddMediaFile(mediaFile);
+            //}
 
-            foreach (var mediaFile in MediaFile.Files)
-            {
-                _mediaFileRepository.AddMediaFile(mediaFile);
-            }
-
-           // var rez = _mediaFileRepository.GetAllFiles();
-            return View();
+            var rez = _mediaFileRepository.GetAllFiles();
+            return View(rez);
         }
 
         // GET: MediaFile/Details/5
@@ -64,7 +68,7 @@ namespace WebLayer.Controllers
                     {
                         var path = Path.Combine(Server.MapPath("~/Content/Music"), fileName);
                         file.SaveAs(path);
-                        var item = new MediaFile(fileName, path);
+                        var item = SongFactory.CreateSong(path);
                         _mediaFileRepository.AddMediaFile(item);
                     }
                 }

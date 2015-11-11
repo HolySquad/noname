@@ -8,8 +8,8 @@ namespace Domain.Mapping
         public SongMap()
         {
             Map(x => x.Duration).Not.Nullable();
-            References(x => x.Album);
-            References(x => x.Artist);
+            References(x => x.Album).Cascade.SaveUpdate();
+            References(x => x.Artist).Cascade.SaveUpdate();
         }
     }
 }

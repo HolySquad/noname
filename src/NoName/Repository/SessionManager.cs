@@ -1,5 +1,4 @@
 ﻿using NHibernate;
-using Utils;
 
 namespace Repository
 {
@@ -10,9 +9,7 @@ namespace Repository
 
         public SessionManager()
         {
-           
                 _session = _sessionFactory.OpenSession();
-
         }
 
         public ISession GetSession()
