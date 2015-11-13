@@ -11,6 +11,7 @@ namespace WebLayer.Controllers
     public class LogsController : Controller
     {
         // GET: Logs
+        [HttpGet]
         public ActionResult Index()
         {
             var log = System.IO.File.ReadAllText(@"C:\HolyStream\logs\logs.log");
