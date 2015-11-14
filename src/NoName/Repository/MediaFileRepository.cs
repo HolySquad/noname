@@ -21,6 +21,7 @@ namespace Repository
                 {
                     _session.Save(mediafile);
                     tran.Commit();
+                    Logger.SaveMediaFileLog(mediafile.Name);
                 }
                 catch (Exception ex)
                 {

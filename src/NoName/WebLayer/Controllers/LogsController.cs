@@ -19,11 +19,20 @@ namespace WebLayer.Controllers
             return Content(log, "text/txt");
         }
 
+        public ActionResult MediaLog()
+        {
+            var log = System.IO.File.ReadAllText(@"C:\HolyStream\logs\logsMedia.log");
+
+            return Content(log, "text/txt");
+        }
+
+
         // GET: Logs/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
+
 
         // GET: Logs/Create
         public ActionResult Create()
