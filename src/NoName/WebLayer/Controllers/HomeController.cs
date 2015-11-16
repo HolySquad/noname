@@ -7,7 +7,7 @@ namespace WebLayer.Controllers
     {
         public ActionResult Index()
         {
-            Logger.AddToLog("Main Page loaded clinet info : " + Request.UserHostAddress + "\n" + Request.UserHostName + "\n" + 
+            Logger.AddToLog("Main Page loaded client info : " + Request.UserHostAddress + "\n" + Request.UserHostName + "\n" + 
                 Request.UserAgent);
             return View();
         }
