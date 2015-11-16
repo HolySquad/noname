@@ -7,7 +7,8 @@ namespace WebLayer.Controllers
     {
         public ActionResult Index()
         {
-            Logger.AddToLog("Main Page loaded");
+            Logger.AddToLog("Main Page loaded" + Request.UserHostAddress + "\n" + Request.UserHostName + "\n" + 
+                Request.UserAgent);
             return View();
         }
     }
