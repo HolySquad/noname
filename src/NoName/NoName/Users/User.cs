@@ -1,46 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using Utils;
 
-namespace Domain
+namespace Domain.Users
 {
-    /* don't like this class
-       don't know why
-       this two private List<int> is annoying me >.<
-     * 
-     * not sure if this class included in mapping
-    */
-
     public class User
     {
-        private List<long> _favouriteContentIDs;
-        private List<long> NewContentSinceLastVisit;
-
         protected User()
         {
         }
 
         public User(string name, string passhash)
         {
-            UserName = name;
+            Login = name;
             PasswordHash = passhash;
             SignUpDate = DateTime.Today;
             Avatar = null;
         }
 
+        public string Email { get; protected set; }
 
-        public string UserName { get; protected set; }
+        public string Login { get; protected set; }
 
         public DateTime SignUpDate { get; private set; }
 
         protected string PasswordHash { get; private set; }
 
-
         public DateTime LogOutTime { get; protected set; }
-        public Bitmap Avatar { get; private set; }
 
-        private bool ChangePassword()
+        public Bitmap Avatar { get; protected set; }
+
+        protected virtual void ChangePassword()
         {
             //recalculate password hash of some sort in some way
             throw new NotImplementedException();
@@ -64,9 +54,14 @@ namespace Domain
             }
         }
 
-        private void LogOutHandler()
+        protected virtual void LogOutHandler()
         {
             LogOutTime = DateTime.Now;
+        }
+
+        protected virtual void ResetPassword()
+        {
+            throw new NotImplementedException();
         }
     }
 }
