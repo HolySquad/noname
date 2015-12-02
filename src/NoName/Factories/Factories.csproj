@@ -68,6 +68,10 @@
       <Project>{067496d6-f8e1-4b57-b8df-89cb553a98c5}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{EF002C0F-BBB3-473D-ADCE-44A143C63C6D}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -11,7 +11,10 @@ namespace Domain.Audio
             AlbumName = albumName;
             Artist = artist;
             Genre = genre;
-            ReleaseDate = releaseDate;
+            if (releaseDate.HasValue)
+            {
+                ReleaseDate = releaseDate;
+            }
         }
         //TODO one of most wanted feature album art
         public virtual string AlbumName { get; protected set; }

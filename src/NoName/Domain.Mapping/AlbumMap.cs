@@ -7,6 +7,7 @@ namespace Domain.Mapping
         public AlbumMap()
         {
             Map(x => x.AlbumName).Nullable();
+            References(x => x.Artist).Cascade.SaveUpdate();
         }
     }
 }

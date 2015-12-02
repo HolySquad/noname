@@ -57,6 +57,7 @@
     <Compile Include="Audio\AudioFile.cs" />
     <Compile Include="Audio\Song.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="FileType.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="MediaFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

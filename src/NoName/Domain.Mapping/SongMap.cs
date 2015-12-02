@@ -9,7 +9,7 @@ namespace Domain.Mapping
         {
             Map(x => x.Duration).Not.Nullable();
             References(x => x.Album).Cascade.SaveUpdate();
-            References(x => x.Artist).Cascade.SaveUpdate();
+            
         }
     }
 }

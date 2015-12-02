@@ -25,6 +25,5 @@ namespace Domain.Audio
         public virtual string Name { get; protected set; }
         public virtual string Description { get; protected set; }
         public virtual IList<Album> AlbumsList { get; protected set; }
-        public virtual IList<Song> SongsList { get; protected set; }
     }
 }
