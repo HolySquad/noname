@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using Domain;
-using Domain.Audio;
 using Factories;
 using Repository.Interfaces;
 using Utils;
@@ -25,17 +23,13 @@ namespace WebLayer.Controllers
         public MediaFileController(IMediaFileRepository mediaFileRepository)
         {
             _mediaFileRepository = mediaFileRepository;
-
-            
-
-            
         }
 
         // GET: MediaFile
         [HttpGet]
         public ViewResult Index()
         {
-           // Scanner.FileScanner.ScanFolder("/Content/Music/");
+            // Scanner.FileScanner.ScanFolder("/Content/Music/");
             //foreach (var mediaFile in MediaFile.Files)
             //{
             //    _mediaFileRepository.AddMediaFile(mediaFile);
@@ -78,7 +72,7 @@ namespace WebLayer.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ViewBag.Message = ex.Message;
                 Logger.AddToLog(ex);
@@ -111,7 +105,7 @@ namespace WebLayer.Controllers
         // GET: MediaFile/Delete/5
         public ActionResult Delete(int id)
         {
-            var file =_mediaFileRepository.GetEntityById<MediaFile>(id);
+            var file = _mediaFileRepository.GetEntityById<MediaFile>(id);
             return View(file);
         }
 
@@ -122,7 +116,7 @@ namespace WebLayer.Controllers
             try
             {
                 _mediaFileRepository.DeleteMediaFile(id);
-               
+
                 return RedirectToAction("Index");
             }
             catch

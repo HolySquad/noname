@@ -14,19 +14,19 @@ namespace Domain
         {
         }
 
-        public MediaFile(string name,string filename, string path, Enum type)
+        public MediaFile(string name,string filename, string path, FileType type)
         {
             Name = filename;
             Path = path;
             Type = type;
-            createdOn = DateTime.Now;
+            CreatedOn = DateTime.Now;
         }
 
         //TODO somewhere here we need to scan files/read tags and some other stuff
         public virtual string Name { get; protected set; }
         public virtual string Path { get; protected set; }
-        public virtual Enum Type { get; protected set; }
-        public virtual DateTime createdOn { get; protected set; }
+        public virtual FileType Type { get; protected set; }
+        public virtual DateTime CreatedOn { get; protected set; }
 
         public static void AddFile(MediaFile file)
         {

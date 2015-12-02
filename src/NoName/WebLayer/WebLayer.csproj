@@ -180,6 +180,7 @@
     <Compile Include="Controllers\LogsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MediaFileController.cs" />
+    <Compile Include="Controllers\PlaylistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -342,6 +343,7 @@
     <Content Include="Views\MediaFile\View.cshtml" />
     <Content Include="Views\MediaFile\Delete.cshtml" />
     <Content Include="Views\Logs\Index.cshtml" />
+    <Content Include="Views\Playlist\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

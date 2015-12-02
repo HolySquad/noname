@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPlaylistRepository.cs" />
     <Compile Include="IMediaFileRepository.cs" />
     <Compile Include="IAudioFileRepository.cs" />
     <Compile Include="IRepository.cs" />

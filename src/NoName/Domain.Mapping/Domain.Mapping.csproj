@@ -60,6 +60,8 @@
     <Compile Include="AudioFileMap.cs" />
     <Compile Include="EntityMap.cs" />
     <Compile Include="MediaFileMap.cs" />
+    <Compile Include="PlaylistMap.cs" />
+    <Compile Include="PlaylistSongsMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SongMap.cs" />
   </ItemGroup>

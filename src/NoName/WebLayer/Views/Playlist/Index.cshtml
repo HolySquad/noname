@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.Audio.Song>
+﻿@model IEnumerable<Domain.Playlist>
 
 @{
     ViewBag.Title = "View";
@@ -7,7 +7,7 @@
 <h2>View</h2>
 
 <p>
-    @Html.ActionLink("Add New Files", "AddFiles")
+    @Html.ActionLink("Add New Playlist", "AddFiles")
 </p>
 <table class="table">
     <tr>
@@ -16,13 +16,13 @@
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.PlaylistName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Duration)
+            @Html.DisplayNameFor(model => model.SongCount)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedOn)
+            @Html.DisplayNameFor(model => model.PlaylistLenght)
         </th>
         <th></th>
     </tr>
@@ -31,18 +31,13 @@
     {
         <tr>
             <td>
-                <div class="ui360">
-                    <a href="@Url.Content("~/Content/Music/" + item.Name)"></a>
-                </div>
+                @Html.DisplayFor(modelItem => item.PlaylistName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.SongCount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedOn)
+                @Html.DisplayFor(modelItem => item.PlaylistLenght)
             </td>
             <td>
 

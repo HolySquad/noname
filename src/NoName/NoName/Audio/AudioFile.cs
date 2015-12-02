@@ -13,7 +13,7 @@ namespace Domain.Audio
         {
         }
 
-        public AudioFile(string name, string filename, string path, Enum type) : base (name,filename, path, type)
+        public AudioFile(string name, string filename, string path, FileType type) : base (name,filename, path, type)
         {
            
         }

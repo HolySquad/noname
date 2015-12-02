@@ -9,7 +9,8 @@ namespace Domain.Mapping
         {
             Map(x => x.Duration).Not.Nullable();
             References(x => x.Album).Cascade.SaveUpdate();
-            
+            HasMany(x => x.PlaylistSongs).Cascade.SaveUpdate().Inverse();
+
         }
     }
 }
