@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using Domain;
+using Domain.Audio;
 using Factories;
 using Repository.Interfaces;
 using Utils;
@@ -35,7 +37,7 @@ namespace WebLayer.Controllers
             //    _mediaFileRepository.AddMediaFile(mediaFile);
             //}
 
-            var rez = _mediaFileRepository.GetAllFiles();
+            var rez = _mediaFileRepository.GetAllFiles() ?? new List<Song>();
             return View(rez);
         }
 
