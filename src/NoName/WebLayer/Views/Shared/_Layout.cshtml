@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - HolyStream</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-
-<ul >
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Files", "Index", "MediaFile")</li>
-    <li>@Html.ActionLink("Playlists", "Index", "Playlist")</li>
-    <li>@Html.ActionLink("Logs", "Index", "Logs")</li>
-    <li>@Html.ActionLink("MediaLogs", "MediaLog", "Logs")</li>
-</ul>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <ul class="nav nav-pills">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Files", "Index", "MediaFile")</li>
+                <li>@Html.ActionLink("Playlists", "Index", "Playlist")</li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="False">
+                        Logs
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("System Logs", "Index", "Logs")</li>
+                        <li>@Html.ActionLink("Media Logs", "MediaLog", "Logs")</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="col-xs-12">
     @RenderBody()
@@ -23,7 +38,7 @@
     <footer class="text-center">
         <div class="container">
             <div class="row">
-                <p>HolySquad © 2014 - @DateTime.Now.Year</p>
+                <p>HolySquad © 2015 - @DateTime.Now.Year</p>
             </div>
         </div>
     </footer>
