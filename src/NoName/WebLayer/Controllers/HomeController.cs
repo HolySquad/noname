@@ -1,14 +1,16 @@
-﻿using System.Web.Mvc;
-using Utils;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace WebLayer.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Home
         public ActionResult Index()
         {
-            Logger.AddToLog("Main Page loaded client info : " + Request.UserHostAddress + "\n" + Request.UserHostName + "\n" + 
-                Request.UserAgent);
             return View();
         }
     }
