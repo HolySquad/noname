@@ -22,8 +22,8 @@ namespace WebLayer.CastleWindsorIoC
                     .ImplementedBy(typeof (MediaFileRepository))
                     .LifestylePerWebRequest());
             container.Register(
-                Component.For(typeof(IPlaylistRepository))
-                    .ImplementedBy(typeof(PlaylistRepository))
+                Component.For(typeof (IPlaylistRepository))
+                    .ImplementedBy(typeof (PlaylistRepository))
                     .LifestylePerWebRequest());
             container.Register(
                 Component.For(typeof (ISessionManager))

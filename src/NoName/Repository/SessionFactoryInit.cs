@@ -1,10 +1,8 @@
-﻿using System;
-using Domain.Mapping;
+﻿using Domain.Mapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
-using Utils;
 
 namespace Repository
 {
@@ -12,6 +10,7 @@ namespace Repository
     {
         private static readonly ISessionFactory SessionFactory = CreateSessionFactory();
         private static readonly SessionGenerator _sessionGenerator = new SessionGenerator();
+
         private SessionGenerator()
         {
         }
@@ -28,17 +27,17 @@ namespace Repository
 
         private static ISessionFactory CreateSessionFactory()
         {
-                var configuration = Fluently.Configure()
-                    .Database(MsSqlConfiguration.MsSql2012
+            var configuration = Fluently.Configure()
+                .Database(MsSqlConfiguration.MsSql2012
                     .ConnectionString(builder => builder.Database("NoName")
-                         .Server("www.holystream.tk")
-                         .Username("holy").Password("stream")
-                        ))
-                    .Mappings(x => x.FluentMappings.AddFromAssembly(typeof (EntityMap<>).Assembly))
-                    .ExposeConfiguration(
-                        cfg => new SchemaUpdate(cfg).Execute(false, true));
+                        .Server("www.holystream.tk")
+                        .Username("holy").Password("stream")
+                    ))
+                .Mappings(x => x.FluentMappings.AddFromAssembly(typeof (EntityMap<>).Assembly))
+                .ExposeConfiguration(
+                    cfg => new SchemaUpdate(cfg).Execute(false, true));
 
-                return configuration.BuildSessionFactory();
+            return configuration.BuildSessionFactory();
         }
     }
 }

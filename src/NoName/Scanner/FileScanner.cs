@@ -8,7 +8,6 @@ namespace Scanner
 {
     public static class FileScanner
     {
-
         public static void ScanFolder(string path)
         {
             //list of supported Files
@@ -28,7 +27,7 @@ namespace Scanner
 
         public static void ProcessFile(string path)
         {
-           var song = SongFactory.CreateSong(path);
+            var song = SongFactory.CreateSong(path);
             MediaFile.Files.Add(song);
         }
     }

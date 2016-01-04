@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    // This project can output the Class library as a NuGet Package.
-    // To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
     public class MediaFile : Entity
     {
         public static readonly List<MediaFile> Files = new List<MediaFile>();
@@ -14,7 +12,7 @@ namespace Domain
         {
         }
 
-        public MediaFile(string name,string filename, string path, FileType type)
+        public MediaFile(string name, string filename, string path, FileType type)
         {
             Name = filename;
             Path = path;

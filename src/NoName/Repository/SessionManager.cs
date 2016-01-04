@@ -9,7 +9,7 @@ namespace Repository
 
         public SessionManager()
         {
-                _session = _sessionFactory.OpenSession();
+            _session = _sessionFactory.OpenSession();
         }
 
         public ISession GetSession()
