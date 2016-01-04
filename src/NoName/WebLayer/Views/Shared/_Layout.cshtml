@@ -10,12 +10,14 @@
 <body>
 
 <ul >
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
     <li>@Html.ActionLink("Files", "Index", "MediaFile")</li>
     <li>@Html.ActionLink("Playlists", "Index", "Playlist")</li>
     <li>@Html.ActionLink("Logs", "Index", "Logs")</li>
+    <li>@Html.ActionLink("MediaLogs", "MediaLog", "Logs")</li>
 </ul>
 
-<div class="container body-content">
+<div class="col-xs-12">
     @RenderBody()
     <hr/>
     <footer class="text-center">

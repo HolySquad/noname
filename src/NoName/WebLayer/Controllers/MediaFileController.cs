@@ -14,46 +14,25 @@ namespace WebLayer.Controllers
     public class MediaFileController : Controller
     {
         private readonly IMediaFileRepository _mediaFileRepository;
-        // private List<MediaFile> files = new List<MediaFile>();
-
-
-        [Obsolete]
-        public MediaFileController()
-        {
-        }
 
         public MediaFileController(IMediaFileRepository mediaFileRepository)
         {
             _mediaFileRepository = mediaFileRepository;
         }
 
-        // GET: MediaFile
         [HttpGet]
         public ViewResult Index()
         {
-            // Scanner.FileScanner.ScanFolder("/Content/Music/");
-            //foreach (var mediaFile in MediaFile.Files)
-            //{
-            //    _mediaFileRepository.AddMediaFile(mediaFile);
-            //}
-
             var rez = _mediaFileRepository.GetAllFiles() ?? new List<Song>();
             return View(rez);
         }
 
-        // GET: MediaFile/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: MediaFile/Create
+        [HttpGet]
         public ActionResult AddFiles()
         {
             return View();
         }
 
-        // POST: MediaFile/Create
         [HttpPost]
         public ActionResult AddFiles(HttpPostedFileBase file)
         {
@@ -64,7 +43,7 @@ namespace WebLayer.Controllers
                     var fileName = Path.GetFileName(file.FileName);
                     if (fileName != null)
                     {
-                        var path = Path.Combine(Server.MapPath("~/Content/Music/"), fileName);
+                        var path = Path.Combine(Server.MapPath("~/AppData/Music/"), fileName);
                         file.SaveAs(path);
                         var item = SongFactory.CreateSong(path);
                         _mediaFileRepository.AddMediaFile(item);
@@ -82,36 +61,12 @@ namespace WebLayer.Controllers
             }
         }
 
-        // GET: MediaFile/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: MediaFile/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: MediaFile/Delete/5
         public ActionResult Delete(int id)
         {
             var file = _mediaFileRepository.GetEntityById<MediaFile>(id);
             return View(file);
         }
 
-        // POST: MediaFile/Delete/5
         [HttpPost]
         public ActionResult Delete(long id, FormCollection collection)
         {

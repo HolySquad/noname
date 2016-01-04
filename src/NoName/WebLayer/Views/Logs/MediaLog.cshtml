@@ -1,0 +1,14 @@
+﻿@model WebLayer.Models.LogsViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Latest files</h2>
+
+<div>
+    <pre>
+        @Model.Logs
+    </pre>
+</div>

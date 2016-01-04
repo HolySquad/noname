@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using WebLayer.Models;
 
 namespace WebLayer.Controllers
 {
@@ -8,90 +9,18 @@ namespace WebLayer.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var log = System.IO.File.ReadAllText(@"C:\HolyStream\logs\logs.log");
+            var plainLog = System.IO.File.ReadAllText(@"C:\HolyStream\logs\logs.log");
 
-            return Content(log, "text/txt");
+            var logsModel = new LogsViewModel(plainLog);
+
+            return View(logsModel);
         }
 
         public ActionResult MediaLog()
         {
-            var log = System.IO.File.ReadAllText(@"C:\HolyStream\logs\logsMedia.log");
-
-            return Content(log, "text/txt");
-        }
-
-
-        // GET: Logs/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-
-        // GET: Logs/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Logs/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Logs/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Logs/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Logs/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Logs/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var plainLog = System.IO.File.ReadAllText(@"C:\HolyStream\logs\logsMedia.log");
+              var logsModel = new LogsViewModel(plainLog);
+            return View(logsModel);
         }
     }
 }
