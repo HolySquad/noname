@@ -14,7 +14,7 @@ namespace Factories
 
             Song song = null;
             var file = new Mp3File(pathToSong);
-            FileType type = (FileType)EnumUtil.EnumValueOf(Path.GetExtension(pathToSong), typeof(FileType));
+            var type = (FileType) EnumUtil.EnumValueOf(Path.GetExtension(pathToSong), typeof (FileType));
             if (file.HasTags)
             {
                 tags = file.GetAllTags();

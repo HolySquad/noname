@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebLayer.Models.PlaylistModel>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Add New Playlist", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+
+            </th>*@
+
+        <th>
+            @Html.DisplayNameFor(model => model.PlaylistName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SongCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaylistLenght)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>Options</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaylistName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaylistLenght)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </th>
+            <td>
+
+
+                @Html.ActionLink("Add", "AddingSong", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+</table>

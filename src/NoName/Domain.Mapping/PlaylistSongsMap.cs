@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Mapping
+﻿namespace Domain.Mapping
 {
-    public class PlaylistSongsMap: EntityMap <PlaylistSongs>
+    public class PlaylistSongsMap : EntityMap<PlaylistSongs>
     {
         public PlaylistSongsMap()
         {

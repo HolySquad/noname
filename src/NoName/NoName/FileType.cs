@@ -16,8 +16,6 @@ namespace Domain
         [Description(".mov")]
         Mov = 5,
         [Description(".mpeg")]
-        Mpeg = 6,
+        Mpeg = 6
     }
-
-
 }

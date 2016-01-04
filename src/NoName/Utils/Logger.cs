@@ -7,7 +7,7 @@ namespace Utils
     {
         private static string Log;
         private static string directory = @"C:\HolyStream\logs\";
-       
+
         private static string filename = "logs.log";
 
         public static string Folder
@@ -80,7 +80,7 @@ namespace Utils
         public static void SaveMediaFileLog(string name)
         {
             FileName = "logsMedia.log";
-            AddToLog("File added with name: "+ name);
+            AddToLog("File added with name: " + name);
             FileName = "logs.log";
         }
     }

@@ -3,20 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "NoName\Domain.csproj", "{067496D6-F8E1-4B57-B8DF-89CB553A98C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolyStream.Domain", "NoName\HolyStream.Domain.csproj", "{067496D6-F8E1-4B57-B8DF-89CB553A98C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Mapping", "Domain.Mapping\Domain.Mapping.csproj", "{FE391907-703D-49E6-83DB-084F4C4DA555}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolyStream.Domain.Mapping", "Domain.Mapping\HolyStream.Domain.Mapping.csproj", "{FE391907-703D-49E6-83DB-084F4C4DA555}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factories", "Factories\Factories.csproj", "{6654386A-20D1-4FB8-933E-96F21CABA1DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolyStream.Factories", "Factories\HolyStream.Factories.csproj", "{6654386A-20D1-4FB8-933E-96F21CABA1DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{6B3A6A03-684A-494D-8A41-5FD314DEC644}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolyStream.Repository", "Repository\HolyStream.Repository.csproj", "{6B3A6A03-684A-494D-8A41-5FD314DEC644}"
 	ProjectSection(ProjectDependencies) = postProject
 		{FE391907-703D-49E6-83DB-084F4C4DA555} = {FE391907-703D-49E6-83DB-084F4C4DA555}
 		{067496D6-F8E1-4B57-B8DF-89CB553A98C5} = {067496D6-F8E1-4B57-B8DF-89CB553A98C5}
 		{F5BC01DD-6C95-46B0-B5E4-7CE93AA676BB} = {F5BC01DD-6C95-46B0-B5E4-7CE93AA676BB}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.Interfaces", "Repository.Interfaces\Repository.Interfaces.csproj", "{F5BC01DD-6C95-46B0-B5E4-7CE93AA676BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolyStream.Repository.Interfaces", "Repository.Interfaces\HolyStream.Repository.Interfaces.csproj", "{F5BC01DD-6C95-46B0-B5E4-7CE93AA676BB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{067496D6-F8E1-4B57-B8DF-89CB553A98C5} = {067496D6-F8E1-4B57-B8DF-89CB553A98C5}
 	EndProjectSection
@@ -28,11 +28,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{733026
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLayer", "WebLayer\WebLayer.csproj", "{0E90973C-B6B1-495A-9AE9-4371EDD096EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolyStream.Web", "WebLayer\HolyStream.Web.csproj", "{0E90973C-B6B1-495A-9AE9-4371EDD096EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{EF002C0F-BBB3-473D-ADCE-44A143C63C6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolyStream.Utils", "Utils\HolyStream.Utils.csproj", "{EF002C0F-BBB3-473D-ADCE-44A143C63C6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanner", "Scanner\Scanner.csproj", "{AAFB6AC1-3465-4E17-BF37-2A4C36419CB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolyStream.Scanner", "Scanner\HolyStream.Scanner.csproj", "{AAFB6AC1-3465-4E17-BF37-2A4C36419CB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
