@@ -185,6 +185,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\PlaylistModel.cs" />
     <Compile Include="Models\FilesModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -210,6 +211,9 @@
     <Content Include="Content\Img\slider\1.jpg" />
     <Content Include="Content\Img\slider\2.jpg" />
     <Content Include="Content\Img\slider\3.jpg" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\templatemo_style.css" />
@@ -291,10 +295,12 @@
     <Content Include="Scripts\JQ Upload\js\vendor\jquery.ui.widget.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.flexslider.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MediaFile.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\player\soundmanager2.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -344,6 +350,10 @@
     <Content Include="Views\MediaFile\Delete.cshtml" />
     <Content Include="Views\Logs\Index.cshtml" />
     <Content Include="Views\Playlist\Index.cshtml" />
+    <Content Include="Views\Playlist\Create.cshtml" />
+    <Content Include="Views\Playlist\AddToPlaylist.cshtml" />
+    <None Include="Views\MediaFile\Details.cshtml" />
+    <Content Include="Views\MediaFile\FilesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

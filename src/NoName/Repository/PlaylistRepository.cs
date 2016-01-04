@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Domain;
 using Domain.Audio;
+using Domain.DTO;
+using NHibernate.Transform;
 using Repository.Interfaces;
 using Utils;
 
@@ -32,14 +34,24 @@ namespace Repository
             }
         }
 
-        public IList<Playlist> GetAllPlaylists()
+        public IList<PlaylistListDto> GetAllPlaylists()
         {
             using (var tran = _session.BeginTransaction())
             {
                 try
                 {
-                    var res = _session.QueryOver<Playlist>()
-                        .List();
+                    Playlist pl = null;
+                    PlaylistListDto raw = null;
+
+                    var res = _session.QueryOver(()=>pl)
+                        .SelectList(list => list
+                        .SelectGroup(()=>pl.Id).WithAlias(()=> raw.Id)
+                        .SelectGroup(()=>pl.PlaylistName).WithAlias(()=>raw.PlaylistName)
+                        .SelectGroup(() => pl.SongCount).WithAlias(() => raw.SongCount)
+                        .SelectGroup(() => pl.PlaylistLenght).WithAlias(() => raw.PlaylistLenght)
+                        .SelectGroup(() => pl.Comments).WithAlias(() => raw.Comments))
+                        .TransformUsing(Transformers.AliasToBean<PlaylistListDto>())
+                        .List<PlaylistListDto>();
                     return res;
                 }
                 catch (Exception ex)

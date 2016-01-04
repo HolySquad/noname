@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.Playlist>
+﻿@model IEnumerable<WebLayer.Models.PlaylistModel>
 
 @{
     ViewBag.Title = "View";
@@ -7,13 +7,13 @@
 <h2>View</h2>
 
 <p>
-    @Html.ActionLink("Add New Playlist", "AddFiles")
+    @Html.ActionLink("Add New Playlist", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
 
-        </th>
+        </th>*@
 
         <th>
             @Html.DisplayNameFor(model => model.PlaylistName)
@@ -24,7 +24,10 @@
         <th>
             @Html.DisplayNameFor(model => model.PlaylistLenght)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>Options</th>
     </tr>
 
     @foreach (var item in Model)
@@ -39,6 +42,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PlaylistLenght)
             </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </th>
             <td>
 
 

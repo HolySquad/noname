@@ -57,6 +57,7 @@
     <Compile Include="Audio\Artist.cs" />
     <Compile Include="Audio\AudioFile.cs" />
     <Compile Include="Audio\Song.cs" />
+    <Compile Include="DTO\PlaylistListDto.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="FileType.cs">
       <SubType>Code</SubType>

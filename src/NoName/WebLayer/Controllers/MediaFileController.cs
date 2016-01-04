@@ -14,6 +14,7 @@ namespace WebLayer.Controllers
     public class MediaFileController : Controller
     {
         private readonly IMediaFileRepository _mediaFileRepository;
+
         // private List<MediaFile> files = new List<MediaFile>();
 
 
@@ -42,15 +43,15 @@ namespace WebLayer.Controllers
         }
 
         // GET: MediaFile/Details/5
-        public ActionResult Details(int id)
+        public ViewResult Details(long id)
         {
             return View();
         }
 
         // GET: MediaFile/Create
-        public ActionResult AddFiles()
+        public PartialViewResult AddFiles()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: MediaFile/Create
@@ -83,14 +84,14 @@ namespace WebLayer.Controllers
         }
 
         // GET: MediaFile/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(long id)
         {
             return View();
         }
 
         // POST: MediaFile/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(long id, FormCollection collection)
         {
             try
             {
@@ -105,7 +106,7 @@ namespace WebLayer.Controllers
         }
 
         // GET: MediaFile/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(long id)
         {
             var file = _mediaFileRepository.GetEntityById<MediaFile>(id);
             return View(file);
@@ -125,6 +126,16 @@ namespace WebLayer.Controllers
             {
                 return View();
             }
+        }
+
+
+        // GET: MediaFile/Details/5
+        public ActionResult AddToPlaylist(long id)
+        {
+            //PlaylistController c = new PlaylistController(_playlistRepository);
+            //var playlist = c.Index();
+            return RedirectToAction("AddToPlaylist", "Playlist", new { id });
+            //return View();
         }
     }
 }
