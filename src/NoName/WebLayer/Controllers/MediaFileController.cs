@@ -23,17 +23,20 @@ namespace WebLayer.Controllers
         [HttpGet]
         public ViewResult Index()
         {
-            var rez = _mediaFileRepository.GetAllFiles() ?? new List<Song>();
-            return View(rez);
+            var songsList = _mediaFileRepository.GetAllFiles() ?? new List<Song>();
+            return View(songsList);
         }
 
         // GET: MediaFile/Details/5
-        public ViewResult Details(long id)
+        [HttpGet]
+        public PartialViewResult Details(long id)
         {
-            return View();
+            var file = _mediaFileRepository.GetEntityById<MediaFile>(id);
+            return PartialView(file);
         }
 
         // GET: MediaFile/Create
+        [HttpGet]
         public PartialViewResult AddFiles()
         {
             return PartialView();
@@ -67,10 +70,11 @@ namespace WebLayer.Controllers
             }
         }
 
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public PartialViewResult Delete(int id)
         {
             var file = _mediaFileRepository.GetEntityById<MediaFile>(id);
-            return View(file);
+            return PartialView(file);
         }
 
         [HttpPost]
@@ -90,6 +94,7 @@ namespace WebLayer.Controllers
 
 
         // GET: MediaFile/Details/5
+        [HttpGet]
         public ActionResult AddToPlaylist(long id)
         {
             //PlaylistController c = new PlaylistController(_playlistRepository);

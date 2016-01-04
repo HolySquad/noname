@@ -33,8 +33,8 @@
                     $("#table-container").html(result);
                     $("#create-btn").click(createSong);
                     //$(".edit").click(editCompany);
-                    //$(".details").click(detailsCompany);
-                    //$(".delete").click(deleteCompany);
+                    $(".details").click(detailsSong);
+                    $(".delete").click(deleteSong);
                     createDialog.dialog("close");
                 } else {
                     createDialog.dialog.title("option", "title", "Could not create company. Incomplete or incorrect information.");
@@ -110,79 +110,75 @@
  
 
 
-//    //////////////Details Form///////////////////
-//    var dialogDetails = $("#details-company");
-//    dialogDetails.dialog({
-//        autoOpen: false,
-//        show: { effect: "clip", duration: 800 },
-//        hide: { effect: "clip", duration: 400 },
-//        width: 400,
-//        buttons: [
-//            {
-//                text: "Thanks",
-//                click: function () {
-//                    dialogDetails.dialog("close");
-//                }
-//            }
+    //////////////Details Form///////////////////
+    var dialogDetails = $("#detailsS");
+    dialogDetails.dialog({
+        autoOpen: false,
+        width: 800,
+        buttons: [
+            {
+                text: "Thanks",
+                click: function () {
+                    dialogDetails.dialog("close");
+                }
+            }
 
-//        ]
-//    });
+        ]
+    });
 
-//    $(".details").click(detailsCompany);
+    $(".details").click(detailsSong);
 
-//    function detailsCompany(e) {
-//        e.preventDefault();
-//        var id = $(this).attr("id");
-//        fullUrl = "/WEB/Companies/Details/" + id;
-//        $("#details-content").load(fullUrl, function() {
-//            dialogDetails.dialog("open");
-//        });
-//    };
+    function detailsSong(e) {
+        e.preventDefault();
+        var id = $(this).attr("id");
+        fullUrl = "/Holy/MediaFile/Details/" + id;
+        $("#details-content").load(fullUrl, function() {
+            dialogDetails.dialog("open");
+        });
+    };
 
 
-//    //////////////Delete Form///////////////////
-//    var dialogDelete = $("#delete-company");
-//    dialogDelete.dialog({
-//        autoOpen: false,
-//        show: { effect: "clip", duration: 800 },
-//        hide: { effect: "clip", duration: 400 },
-//        width: 400,
-//        buttons: [
-//            {
-//                text: "Delete",
-//                click: function() {
-//                    $.post(fullUrl, function(result, status, xhr) {
-//                        if (xhr.status === 200) {
-//                            $("#table-container").html(result);
-//                            $("#create-company-btn").click(createCompany);
-//                            $(".edit").click(editCompany);
-//                            $(".details").click(detailsCompany);
-//                            $(".delete").click(deleteCompany);
-//                            dialogDelete.dialog("close");
-//                        } else {
-//                            alert("Error");
-//                        }
-//                    });
-//                }
-//            },
-//            {
-//                text: "Cancel",
-//                click: function() {
-//                    dialogDelete.dialog("close");
-//                }
-//            }
-//        ]
-//    });
+    //////////////Delete Form///////////////////
+    var dialogDelete = $("#deleteS");
+    dialogDelete.dialog({
+        autoOpen: false,
+        width: 800,
+        buttons: [
+            {
+                text: "Delete",
+                click: function() {
+                    $.post(fullUrl, function(result, status, xhr) {
+                        if (xhr.status === 200) {
+                            $("#table-container").html(result);
+                            $("#create-company-btn").click(createSong);
+                            //$(".edit").click(editCompany);
+                            $(".details").click(detailsSong);
+                            $(".delete").click(deleteSong);
+                            dialogDelete.dialog("close");
+                        } else {
+                            alert("Error");
+                        }
+                    });
+                }
+            },
+            {
+                text: "Cancel",
+                click: function() {
+                    dialogDelete.dialog("close");
+                }
+            }
+        ]
+    });
 
-//    $(".delete").click(deleteCompany);
+    $(".delete").click(deleteSong);
 
 
-//    function deleteCompany(e) {
-//        e.preventDefault();
-//        var id = $(this).attr("id");
-//        fullUrl = "/WEB/Companies/Delete/" + id;
-//        $("#delete-content").load(fullUrl, function() {
-//            dialogDelete.dialog("open");
-//        });
-//    };
+    function deleteSong(e) {
+        e.preventDefault();
+        var id = $(this).attr("id");
+        fullUrl = "/Holy/MediaFile/Delete/" + id;
+        $("#delete-content").load(fullUrl, function() {
+            dialogDelete.dialog("open");
+        });
+    };
 });

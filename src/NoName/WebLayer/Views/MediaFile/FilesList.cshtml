@@ -36,10 +36,11 @@
                 @Html.DisplayFor(modelItem => item.CreatedOn)
             </td>
             <td>
-                @Html.ActionLink("Add To Playlist", "AddToPlaylist", new { id = item.Id }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                <a class="addToPlaylist" id="@item.Id" href="@Url.Action("AddToPlaylist", new { id = item.Id })">Add To Playlist</a> |
+                @*@Html.ActionLink("Add To Playlist", "AddToPlaylist", new {id = item.Id}) |*@
+                @*<a class="edit" id="@item.Id" href="@Url.Action("Edit", new {id = item.Id})">Edit</a> |*@
+                <a class="details" id="@item.Id" href="@Url.Action("Details", new {id = item.Id})">Details</a> |
+                <a class="delete" id="@item.Id" href="@Url.Action("Delete", new {id = item.Id})">Delete</a>
             </td>
         </tr>
     }
