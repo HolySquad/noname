@@ -10,13 +10,7 @@
         width: 800,
         buttons: [
             {
-                text: "Create",
-                click: function() {
-                    $("#create-content").submit();
-                }
-            },
-            {
-                text: "Cancel",
+                text: "Exit",
                 click: function() {
                     createDialog.dialog("close");
                 }
@@ -56,6 +50,7 @@
             createDialog.dialog("open");
         });
     };
+
 
 
 ////////////////Editing Form///////////////////

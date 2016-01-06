@@ -39,26 +39,35 @@ namespace WebLayer.Controllers
         [HttpGet]
         public PartialViewResult AddFiles()
         {
+            ViewBag.Message = "Add file";
             return PartialView();
         }
 
         [HttpPost]
-        public ActionResult AddFiles(HttpPostedFileBase file)
+        public ActionResult AddFiles(HttpPostedFileBase files)
         {
             try
             {
-                if (file.ContentLength > 0)
+
+                if (Request.Files.Count > 0)
                 {
-                    var fileName = Path.GetFileName(file.FileName);
-                    if (fileName != null)
+                    foreach (string file in Request.Files)
                     {
-                        var path = Path.Combine(Server.MapPath("~/AppData/Music/"), fileName);
-                        file.SaveAs(path);
-                        var item = SongFactory.CreateSong(path);
-                        _mediaFileRepository.AddMediaFile(item);
+                        HttpPostedFileBase hpf = Request.Files[file];
+                        if (hpf.ContentLength == 0)
+                            continue;
+                        var fileName = Path.GetFileName(hpf.FileName);
+                        if (fileName != null)
+                        {
+                            var path = @"D:/holyStorage/Music/" + fileName;
+                            hpf.SaveAs(Path.GetFullPath(path));
+                            var item = SongFactory.CreateSong(path);
+                            _mediaFileRepository.AddMediaFile(item);
+                            return Content("{\"name\":\"" + fileName + "\"}", "application/json");
+                        }
                     }
                 }
-                ViewBag.Message = "Upload successful";
+                //ViewBag.Message = "Upload successful";
 
                 return RedirectToAction("Index");
             }
@@ -82,6 +91,7 @@ namespace WebLayer.Controllers
         {
             try
             {
+                // To Add deleting from Hdd of music file
                 _mediaFileRepository.DeleteMediaFile(id);
 
                 return RedirectToAction("Index");
