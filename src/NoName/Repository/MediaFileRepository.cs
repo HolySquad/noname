@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Domain;
 using Domain.Audio;
 using Repository.Interfaces;
@@ -38,7 +39,7 @@ namespace Repository
                 try
                 {
                     var res = _session.QueryOver<Song>()
-                        .List();
+                        .List().OrderByDescending(x=>x.CreatedOn).ToList();
                     return res;
                 }
                 catch (Exception ex)
