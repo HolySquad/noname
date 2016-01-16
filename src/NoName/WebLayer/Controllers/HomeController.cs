@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Utils;
 
 namespace WebLayer.Controllers
 {
@@ -6,6 +7,8 @@ namespace WebLayer.Controllers
     {
         public ActionResult Index()
         {
+            Logger.AddToLog("main page loaded by " 
+                +"IP: "+ Request.UserHostName+ "\t"+ Request.UserAgent);
             return View();
         }
     }

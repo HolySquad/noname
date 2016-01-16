@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Domain;
 using Domain.Audio;
 using Factories;
+using PagedList;
 using Repository.Interfaces;
 using Utils;
 
@@ -21,10 +22,12 @@ namespace WebLayer.Controllers
         }
 
         [HttpGet]
-        public ViewResult Index()
+        public ActionResult Index(int? page)
         {
             var songsList = _mediaFileRepository.GetAllFiles() ?? new List<Song>();
-            return View(songsList);
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(songsList.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: MediaFile/Details/5
@@ -59,7 +62,9 @@ namespace WebLayer.Controllers
                         var fileName = Path.GetFileName(hpf.FileName);
                         if (fileName != null)
                         {
-                            var path = @"D:/holyStorage/Music/" + fileName;
+                            var path = Path.Combine(Server.MapPath("~/Content/Music/"), fileName);
+                           
+                          //  var path = "~/content/music/" + fileName;
                             hpf.SaveAs(Path.GetFullPath(path));
                             var item = SongFactory.CreateSong(path);
                             _mediaFileRepository.AddMediaFile(item);

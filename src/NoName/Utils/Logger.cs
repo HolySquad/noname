@@ -39,14 +39,14 @@ namespace Utils
         public static void AddToLog(Exception exargs)
         {
             Log += Environment.NewLine + "[" + DateTime.Now + "] ";
-            Log += string.Format("\n\tException: {0}\n\tStack trace: {1}", exargs.Message, exargs.StackTrace);
+            Log += $"\n\tException: {exargs.Message}\n\tStack trace: {exargs.StackTrace}";
             ExportToFileDefaultDirectory();
         }
 
         public static void AddToLog(string a, Exception exargs)
         {
             Log += Environment.NewLine + "[" + DateTime.Now + "] " + a;
-            Log += string.Format("\n\tException: {0}\n\tStack trace: {1}", exargs.Message, exargs.StackTrace);
+            Log += $"\n\tException: {exargs.Message}\n\tStack trace: {exargs.StackTrace}";
             ExportToFileDefaultDirectory();
         }
 

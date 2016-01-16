@@ -1,48 +1,46 @@
-﻿@model IEnumerable<Domain.Audio.Song>
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Domain.Audio.Song>
 
 <table class="table">
-    <tr>
-        <th>
-
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Duration)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </th>
-        <th>Options</th>
-    </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr >
             <td>
-                <div class="ui360">
-                    <a href="@Url.Content("~/Content/Music/" + item.Name)"></a>
-                </div>
+                @Html.DisplayFor(modelItem => item.Album.Artist.Name)
             </td>
-            <td>
+            <td class="col-md-2">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            <td class="col-md-1">
                 @Html.DisplayFor(modelItem => item.Duration)
             </td>
-            <td>
+
+            <td class="col-md-1">
+                @Html.DisplayFor(modelItem => item.Album.AlbumName)
+            </td>
+            <td class="col-md-1">
                 @Html.DisplayFor(modelItem => item.CreatedOn)
             </td>
             <td>
-                <a class="addToPlaylist" id="@item.Id" href="@Url.Action("AddToPlaylist", new { id = item.Id })">Add To Playlist</a> |
+                <a class="addToPlaylist" id="@item.Id" href="@Url.Action("AddToPlaylist", new {id = item.Id})">Add To Playlist</a> |
                 @*@Html.ActionLink("Add To Playlist", "AddToPlaylist", new {id = item.Id}) |*@
                 @*<a class="edit" id="@item.Id" href="@Url.Action("Edit", new {id = item.Id})">Edit</a> |*@
                 <a class="details" id="@item.Id" href="@Url.Action("Details", new {id = item.Id})">Details</a> |
                 <a class="delete" id="@item.Id" href="@Url.Action("Delete", new {id = item.Id})">Delete</a>
             </td>
         </tr>
+        <tr class="media">
+            <td colspan="5">
+                <audio controls="controls" class="media">
+                    <source src="@Url.Content("~/Content/Music/" + item.Name)">
+                </audio>
+            </td>
+
+        </tr>
     }
 
 </table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new {page}))
