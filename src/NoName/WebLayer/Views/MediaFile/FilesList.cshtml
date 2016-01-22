@@ -17,7 +17,14 @@
             </td>
 
             <td class="col-md-1">
-                @Html.DisplayFor(modelItem => item.Album.AlbumName)
+                    @{
+                        if (item.Album.AlbumArt != null)
+                        {
+                            var img = Convert.ToBase64String(item.Album.AlbumArt);
+                            <img class="albumArtBase64" src="data:image/jpg;base64,@img" />
+                        }
+                    }
+                <span class="albumInfo"> @Html.DisplayFor(modelItem => item.Album.AlbumName) </span> 
             </td>
             <td class="col-md-1">
                 @Html.DisplayFor(modelItem => item.CreatedOn)

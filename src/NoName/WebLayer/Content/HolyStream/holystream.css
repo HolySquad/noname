@@ -1,0 +1,10 @@
+﻿
+.albumArtBase64 {
+    width: 128px;
+    height: 128px;
+    display:block
+}
+
+.albumInfo {
+     margin-left: 15px;
+}

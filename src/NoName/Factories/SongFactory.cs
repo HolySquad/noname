@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using Domain;
 using Domain.Audio;
 using Id3;
@@ -20,7 +21,7 @@ namespace Factories
                 tags = file.GetAllTags();
                 var tag = tags[0];
                 var artist = new Artist(tag.Artists.Value);
-                var album = new Album(tag.Album.Value, artist, new Genre(tag.Genre.Value), tag.Year.AsDateTime);
+                var album = new Album(tag.Album.Value, artist, new Genre(tag.Genre.Value), tag.Year.AsDateTime, tag.Pictures.Select(x=>x.PictureData).First());
                 song = new Song(artist, album, file.Audio.Duration, tag.Title, pathToSong, Path.GetFileName(pathToSong),
                     type);
             }

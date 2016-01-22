@@ -4,15 +4,16 @@ namespace Domain.Audio
 {
     public class Album : Entity
     {
-        public Album(string albumName, Artist artist, Genre genre, DateTime? releaseDate)
+        public Album(string albumName, Artist artist, Genre genre, DateTime? releaseDate, byte[] albumArtBytes = null)
         {
             AlbumName = albumName;
             Artist = artist;
             Genre = genre;
             if (releaseDate.HasValue)
-            {
                 ReleaseDate = releaseDate;
-            }
+            if (albumArtBytes != null)
+                AlbumArt = albumArtBytes;
+
         }
 
         [Obsolete]
@@ -27,5 +28,6 @@ namespace Domain.Audio
         public virtual TimeSpan Duration { get; protected set; }
         public virtual byte TracksNumber { get; protected set; }
         public virtual DateTime? ReleaseDate { get; protected set; }
+        public virtual byte[] AlbumArt { get; protected set; }
     }
 }

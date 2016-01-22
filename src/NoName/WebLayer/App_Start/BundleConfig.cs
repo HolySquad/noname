@@ -26,14 +26,16 @@ namespace WebLayer
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/css").Include(                
                 "~/Content/bootstrap.css",
                 "~/Content/jquery-ui.css",
                 "~/Content/jquery-ui.structure.css",
                 "~/Content/jquery-ui.theme.css",
                 "~/Content/jquery.fileupload.css", //CSS to style the file input field as button and adjust the Bootstrap progress bars 
                 "~/Content/jquery.fileupload-ui.css",
-                "~/Content/site.css"));
+                "~/Content/site.css",
+                "~/Content/HolyStream/holystream.css"
+                ));
         }
     }
 }
