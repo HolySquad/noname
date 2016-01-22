@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using WebLayer.Models;
 
 namespace WebLayer.Controllers
@@ -9,7 +10,7 @@ namespace WebLayer.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var plainLog = System.IO.File.ReadAllText(@"C:\HolyStream\logs\logs.log");
+            var plainLog = System.IO.File.ReadAllText(@"C:\HolyStream\logs\"+ DateTime.Today.ToString("dd-MM-yy")+ "\\logs.log");
 
             var logsModel = new LogsViewModel(plainLog);
 
@@ -18,7 +19,7 @@ namespace WebLayer.Controllers
 
         public ActionResult MediaLog()
         {
-            var plainLog = System.IO.File.ReadAllText(@"C:\HolyStream\logs\logsMedia.log");
+            var plainLog = System.IO.File.ReadAllText(@"C:\HolyStream\logs\" + DateTime.Today.ToString("dd-MM-yy")+"\\logsMedia.log");
               var logsModel = new LogsViewModel(plainLog);
             return View(logsModel);
         }

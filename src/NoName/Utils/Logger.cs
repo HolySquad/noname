@@ -1,52 +1,53 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 
 namespace Utils
 {
     public class Logger
     {
-        private static string Log;
-        private static string directory = @"C:\HolyStream\logs\";
+        private static string _log;
+        private static string _directory = @"C:\HolyStream\logs\" + DateTime.Today.ToString("dd-MM-yy")+"\\";
 
-        private static string filename = "logs.log";
+        private static string _filename = "logs.log";
 
         public static string Folder
         {
-            private get { return directory; }
+            private get { return _directory; }
             set
             {
                 AddToLog("Log file directory changed to " + value);
-                directory = value;
+                _directory = value;
             }
         }
 
         public static string FileName
         {
-            private get { return filename; }
+            private get { return _filename; }
             set
             {
                 AddToLog("Log file name changed to '" + value + ".txt'");
-                filename = value;
+                _filename = value;
             }
         }
 
         public static void AddToLog(string a)
         {
-            Log += Environment.NewLine + "[" + DateTime.Now + "] " + a;
+            _log += Environment.NewLine + "[" + DateTime.Now + "] " + a;
             ExportToFileDefaultDirectory();
         }
 
         public static void AddToLog(Exception exargs)
         {
-            Log += Environment.NewLine + "[" + DateTime.Now + "] ";
-            Log += $"\n\tException: {exargs.Message}\n\tStack trace: {exargs.StackTrace}";
+            _log += Environment.NewLine + "[" + DateTime.Now + "] ";
+            _log += $"\n\tException: {exargs.Message}\n\tStack trace: {exargs.StackTrace}";
             ExportToFileDefaultDirectory();
         }
 
         public static void AddToLog(string a, Exception exargs)
         {
-            Log += Environment.NewLine + "[" + DateTime.Now + "] " + a;
-            Log += $"\n\tException: {exargs.Message}\n\tStack trace: {exargs.StackTrace}";
+            _log += Environment.NewLine + "[" + DateTime.Now + "] " + a;
+            _log += $"\n\tException: {exargs.Message}\n\tStack trace: {exargs.StackTrace}";
             ExportToFileDefaultDirectory();
         }
 
@@ -69,7 +70,7 @@ namespace Utils
 
         public new static string ToString()
         {
-            return string.Format("Log ({0}): {1}", DateTime.Now, Log);
+            return string.Format("Log ({0}): {1}", DateTime.Now, _log);
         }
 
         public override bool Equals(object obj)

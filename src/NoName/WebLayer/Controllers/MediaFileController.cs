@@ -47,7 +47,7 @@ namespace WebLayer.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddFiles(HttpPostedFileBase files)
+        public ActionResult AddFiles(List<HttpPostedFileBase> files)
         {
             try
             {
