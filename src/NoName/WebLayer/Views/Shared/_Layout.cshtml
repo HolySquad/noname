@@ -8,13 +8,15 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/holy")
+
 </head>
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
             <ul class="nav nav-pills">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li> @Html.ActionLink("Home", "Index", "Home") </li>
                 <li>@Html.ActionLink("Files", "Index", "MediaFile")</li>
                 <li>@Html.ActionLink("Playlists", "Index", "Playlist")</li>
                 <li class="dropdown">
@@ -33,6 +35,9 @@
 </nav>
 
 <div class="col-xs-12">
+    <div class="container">
+        <div class="nav navbar-left"></div>
+    </div>
     @RenderBody()
     <hr/>
     <footer class="text-center">

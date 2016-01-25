@@ -8,12 +8,11 @@ namespace WebLayer
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-1.9.1.js",
+                "~/Scripts/jquery-{version}.js",
                 "~/Scripts/jquery-ui.js",
                 "~/Scripts/jQuery.FileUpload/jquery.ui.widget.js",
                 "~/Scripts/jQuery.FileUpload/jquery.iframe-transport.js",
-                "~/Scripts/jQuery.FileUpload/jquery.fileupload.js",
-                "~/Scripts/MediaFile.js"));
+                "~/Scripts/jQuery.FileUpload/jquery.fileupload.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate.js",
@@ -21,6 +20,9 @@ namespace WebLayer
                 "~/Scripts/jquery.validate.unobtrusive.min.js"
                 ));
 
+            bundles.Add(new ScriptBundle("~/bundles/holy").Include(
+                "~/Scipts/Holystream/holystream.js"
+                ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.js",
@@ -34,7 +36,8 @@ namespace WebLayer
                 "~/Content/jquery.fileupload.css", //CSS to style the file input field as button and adjust the Bootstrap progress bars 
                 "~/Content/jquery.fileupload-ui.css",
                 "~/Content/site.css",
-                "~/Content/HolyStream/holystream.css"
+                "~/Content/HolyStream/holystream.css",
+                "~/Content/font-awesome.css"
                 ));
         }
     }

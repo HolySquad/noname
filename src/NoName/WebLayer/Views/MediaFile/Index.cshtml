@@ -2,39 +2,37 @@
 
 @{
     ViewBag.Title = "All Files";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>All music</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="text-info "> <i class="fa fa-music"></i> Music
+        </h3>
+    </div>
+    <div class="page-header">
+        <button class="btn btn-default" onclick="mediaFileHandler.uploadFile()"> Upload File </button>
+    </div>
 
-<p>
-    @Html.ActionLink("Add New Song", "AddFiles", null, new { @id = "create-btn" })
-</p>
 
-<div id="table-container">
-    @{Html.RenderPartial("FilesList");}
-</div>
-
-
-<div id="createS">
-    <div id="create-content">
-        test create
+    <div id="table-container" class="panel-body">
+        @{Html.RenderPartial("FilesList");}
     </div>
 </div>
 
-<div id="editS">
-    <div id="edit-content">
-        test edit
-    </div>
-</div>
 
-<div id="detailsS">
-    <div id="details-content">
-        test details
-    </div>
-</div>
 
-<div id="deleteS">
-    <div id="delete-content">
-        test delete
-    </div>
-</div>
+
+@Scripts.Render("~/Scripts/Holystream/MediaFile.js")
+@section scripts
+{
+    <script>
+        var mediaFileHandler = new MediaFileCall();
+        mediaFileHandler.addFileUrl = '@Url.Action("AddFilesPartial", "MediaFile")';
+        mediaFileHandler.detailsFileUrl = '@Url.Action("Details", "MediaFile")';
+        mediaFileHandler.deleteFilesUrl = '@Url.Action("Delete", "MediaFile")';
+    </script>
+
+
+
+}

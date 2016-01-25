@@ -1,10 +1,14 @@
 ﻿
 .albumArtBase64 {
-    width: 128px;
-    height: 128px;
+    width: 90px;
+    height: 90px;
     display:block
 }
 
 .albumInfo {
      margin-left: 15px;
+}
+
+.actionLinks > a {
+    margin: 10px;
 }

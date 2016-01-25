@@ -1,53 +1,56 @@
-﻿@using PagedList.Mvc
+﻿@using NHibernate.Criterion
+@using PagedList.Mvc
 @model PagedList.IPagedList<Domain.Audio.Song>
 
-<table class="table">
+
+
+<table class="table-striped table-responsive table-hover">
 
     @foreach (var item in Model)
     {
         <tr >
-            <td>
-                @Html.DisplayFor(modelItem => item.Album.Artist.Name)
+            <td class="col-md-1">
+                @{
+                    if (item.Album.AlbumArt != null)
+                    {
+                        var img = Convert.ToBase64String(item.Album.AlbumArt);
+                        <img class="albumArtBase64" src="data:image/jpg;base64,@img" alt="@item.Album.AlbumName"/>
+                    }
+                    else
+                    {
+                        <img class="albumArtBase64" src="~/Content/Images/default-cover.png"/>
+                    }
+                }
+              
             </td>
             <td class="col-md-2">
+                @Html.DisplayFor(modelItem => item.Album.Artist.Name)
+                <div class="media">
+                    <audio controls="controls">
+                        <source src="@Url.Content("~/Content/Music/" + item.Name)">
+                    </audio>
+                </div>
+            </td>
+            <td class="col-md-2 text-center">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td class="col-md-1">
+            <td class="col-md-1 text-center">
+                <span class="text-center"> @Html.DisplayFor(modelItem => item.Album.AlbumName) </span>
+            </td>
+
+            <td class="col-md-1 ">
                 @Html.DisplayFor(modelItem => item.Duration)
             </td>
-
-            <td class="col-md-1">
-                    @{
-                        if (item.Album.AlbumArt != null)
-                        {
-                            var img = Convert.ToBase64String(item.Album.AlbumArt);
-                            <img class="albumArtBase64" src="data:image/jpg;base64,@img" />
-                        }
-                    }
-                <span class="albumInfo"> @Html.DisplayFor(modelItem => item.Album.AlbumName) </span> 
+            <td class="actionLinks">
+                <a class="addToPlaylist"  id="@item.Id" href="@Url.Action("AddToPlaylist", new {id = item.Id})"><i class="fa fa-2x fa-plus"></i></a> 
+                <a class="details" id="@item.Id" href="@Url.Action("Details", new {id = item.Id})"><i class="fa fa-2x fa-info"></i></a> 
+                <a class="delete" id="@item.Id" href="@Url.Action("Delete", new {id = item.Id})"><i class="fa fa-2x fa-trash"></i></a>
             </td>
-            <td class="col-md-1">
-                @Html.DisplayFor(modelItem => item.CreatedOn)
-            </td>
-            <td>
-                <a class="addToPlaylist" id="@item.Id" href="@Url.Action("AddToPlaylist", new {id = item.Id})">Add To Playlist</a> |
-                @*@Html.ActionLink("Add To Playlist", "AddToPlaylist", new {id = item.Id}) |*@
-                @*<a class="edit" id="@item.Id" href="@Url.Action("Edit", new {id = item.Id})">Edit</a> |*@
-                <a class="details" id="@item.Id" href="@Url.Action("Details", new {id = item.Id})">Details</a> |
-                <a class="delete" id="@item.Id" href="@Url.Action("Delete", new {id = item.Id})">Delete</a>
-            </td>
-        </tr>
-        <tr class="media">
-            <td colspan="5">
-                <audio controls="controls" class="media">
-                    <source src="@Url.Content("~/Content/Music/" + item.Name)">
-                </audio>
-            </td>
-
-        </tr>
+        </tr> 
     }
 
 </table>
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("Index", new {page}))
+

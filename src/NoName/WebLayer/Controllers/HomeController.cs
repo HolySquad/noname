@@ -7,9 +7,14 @@ namespace WebLayer.Controllers
     {
         public ActionResult Index()
         {
-            Logger.AddToLog("main page loaded by " 
-                +"IP: "+ Request.UserHostName+ "\t"+ Request.UserAgent);
+            AddRecordToLog();
             return View();
+        }
+
+        private void AddRecordToLog()
+        {
+            Logger.AddToLog("main page loaded by "
+                            + "IP: " + Request.UserHostName + "\t" + Request.UserAgent);
         }
     }
 }

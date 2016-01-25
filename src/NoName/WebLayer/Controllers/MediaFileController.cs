@@ -25,7 +25,7 @@ namespace WebLayer.Controllers
         public ActionResult Index(int? page)
         {
             var songsList = _mediaFileRepository.GetAllFiles() ?? new List<Song>();
-            int pageSize = 4;
+            int pageSize = 20;
             int pageNumber = (page ?? 1);
             return View(songsList.ToPagedList(pageNumber, pageSize));
         }
@@ -40,7 +40,7 @@ namespace WebLayer.Controllers
 
         // GET: MediaFile/Create
         [HttpGet]
-        public PartialViewResult AddFiles()
+        public PartialViewResult AddFilesPartial()
         {
             ViewBag.Message = "Add file";
             return PartialView();
@@ -64,7 +64,6 @@ namespace WebLayer.Controllers
                         {
                             var path = Path.Combine(Server.MapPath("~/Content/Music/"), fileName);
                            
-                          //  var path = "~/content/music/" + fileName;
                             hpf.SaveAs(Path.GetFullPath(path));
                             var item = SongFactory.CreateSong(path);
                             _mediaFileRepository.AddMediaFile(item);
@@ -72,7 +71,6 @@ namespace WebLayer.Controllers
                         }
                     }
                 }
-                //ViewBag.Message = "Upload successful";
 
                 return RedirectToAction("Index");
             }
@@ -80,7 +78,7 @@ namespace WebLayer.Controllers
             {
                 ViewBag.Message = ex.Message;
                 Logger.AddToLog(ex);
-                return RedirectToAction("AddFiles");
+                return RedirectToAction("AddFilesPartial");
             }
         }
 
@@ -112,10 +110,7 @@ namespace WebLayer.Controllers
         [HttpGet]
         public ActionResult AddToPlaylist(long id)
         {
-            //PlaylistController c = new PlaylistController(_playlistRepository);
-            //var playlist = c.Index();
             return RedirectToAction("AddToPlaylist", "Playlist", new { id });
-            //return View();
         }
     }
 }
