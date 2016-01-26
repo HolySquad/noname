@@ -1,0 +1,17 @@
+﻿@model Domain.MediaFile
+
+@{
+    ViewBag.Title = "Upload Music";
+}
+
+<h2>Upload a file</h2>
+
+
+@using (Html.BeginForm("AddFiles", "MediaFile", FormMethod.Post, new {enctype = "multipart/form-data" , id="addFileForm"}))
+{
+    <input id="fileupload" type="file" name="files[]" data-url="@Url.Action("AddFiles")" multiple>
+
+}
+
+  
+
