@@ -49,25 +49,20 @@ namespace WebLayer.Controllers
         {
             try
             {
-
-                if (Request.Files.Count > 0)
+                if (Request.Files.Count <= 0) return RedirectToAction("Index");
+                foreach (string file in Request.Files)
                 {
-                    foreach (string file in Request.Files)
-                    {
-                        HttpPostedFileBase hpf = Request.Files[file];
-                        if (hpf.ContentLength == 0)
-                            continue;
-                        var fileName = Path.GetFileName(hpf.FileName);
-                        if (fileName != null)
-                        {
-                            var path = Path.Combine(Server.MapPath("~/Content/Music/"), fileName);
+                    var hpf = Request.Files[file];
+                    if (hpf.ContentLength == 0)
+                        continue;
+                    var fileName = Path.GetFileName(hpf.FileName);
+                    if (fileName == null) continue;
+                    var path = Path.Combine(Server.MapPath("~/Content/Music/"), fileName);
                            
-                            hpf.SaveAs(Path.GetFullPath(path));
-                            var item = SongFactory.CreateSong(path);
-                            _mediaFileRepository.AddMediaFile(item);
-                            return Content("{\"name\":\"" + fileName + "\"}", "application/json");
-                        }
-                    }
+                    hpf.SaveAs(Path.GetFullPath(path));
+                    var item = SongFactory.CreateSong(path);
+                    _mediaFileRepository.AddMediaFile(item);
+                    return Content("{\"name\":\"" + fileName + "\"}", "application/json");
                 }
 
                 return RedirectToAction("Index");

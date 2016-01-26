@@ -1,0 +1,20 @@
+﻿@model WebLayer.Models.SongViewModel
+
+@{
+    ViewBag.Title = "Songs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>title</h2>
+
+
+<button class="uploadBtn btn btn-default ">
+    <i class="fa fa-upload"></i>
+</button>
+<div id="uploadForm"></div>
+
+<script>
+    var fileUploadManage = new FileUpload();
+    fileUploadManage.uploadFileUrl = '@Url.Action("AddFile", "Song")';
+    fileUploadManage.uploadFileUrlPartial = '@Url.Action("AddFilePartial", "Song")';
+</script>

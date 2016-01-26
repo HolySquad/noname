@@ -1,7 +1,4 @@
-﻿using Domain;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Domain.DTO;
 
@@ -33,6 +30,5 @@ namespace WebLayer.Models
             SongCount = playlist.SongCount;
             Comments = playlist.Comments;
         }
-
     }
 }
