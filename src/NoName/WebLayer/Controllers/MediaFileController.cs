@@ -30,7 +30,6 @@ namespace WebLayer.Controllers
             return View(songsList.ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: MediaFile/Details/5
         [HttpGet]
         public PartialViewResult Details(long id)
         {
@@ -38,7 +37,6 @@ namespace WebLayer.Controllers
             return PartialView(file);
         }
 
-        // GET: MediaFile/Create
         [HttpGet]
         public PartialViewResult AddFilesPartial()
         {
@@ -106,7 +104,6 @@ namespace WebLayer.Controllers
         }
 
 
-        // GET: MediaFile/Details/5
         [HttpGet]
         public ActionResult AddToPlaylist(long id)
         {

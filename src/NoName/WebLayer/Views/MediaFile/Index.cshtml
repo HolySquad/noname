@@ -20,19 +20,10 @@
     </div>
 </div>
 
-
-
-
 @Scripts.Render("~/Scripts/Holystream/MediaFile.js")
-@section scripts
-{
     <script>
         var mediaFileHandler = new MediaFileCall();
         mediaFileHandler.addFileUrl = '@Url.Action("AddFilesPartial", "MediaFile")';
         mediaFileHandler.detailsFileUrl = '@Url.Action("Details", "MediaFile")';
         mediaFileHandler.deleteFilesUrl = '@Url.Action("Delete", "MediaFile")';
     </script>
-
-
-
-}
