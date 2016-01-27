@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web.Mvc;
 using Domain.Audio;
 using Factories;
@@ -43,6 +44,7 @@ namespace WebLayer.Controllers
 
         public JsonResult AddFile()
         {
+           
             var files = new List<string>();
             foreach (string file in Request.Files)
             {
@@ -57,11 +59,13 @@ namespace WebLayer.Controllers
 
                 hpf.SaveAs(Path.GetFullPath(path));
             }
-            if (!files.Any()) return Json("No Files");
+           if (!files.Any()) return Json("No Files");
 
             var songs = SongFactory.MultiCreateSong(files);
             UpdateDb(songs);
-            return Json(songs.Select(x => x.Name).First() + " uploaded");
+           return Json(songs.Select(x => x.Name).First() + " uploaded");
+          
+          
         }
 
         private void UpdateDb(IList<Song> songs)

@@ -14,7 +14,7 @@
                     if (item.Album.AlbumArt != null)
                     {
                         var img = Convert.ToBase64String(item.Album.AlbumArt);
-                        <img class="albumArtBase64" src="data:image/jpg;base64,@img" alt="@item.Album.AlbumName"/>
+                        <img class="albumArtBase64" src="data:image/jpg;base64,@img"  data-toggle="tooltip" data-placement="right" title="@item.Album.AlbumName"/>
                     }
                     else
                     {
@@ -54,3 +54,8 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.Pa
 
 @Html.PagedListPager(Model, page => Url.Action("Index", new {page}))
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
