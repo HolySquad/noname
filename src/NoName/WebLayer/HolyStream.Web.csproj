@@ -313,6 +313,7 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Song\Index.cshtml" />
     <Content Include="Views\Song\AddFilePartial.cshtml" />
+    <Content Include="Views\Song\SongsCount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Music\" />

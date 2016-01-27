@@ -17,7 +17,11 @@
         <div class="navbar-header">
             <ul class="nav nav-pills">
                 <li> @Html.ActionLink("Home", "Index", "Home") </li>
-                <li>@Html.ActionLink("Songs", "Index", "Song")</li>
+                <li><a href="@Url.Action("Index", "Song")">Songs
+                @{
+                    Html.RenderAction("SongsCount","Song");
+                }
+                    </a></li>
                 <li>@Html.ActionLink("Playlists", "Index", "Playlist")</li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="False">

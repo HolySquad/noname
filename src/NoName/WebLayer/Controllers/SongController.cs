@@ -28,6 +28,13 @@ namespace WebLayer.Controllers
             return View(songsList.ToPagedList(pageNumber, pageSize));
         }
 
+        [ChildActionOnly]
+        public PartialViewResult SongsCount()
+        {
+            var songsListCount = _mediaFileRepository.GetFileCount();
+            return PartialView(songsListCount);
+        }
+
         [HttpGet]
         public PartialViewResult AddFilePartial()
         {

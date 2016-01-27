@@ -9,5 +9,6 @@ namespace Repository.Interfaces
         void AddMediaFile(MediaFile mediafile);
         IList<Song> GetAllFiles();
         void DeleteMediaFile(long id);
+        int GetFileCount();
     }
 }

@@ -7,7 +7,7 @@ using Castle.Windsor;
 using Repository;
 using Repository.Interfaces;
 
-namespace WebLayer.CastleWindsorIoC
+namespace WebLayer.Infrastructure.CastleWindsorIoC
 {
     public class ApplicationCastleInstaller : IWindsorInstaller
     {
@@ -35,7 +35,7 @@ namespace WebLayer.CastleWindsorIoC
 
             foreach (var controller in contollers)
             {
-                container.Register(Component.For(controller).LifestylePerWebRequest());
+                container.Register(Component.For(controller).LifestyleTransient());
             }
         }
     }

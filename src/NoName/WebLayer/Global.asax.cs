@@ -5,6 +5,7 @@ using System.Web.Routing;
 using Castle.Windsor;
 using HibernatingRhinos.Profiler.Appender.NHibernate;
 using WebLayer.CastleWindsorIoC;
+using WebLayer.Infrastructure.CastleWindsorIoC;
 
 namespace WebLayer
 {

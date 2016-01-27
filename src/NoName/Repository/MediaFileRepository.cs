@@ -68,5 +68,23 @@ namespace Repository
                 }
             }
         }
+
+        public int GetFileCount()
+        {
+            using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    var res = _session.QueryOver<Song>().List().Count;
+                    return res;
+                }
+                catch (Exception ex)
+                {
+                    Logger.AddToLog("Method \'GetFilesCount\' failed.", ex);
+                    tran.Rollback();
+                    return 0;
+                }
+            }
+        }
     }
 }
