@@ -1,16 +1,23 @@
-﻿@model WebLayer.Models.SongViewModel
+﻿@model PagedList.IPagedList<Domain.Audio.Song>  
 
 @{
     ViewBag.Title = "Songs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="text-info ">
+            <i class="fa fa-music"></i> Music
+        </h2>
+    </div>
+
+    <div id="table-container" class="panel-body">
+        @{Html.RenderPartial("SongList");}
+    </div>
+</div>
 
 
-<button class="uploadBtn btn btn-default ">
-    <i class="fa fa-upload"></i>
-</button>
 <div id="uploadForm"></div>
 
 <script>

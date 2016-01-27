@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Domain.Audio;
 using Factories;
+using PagedList;
 using Repository.Interfaces;
 
 namespace WebLayer.Controllers
@@ -18,9 +19,13 @@ namespace WebLayer.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View();
+
+            var songsList = _mediaFileRepository.GetAllFiles() ?? new List<Song>();
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(songsList.ToPagedList(pageNumber, pageSize));
         }
 
         [HttpGet]

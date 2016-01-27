@@ -25,7 +25,7 @@ namespace WebLayer.Controllers
         public ActionResult Index(int? page)
         {
             var songsList = _mediaFileRepository.GetAllFiles() ?? new List<Song>();
-            int pageSize = 20;
+            int pageSize = 4;
             int pageNumber = (page ?? 1);
             return View(songsList.ToPagedList(pageNumber, pageSize));
         }
