@@ -9,7 +9,7 @@
     @foreach (var item in Model)
     {
         <tr >
-            <td class="col-sm-1 col-md-1">
+            @*<td class="col-sm-1 col-md-1">
                 @{
                     if (item.Album.AlbumArt != null)
                     {
@@ -22,14 +22,13 @@
                     }
                 }
               
-            </td>
+            </td>*@
             <td class="col-sm-2 col-md-2">
+                <span class="fa fa-play playerItemBtn"></span>
                 @Html.DisplayFor(modelItem => item.Album.Artist.Name)
-                <div class="media">
-                    <audio controls="controls">
-                        <source src="@Url.Content("~/Content/Music/" + item.Name)">
-                    </audio>
-                </div>
+
+                <div id="@Url.Content("~/Content/Music/" + item.Name)" class="audioItem"></div>
+
             </td>
             <td class="col-md-2 text-center">
                 @Html.DisplayFor(modelItem => item.Name)
