@@ -23,6 +23,9 @@
 .audioItem {
     display: none;
 }
+.audioPlayer {
+    display: none;
+}
 
 
 /* make sidebar nav vertical */ 
@@ -79,7 +82,7 @@
 .playerBar {
     position: fixed;
     bottom: 0%;
-    height: 77px;
+    height: 62px;
     width: 100%;
     z-index: 1000
 }
@@ -90,8 +93,8 @@
 }
 
 .playerBtn {
-    padding: 16px;
-    margin: 16px;
+    padding: 12px;
+    margin: 12px;
 }
 
 /*Song list*/
