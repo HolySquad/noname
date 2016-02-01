@@ -94,25 +94,28 @@
         <div class="nav">
             <ul class="bg-primary">
                 <li class="fa fa-image playerBtn"></li>
-                <li class="fa fa-play playerBtn"></li>
-                <li class="fa fa-backward playerBtn"></li>
-                <li class="fa fa-forward playerBtn"></li>
+                <li class="fa fa-play playerBtn" id="playStop" onclick="holyplayer.togglePlay()"> </li>
+                <li class="fa fa-backward playerBtn" onclick="holyplayer.back()"></li>
+                <li class="fa fa-forward playerBtn" onclick="holyplayer.forward()"></li>
             </ul>
         </div>
 
 
     </div>
 
-    <div class="audioPlayer">
-        <audio>
+   
+        <audio id="player" class="audioPlayer">
             <source src=""/>
         </audio>
-    </div>
     <div id="uploadForm" class="modal fade" role="dialog"></div>
+
     <script>
         var fileUploadManage = new FileUpload();
         fileUploadManage.uploadFileUrl = '@Url.Action("AddFile", "Song")';
         fileUploadManage.uploadFileUrlPartial = '@Url.Action("AddFilePartial", "Song")';
+
+        var holyplayer = new HolyPlayerVm();
+
     </script>
 </div>
 
