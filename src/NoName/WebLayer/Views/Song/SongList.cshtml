@@ -8,7 +8,7 @@
 
     @foreach (var item in Model)
     {
-        <tr class="playlistItem">
+        <tr class="playlistItem" id=@item.Id onclick="holyplayer.togglePlay(this)">
             @*<td class="col-sm-1 col-md-1">
                 @{
                     if (item.Album.AlbumArt != null)
@@ -23,9 +23,13 @@
                 }
               
             </td>*@
+
+            @{
+                var songPath = Url.Content("~/Content/Music/" + item.Name);
+            }
             <td class="playBtnCol">
-                <span class="fa fa-play playerItemBtn"></span>
-                <div id="@Url.Content("~/Content/Music/" + item.Name)" class="audioItem"></div>
+                <i class="fa fa-play playerItemBtn" id="trPlayStop" ></i>
+                <div  value="@songPath" title="@item.Album.Artist.Name - @item.Name" class="audioItem"></div>
             </td>
             <td class="col-md-6 nopaddingleft">
                 <a class="artist"><b>@Html.DisplayFor(modelItem => item.Album.Artist.Name)</b></a> – @Html.DisplayFor(modelItem => item.Name)
@@ -53,5 +57,6 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.Pa
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
+    var currentNumber = 0;
 });
 </script>
