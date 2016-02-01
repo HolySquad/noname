@@ -97,9 +97,20 @@
     margin: 12px;
 }
 
+.playerTime {
+    padding: 12px;
+    margin: 12px;
+}
+
+.playerFileName {
+    padding: 12px;
+    margin: 12px;
+}
+
 .bg-primary .playerBtn:hover {
     border-radius: 5px;
     background: rgb(61, 132, 193);
+    cursor: pointer;
 }
 
 /*Song list*/
