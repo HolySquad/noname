@@ -11,6 +11,13 @@
 
 .actionLinks > a {
     margin: 10px;
+    visibility: hidden;
+}
+
+.playlistItem:hover .actionLinks > a {
+    margin: 10px;
+    opacity: 0.5;
+    visibility: visible;
 }
 
 .audioItem {
@@ -85,4 +92,18 @@
 .playerBtn {
     padding: 16px;
     margin: 16px;
+}
+
+/*Song list*/
+.playBtnCol {
+    width: 46px;
+}
+
+.nopaddingleft {
+    padding-left: 0px !important;
+}
+
+.artist {
+    cursor: pointer;
+    outline: none;
 }

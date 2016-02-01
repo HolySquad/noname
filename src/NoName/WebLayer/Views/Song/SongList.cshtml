@@ -8,7 +8,7 @@
 
     @foreach (var item in Model)
     {
-        <tr >
+        <tr class="playlistItem">
             @*<td class="col-sm-1 col-md-1">
                 @{
                     if (item.Album.AlbumArt != null)
@@ -23,15 +23,12 @@
                 }
               
             </td>*@
-            <td class="col-sm-2 col-md-2">
+            <td class="playBtnCol">
                 <span class="fa fa-play playerItemBtn"></span>
-                @Html.DisplayFor(modelItem => item.Album.Artist.Name)
-
                 <div id="@Url.Content("~/Content/Music/" + item.Name)" class="audioItem"></div>
-
             </td>
-            <td class="col-md-2 text-center">
-                @Html.DisplayFor(modelItem => item.Name)
+            <td class="col-md-6 nopaddingleft">
+                <a class="artist"><b>@Html.DisplayFor(modelItem => item.Album.Artist.Name)</b></a> – @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td class="col-md-1 text-center">
                 <span class="text-center"> @Html.DisplayFor(modelItem => item.Album.AlbumName) </span>
