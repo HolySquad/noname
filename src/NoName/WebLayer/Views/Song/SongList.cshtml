@@ -1,7 +1,5 @@
-﻿@using NHibernate.Criterion
-@using PagedList.Mvc
+﻿@using PagedList.Mvc
 @model PagedList.IPagedList<Domain.Audio.Song>
-
 
 
 <table class="table-striped table-responsive table-hover">
@@ -9,30 +7,21 @@
     @foreach (var item in Model)
     {
         <tr class="playlistItem" id=@item.Id onclick="holyplayer.togglePlay(this)">
-            @*<td class="col-sm-1 col-md-1">
-                @{
-                    if (item.Album.AlbumArt != null)
-                    {
-                        var img = Convert.ToBase64String(item.Album.AlbumArt);
-                        <img class="albumArtBase64" src="data:image/jpg;base64,@img"  data-toggle="tooltip" data-placement="right" title="@item.Album.AlbumName"/>
-                    }
-                    else
-                    {
-                        <img class="albumArtBase64" src="~/Content/Images/default-cover.png"/>
-                    }
-                }
-              
-            </td>*@
-
             @{
                 var songPath = Url.Content("~/Content/Music/" + item.Name);
+                if (item.Album.AlbumArt != null)
+                {
+                    var imgBase64 = Convert.ToBase64String(item.Album.AlbumArt);
+                }
             }
             <td class="playBtnCol">
-                <i class="fa fa-play playerItemBtn" id="trPlayStop" ></i>
-                <div  value="@songPath" title="@item.Album.Artist.Name - @item.Name" class="audioItem"></div>
+                <i class="fa fa-play playerItemBtn" id="trPlayStop"></i>
+                <div value="@songPath" title="@item.Album.Artist.Name - @item.Name" class="audioItem"></div>
             </td>
             <td class="col-md-6 nopaddingleft">
-                <a class="artist"><b>@Html.DisplayFor(modelItem => item.Album.Artist.Name)</b></a> – @Html.DisplayFor(modelItem => item.Name)
+                <a class="artist">
+                    <b>@Html.DisplayFor(modelItem => item.Album.Artist.Name)</b>
+                </a> – @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td class="col-md-1 text-center">
                 <span class="text-center"> @Html.DisplayFor(modelItem => item.Album.AlbumName) </span>
@@ -42,11 +31,17 @@
                 @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td class="actionLinks">
-                <a class="addToPlaylist"  id="@item.Id" href="@Url.Action("AddToPlaylist", new {id = item.Id})"><i class="fa fa-2x fa-plus"></i></a> 
-                <a class="details" id="@item.Id" href="@Url.Action("Details", new {id = item.Id})"><i class="fa fa-2x fa-info"></i></a> 
-                <a class="delete" id="@item.Id" href="@Url.Action("Delete", new {id = item.Id})"><i class="fa fa-2x fa-trash"></i></a>
+                <a class="addToPlaylist" id="@item.Id" href="@Url.Action("AddToPlaylist", new {id = item.Id})">
+                    <i class="fa fa-2x fa-plus"></i>
+                </a>
+                <a class="details" id="@item.Id" href="@Url.Action("Details", new {id = item.Id})">
+                    <i class="fa fa-2x fa-info"></i>
+                </a>
+                <a class="delete" id="@item.Id" href="@Url.Action("Delete", new {id = item.Id})">
+                    <i class="fa fa-2x fa-trash"></i>
+                </a>
             </td>
-        </tr> 
+        </tr>
     }
 
 </table>
@@ -55,8 +50,8 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.Pa
 @Html.PagedListPager(Model, page => Url.Action("Index", new {page}))
 
 <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-    var currentNumber = 0;
-});
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+        var currentNumber = 0;
+    });
 </script>

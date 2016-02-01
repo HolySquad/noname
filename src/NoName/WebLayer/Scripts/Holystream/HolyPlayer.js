@@ -13,17 +13,16 @@
 
     internal.toggleIcon = function() {
         $("#playStop").toggleClass("fa-play");
-        $("#playStop").toggleClass("fa-pause");
-      
-
+        $("#playStop").toggleClass("fa-pause"); 
     };
 
     self.togglePlay = function (x) {
         if (x != undefined) {
             var specificSong = $(internal.audioItemClass)[x.rowIndex].getAttribute("value");
+            $("#albumPlayer").src = x.title;
             $player.attr("src", specificSong);
             internal.toggleIcon();
-            internal.highlightSong();
+            internal.highlightSong(false,x.rowIndex);
             return false;
         };
         if (!$player.get(0).paused) {
@@ -33,14 +32,14 @@
             return false;
         } else {
           
-            internal.highlightSong();
+            internal.highlightSong(false,currentNumber);
 
         }
         if ($player.attr("src") == undefined) {
             var startUrl = $(internal.audioItemClass)[currentNumber].getAttribute("value");
             $player.attr("src", startUrl);
             internal.toggleIcon();
-            internal.highlightSong();
+            internal.highlightSong(false,currentNumber);
         }
     };
 
@@ -74,7 +73,7 @@
 
         var startUrl = $(internal.audioItemClass)[currentNumber += 1].getAttribute("value");
         $player.attr("src", startUrl);  
-        internal.highlightSong(true);
+        internal.highlightSong(true, currentNumber);
     };
 
     self.back = function() {
@@ -84,18 +83,18 @@
         } else {
             var startUrl = $(internal.audioItemClass)[currentNumber -= 1].getAttribute("value");
             $player.attr("src", startUrl);
-            internal.highlightSong(true);
+            internal.highlightSong(true, currentNumber);
             return false;
         }
     };
 
-    internal.highlightSong = function (changePosition) {
+    internal.highlightSong = function (changePosition, songNumber) {
         if (!changePosition && $player.get(0).paused) {
             $("#playStop").toggleClass("fa-pause");
             $("#playStop").toggleClass("fa-play");
         }
       
-        var currentSong = $(internal.audioItemClass)[currentNumber].attributes[1].nodeValue;
+        var currentSong = $(internal.audioItemClass)[songNumber].attributes[1].nodeValue;
         $("#playerCurrentSong").text(currentSong);
         $player.get(0).play();
        
