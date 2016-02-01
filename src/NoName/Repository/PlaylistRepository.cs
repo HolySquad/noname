@@ -24,7 +24,7 @@ namespace Repository
                 {
                     _session.Save(playlist);
                     tran.Commit();
-                    Logger.SaveMediaFileLog(playlist.PlaylistName);
+                    Logger.LogMediafileAdded(playlist.PlaylistName);
                 }
                 catch (Exception ex)
                 {

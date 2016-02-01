@@ -16,7 +16,7 @@ namespace Utils
             private get { return _directory; }
             set
             {
-                AddToLog("Log file directory changed to " + value);
+                //AddToLog("Log file directory changed to " + value);
                 _directory = value;
             }
         }
@@ -26,7 +26,7 @@ namespace Utils
             private get { return _filename; }
             set
             {
-                AddToLog("Log file name changed to '" + value + ".txt'");
+                //AddToLog("Log file name changed to '" + value + ".txt'");
                 _filename = value;
             }
         }
@@ -78,10 +78,10 @@ namespace Utils
             return ToString() == obj.ToString();
         }
 
-        public static void SaveMediaFileLog(string name)
+        public static void LogMediafileAdded(string name)
         {
             FileName = "logsMedia.log";
-            AddToLog("File added with name: " + name);
+            AddToLog("File added. Name: " + name);
             FileName = "logs.log";
         }
     }

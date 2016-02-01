@@ -97,6 +97,11 @@
     margin: 12px;
 }
 
+.bg-primary .playerBtn:hover {
+    border-radius: 5px;
+    background: rgb(61, 132, 193);
+}
+
 /*Song list*/
 .playBtnCol {
     width: 46px;

@@ -22,7 +22,7 @@ namespace Repository
                 {
                     _session.Save(mediafile);
                     tran.Commit();
-                    Logger.SaveMediaFileLog(mediafile.Name);
+                    Logger.LogMediafileAdded(mediafile.Name);
                 }
                 catch (Exception ex)
                 {
