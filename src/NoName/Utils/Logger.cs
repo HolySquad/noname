@@ -78,7 +78,7 @@ namespace Utils
             return ToString() == obj.ToString();
         }
 
-        public static void SaveMediaFileLog(string name)
+        public static void LogMediafileAdded(string name)
         {
             FileName = "logsMedia.log";
             AddToLog("File added. Name: " + name);
