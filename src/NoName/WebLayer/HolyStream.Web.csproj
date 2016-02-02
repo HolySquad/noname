@@ -181,6 +181,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-dialog.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -253,13 +254,16 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\bootstrap-dialog.less" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <Content Include="Scripts\bootstrap-dialog.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Holystream\HolyPlayer.js" />
     <Content Include="Scripts\Holystream\holystream.js" />
     <None Include="Properties\PublishProfiles\localIIS.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\Holystream\songManagement.js" />
     <Content Include="Scripts\Holystream\SongUpload.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -315,6 +319,8 @@
     <Content Include="Views\Song\Index.cshtml" />
     <Content Include="Views\Song\AddFilePartial.cshtml" />
     <Content Include="Views\Song\SongsCount.cshtml" />
+    <Content Include="Views\Song\Delete.cshtml" />
+    <Content Include="Views\Song\DeletePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Music\" />

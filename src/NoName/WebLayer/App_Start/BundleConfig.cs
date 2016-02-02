@@ -20,7 +20,8 @@ namespace WebLayer
                 "~/Scripts/jquery.validate.unobtrusive.min.js"
                 ));
 
-            bundles.Add(new ScriptBundle("~/bundles/holy")
+            bundles.Add(new ScriptBundle("~/bundles/holy").Include(
+                "~/Scripts/holystream/holystream.js")
               .IncludeDirectory("~/Scripts/Holystream", "*.js", true));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
