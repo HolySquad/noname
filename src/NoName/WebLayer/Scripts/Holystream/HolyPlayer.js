@@ -22,6 +22,7 @@
             $("#albumPlayer").src = x.title;
             $player.attr("src", specificSong);
             internal.toggleIcon();
+            currentNumber = x.rowIndex;
             internal.highlightSong(false,x.rowIndex);
             return false;
         };
@@ -93,7 +94,14 @@
             $("#playStop").toggleClass("fa-pause");
             $("#playStop").toggleClass("fa-play");
         }
-      
+
+        if (songNumber != 0) {
+
+            $("tr")[songNumber - 1].style.backgroundColor = "white";
+            $("tr")[songNumber + 1].style.backgroundColor = "white";
+        }
+            $("tr")[songNumber].style.backgroundColor = "#B8D8F3";
+       
         var currentSong = $(internal.audioItemClass)[songNumber].attributes[1].nodeValue;
         $("#playerCurrentSong").text(currentSong);
         $player.get(0).play();
