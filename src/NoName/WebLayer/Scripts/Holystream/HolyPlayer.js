@@ -11,36 +11,30 @@
     var currentNumber = 0;
     var $player = $(internal.audioPlayerId);
 
-    internal.toggleIcon = function() {
-        $("#playStop").toggleClass("fa-play");
-        $("#playStop").toggleClass("fa-pause"); 
-    };
+   
 
     self.togglePlay = function (x) {
+        
         if (x != undefined) {
             var specificSong = $(internal.audioItemClass)[x.rowIndex].getAttribute("value");
-            $("#albumPlayer").src = x.title;
             $player.attr("src", specificSong);
-            internal.toggleIcon();
             currentNumber = x.rowIndex;
-            internal.highlightSong(false,x.rowIndex);
+            internal.highlightSong(false, x.rowIndex);
+            internal.play();
             return false;
         };
         if (!$player.get(0).paused) {
-            internal.toggleIcon();
-
-            ($player.get(0).pause());
+            internal.pause();
             return false;
         } else {
-          
-            internal.highlightSong(false,currentNumber);
-
+            internal.highlightSong(false, currentNumber);
+            internal.play();
         }
         if ($player.attr("src") == undefined) {
             var startUrl = $(internal.audioItemClass)[currentNumber].getAttribute("value");
             $player.attr("src", startUrl);
-            internal.toggleIcon();
-            internal.highlightSong(false,currentNumber);
+            internal.highlightSong(false, currentNumber);
+            internal.play(true);
         }
     };
 
@@ -52,15 +46,6 @@
         $("#timeState").text(convertedTime + "/" + fullTime);
 
     });
-
-
-
-    internal.convertSecondsToTimeForPlayer = function(secondsTime) {
-        var minutes = parseInt(secondsTime / 60) % 60;
-        var seconds = secondsTime % 60;
-
-        return (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds.toPrecision(2) < 10 ? "0" + seconds.toPrecision(2) : seconds.toPrecision(2));
-    };
 
     $player.on("ended", function () {
         self.forward();
@@ -75,6 +60,7 @@
         var startUrl = $(internal.audioItemClass)[currentNumber += 1].getAttribute("value");
         $player.attr("src", startUrl);  
         internal.highlightSong(true, currentNumber);
+        internal.play();
     };
 
     self.back = function() {
@@ -85,16 +71,12 @@
             var startUrl = $(internal.audioItemClass)[currentNumber -= 1].getAttribute("value");
             $player.attr("src", startUrl);
             internal.highlightSong(true, currentNumber);
+            internal.play();
             return false;
         }
     };
 
     internal.highlightSong = function (changePosition, songNumber) {
-        if (!changePosition && $player.get(0).paused) {
-            $("#playStop").toggleClass("fa-pause");
-            $("#playStop").toggleClass("fa-play");
-        }
-
         if (songNumber != 0) {
 
             $("tr")[songNumber - 1].style.backgroundColor = "white";
@@ -104,7 +86,36 @@
        
         var currentSong = $(internal.audioItemClass)[songNumber].attributes[1].nodeValue;
         $("#playerCurrentSong").text(currentSong);
+    };
+
+    internal.iconPlayState = function () {
+        if ($(".playStop").hasClass("fa-play")) {
+            $(".playStop").toggleClass("fa-play");
+            $(".playStop").toggleClass("fa-pause");
+        }
+    };
+    
+    internal.iconPauseState = function () {
+        if ($(".playStop").hasClass("fa-pause")) {
+            $(".playStop").toggleClass("fa-pause");
+            $(".playStop").toggleClass("fa-play");
+        }
+    }
+
+    internal.play = function () {
         $player.get(0).play();
-       
+        internal.iconPlayState();
+    };
+
+    internal.pause = function () {
+        $player.get(0).pause();
+        internal.iconPauseState();
+    };
+
+    internal.convertSecondsToTimeForPlayer = function (secondsTime) {
+        var minutes = parseInt(secondsTime / 60) % 60;
+        var seconds = secondsTime % 60;
+
+        return (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds.toPrecision(2) < 10 ? "0" + seconds.toPrecision(2) : seconds.toPrecision(2));
     };
 };
