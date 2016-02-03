@@ -16,14 +16,14 @@
             }
             <td class="playBtnCol">
                 <i class="fa fa-play playerItemBtn" id="trPlayStop"></i>
-                <div value="@songPath" title="@item.Album.Artist.Name - @item.Name" class="audioItem"></div>
+                <div value="@songPath" title="@item.Album.Artist.Name - @item.Name" class="audioItem" style="display: none;"></div>
             </td>
-            <td class="col-md-6 nopaddingleft">
+            <td class="col-md-5 nopaddingleft">
                 <a class="artist">
                     <b>@Html.DisplayFor(modelItem => item.Album.Artist.Name)</b>
                 </a> – @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td class="col-md-1 text-center">
+            <td class="col-md-2 text-center">
                 <span class="text-center"> @Html.DisplayFor(modelItem => item.Album.AlbumName) </span>
             </td>
 
@@ -45,9 +45,11 @@
     }
 
 </table>
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
+<tr>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) from @Model.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new {page}))
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</tr>
 
 <script>
 
