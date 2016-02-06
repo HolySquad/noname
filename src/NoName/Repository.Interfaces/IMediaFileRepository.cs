@@ -10,5 +10,6 @@ namespace Repository.Interfaces
         IList<Song> GetAllFiles();
         void DeleteMediaFile(long id);
         int GetFileCount();
+        IList<Song> SearchItemByString(string searchString);
     }
 }

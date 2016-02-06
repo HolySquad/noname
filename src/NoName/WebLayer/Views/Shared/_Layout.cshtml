@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using WebLayer.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -32,6 +33,11 @@
                         <li>@Html.ActionLink("System Logs", "Index", "Logs")</li>
                         <li>@Html.ActionLink("Media Logs", "MediaLog", "Logs")</li>
                     </ul>
+                </li>
+                <li>
+                    @{
+                        Html.RenderPartial("SearchPartial", new SearchModel());
+                    }
                 </li>
             </ul>
     </div>

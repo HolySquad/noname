@@ -6,6 +6,7 @@ using Domain.Audio;
 using Factories;
 using PagedList;
 using Repository.Interfaces;
+using WebLayer.Models;
 
 namespace WebLayer.Controllers
 {
@@ -77,6 +78,14 @@ namespace WebLayer.Controllers
         public PartialViewResult Delete()
         {
             return PartialView();
+        }
+
+   
+        public ActionResult SearchSong(SearchModel query)
+        {
+
+            var resultSongs = _mediaFileRepository.SearchItemByString(query.SearchString);
+            return View(resultSongs);
         }
 
     private void UpdateDb(IList<Song> songs)

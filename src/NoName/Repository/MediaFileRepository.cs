@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Domain;
 using Domain.Audio;
+using NHibernate.Criterion;
 using Repository.Interfaces;
 using Utils;
 
@@ -83,6 +84,44 @@ namespace Repository
                     Logger.AddToLog("Method \'GetFilesCount\' failed.", ex);
                     tran.Rollback();
                     return 0;
+                }
+            }
+        }
+
+        public IList<Song> SearchItemByString(string searchString)
+        {
+            Album album = null;
+            Song song = null;
+            Artist artist = null;
+
+            using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    var albumResult = _session.QueryOver<Song>()
+                        .JoinAlias(x => x.Album, () => album)
+                        .Where(() => album.AlbumName.IsLike(searchString, MatchMode.Anywhere)).Future();
+
+                    var artistResult = _session.QueryOver<Song>()
+                        .JoinAlias(x => x.Album, () => album)
+                        .JoinAlias(()=> album.Artist, () => artist)
+                        .Where(() => artist.Name.IsLike(searchString, MatchMode.Anywhere)).Future();
+
+                    var songResult = _session.QueryOver<Song>()
+                        .Where(x => x.Name.IsLike(searchString, MatchMode.Anywhere)).Future();
+
+                    var songs = new List<Song>();
+                    songs.AddRange(albumResult.ToList());
+                    songs.AddRange(artistResult.ToList());
+                    songs.AddRange(songResult.ToList());
+
+                    return songs.OrderBy(x=>x.Name).ToList();
+                }
+                catch (Exception ex)
+                {
+                    Logger.AddToLog("Method \'Search\' failed.", ex);
+                    tran.Rollback();
+                    return null;
                 }
             }
         }
