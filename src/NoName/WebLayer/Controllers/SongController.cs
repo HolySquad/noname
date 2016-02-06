@@ -85,7 +85,9 @@ namespace WebLayer.Controllers
         {
 
             var resultSongs = _mediaFileRepository.SearchItemByString(query.SearchString);
-            return View(resultSongs);
+
+            var distinctSongs = resultSongs.Distinct().ToList();
+            return View(distinctSongs);
         }
 
     private void UpdateDb(IList<Song> songs)

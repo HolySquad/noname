@@ -111,9 +111,9 @@ namespace Repository
                         .Where(x => x.Name.IsLike(searchString, MatchMode.Anywhere)).Future();
 
                     var songs = new List<Song>();
-                    songs.AddRange(albumResult.ToList());
-                    songs.AddRange(artistResult.ToList());
-                    songs.AddRange(songResult.ToList());
+                    songs.AddRange(albumResult);
+                    songs.AddRange(artistResult);
+                    songs.AddRange(songResult);
 
                     return songs.OrderBy(x=>x.Name).ToList();
                 }

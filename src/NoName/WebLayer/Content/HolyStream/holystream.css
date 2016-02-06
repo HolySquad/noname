@@ -27,6 +27,9 @@
     display: none;
 }
 
+.serachBarItem {
+    margin-top: 7px;
+}
 
 /* make sidebar nav vertical */ 
 @media (min-width: 768px) {
