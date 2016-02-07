@@ -12,6 +12,12 @@
                 if (item.Album.AlbumArt != null)
                 {
                     var imgBase64 = Convert.ToBase64String(item.Album.AlbumArt);
+                    <td style="display: none;"> @imgBase64</td>
+                }
+                else
+                {
+                    <td style="display: none;">@Url.Content("~/Content/Images/default-cover.png") </td>
+
                 }
             }
             <td class="playBtnCol">

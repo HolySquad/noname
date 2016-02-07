@@ -1,15 +1,16 @@
-﻿<div class="nav">
-    <ul class="bg-primary">
-        <li class="fa fa-image playerBtn">
-            <img src="" id="albumPlayer" />
-        </li>
-        <li class="fa fa-play playerBtn playStop" onclick="holyplayer.togglePlay()"> </li>
+﻿<span class="fa playerBarImg" id="imageContainter" style="display: inline-block">
+    <img src="~/Content/Images/default-cover.png" id="albumPlayer" class="albumArtBase64" />
+</span>
+<div class="nav">
+
+    <ul class="bg-primary">    
+        <li class="fa fa-play playerBtn playStop" style="margin-left: 32px;" onclick="holyplayer.togglePlay()"> </li>
         <li class="fa fa-backward playerBtn" onclick="holyplayer.back()"></li>
         <li class="fa fa-forward playerBtn" onclick="holyplayer.forward()"></li>
         <li class="fa fa-clock-o playerTime">
             <span id="timeState"></span>
         </li>
-        <li class="fa fa-file playerFileName">
+        <li class="fa fa-file-sound-o playerFileName">
             <span class="text-capitalize" id="playerCurrentSong"></span>
         </li>
     </ul>

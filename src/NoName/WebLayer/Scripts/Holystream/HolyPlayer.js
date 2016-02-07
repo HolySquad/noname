@@ -4,7 +4,8 @@
     var internal = {
         playStopBtnId: "#playStop",
         audioPlayerId: "#player",
-        audioItemClass: ".audioItem"
+        audioItemClass: ".audioItem",
+        playlistItem: ".playlistItem"
     };
 
     var songs = $(internal.audioItemClass);
@@ -12,13 +13,12 @@
     var $player = $(internal.audioPlayerId);
 
     self.togglePlay = function (x) {
-        
         if (x != undefined) {
             var specificSong = $(internal.audioItemClass)[x.rowIndex].getAttribute("value");
             $player.attr("src", specificSong);
             currentNumber = x.rowIndex;
             internal.highlightSong(false, x.rowIndex);
-            internal.play();
+            internal.play(x.rowIndex);
             return false;
         };
         if (!$player.get(0).paused) {
@@ -26,13 +26,13 @@
             return false;
         } else {
             internal.highlightSong(false, currentNumber);
-            internal.play();
+            internal.play(currentNumber);
         }
         if ($player.attr("src") == undefined) {
             var startUrl = $(internal.audioItemClass)[currentNumber].getAttribute("value");
             $player.attr("src", startUrl);
             internal.highlightSong(false, currentNumber);
-            internal.play(true);
+            internal.play(currentNumber);
         }
     };
 
@@ -58,7 +58,7 @@
         var startUrl = $(internal.audioItemClass)[currentNumber += 1].getAttribute("value");
         $player.attr("src", startUrl);  
         internal.highlightSong(true, currentNumber);
-        internal.play();
+        internal.play(currentNumber);
     };
 
     self.back = function() {
@@ -69,7 +69,7 @@
             var startUrl = $(internal.audioItemClass)[currentNumber -= 1].getAttribute("value");
             $player.attr("src", startUrl);
             internal.highlightSong(true, currentNumber);
-            internal.play();
+            internal.play(currentNumber);
             return false;
         }
     };
@@ -100,9 +100,10 @@
         }
     }
 
-    internal.play = function () {
+    internal.play = function (x) {
         $player.get(0).play();
         internal.iconPlayState();
+        internal.updateAlbumArt(x);
     };
 
     internal.pause = function () {
@@ -115,5 +116,24 @@
         var seconds = secondsTime % 60;
 
         return (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds.toPrecision(2) < 10 ? "0" + seconds.toPrecision(2) : seconds.toPrecision(2));
+    };
+
+    internal.updateAlbumArt = function (x) {
+        var imgContainer = $("#imageContainter");
+        var tr = $(internal.playlistItem)[x];
+        var imgbase64 = $(tr).find("td:first-child").text();
+       
+        if (imgbase64 != "") {
+            if (imgContainer.hasClass("fa fa-image")) {
+                imgContainer.removeClass(" fa fa-image");
+            }
+            if (imgbase64 != "/HolyStream.Web/Content/Images/default-cover.png ") {
+                var imgSrc = "data:image/png;base64," + imgbase64;
+                $("#albumPlayer").attr("src", imgSrc);
+            } else {
+                $("#albumPlayer").attr("src", imgbase64);
+            }
+        }
+
     };
 };

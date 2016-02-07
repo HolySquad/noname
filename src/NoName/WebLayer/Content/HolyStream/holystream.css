@@ -1,7 +1,7 @@
 ﻿
 .albumArtBase64 {
-    width: 90px;
-    height: 90px;
+    width: 64px;
+    height: 64px;
     display:block
 }
 
@@ -88,11 +88,26 @@
     height: 62px;
     width: 100%;
     z-index: 1000
+    
+}
+
+.playerBarImg {
+    position: fixed;
+    bottom: 0%;
+    margin-right: 10px;
+    height: 62px;
+    width: 64px;
+    z-index: 9;
 }
 
 .playerItemBtn {
     padding: 8px;
     margin: 8px;
+}
+
+
+.playStop {
+    margin-left: 10px;
 }
 
 .playerBtn {
