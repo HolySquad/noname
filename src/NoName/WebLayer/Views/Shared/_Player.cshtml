@@ -1,0 +1,26 @@
+﻿<div class="nav">
+    <ul class="bg-primary">
+        <li class="fa fa-image playerBtn">
+            <img src="" id="albumPlayer" />
+        </li>
+        <li class="fa fa-play playerBtn playStop" onclick="holyplayer.togglePlay()"> </li>
+        <li class="fa fa-backward playerBtn" onclick="holyplayer.back()"></li>
+        <li class="fa fa-forward playerBtn" onclick="holyplayer.forward()"></li>
+        <li class="fa fa-clock-o playerTime">
+            <span id="timeState"></span>
+        </li>
+        <li class="fa fa-file playerFileName">
+            <span class="text-capitalize" id="playerCurrentSong"></span>
+        </li>
+    </ul>
+</div>
+
+
+
+<audio id="player" class="audioPlayer">
+    <source src=""/>
+</audio>
+
+<script>
+    var holyplayer = new HolyPlayerVm();
+</script>

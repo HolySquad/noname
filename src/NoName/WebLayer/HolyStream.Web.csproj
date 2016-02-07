@@ -325,6 +325,8 @@
     <Content Include="Views\Song\DeletePartial.cshtml" />
     <Content Include="Views\Shared\SearchPartial.cshtml" />
     <Content Include="Views\Song\SearchSong.cshtml" />
+    <Content Include="Views\Shared\_Player.cshtml" />
+    <Content Include="Views\Shared\_UserNavbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Music\" />
