@@ -127,7 +127,7 @@
             if (imgContainer.hasClass("fa fa-image")) {
                 imgContainer.removeClass(" fa fa-image");
             }
-            if (imgbase64 != "/HolyStream.Web/Content/Images/default-cover.png ") {
+            if (imgbase64 != "/Content/Images/default-cover.png ") {
                 var imgSrc = "data:image/png;base64," + imgbase64;
                 $("#albumPlayer").attr("src", imgSrc);
             } else {
