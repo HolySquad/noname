@@ -11,8 +11,6 @@
     var currentNumber = 0;
     var $player = $(internal.audioPlayerId);
 
-   
-
     self.togglePlay = function (x) {
         
         if (x != undefined) {

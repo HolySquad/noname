@@ -261,6 +261,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Holystream\HolyPlayer.js" />
+    <Content Include="Scripts\Holystream\holySearch.js" />
     <Content Include="Scripts\Holystream\holystream.js" />
     <None Include="Properties\PublishProfiles\localIIS.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />

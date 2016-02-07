@@ -5,6 +5,6 @@ namespace WebLayer.Models
     public class SearchModel
     {
         [Display(Name = "Search")]
-        public string SearchString { get; set; }     
+        public string Query { get; set; }     
     }
 }

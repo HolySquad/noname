@@ -81,13 +81,15 @@ namespace WebLayer.Controllers
         }
 
    
-        public ActionResult SearchSong(SearchModel query)
+        public PartialViewResult SearchSong(string query)
         {
 
-            var resultSongs = _mediaFileRepository.SearchItemByString(query.SearchString);
+            var resultSongs = _mediaFileRepository.SearchItemByString(query);
+
+            if (resultSongs == null) return PartialView(new List<Song>());
 
             var distinctSongs = resultSongs.Distinct().ToList();
-            return View(distinctSongs);
+            return PartialView(distinctSongs);
         }
 
     private void UpdateDb(IList<Song> songs)

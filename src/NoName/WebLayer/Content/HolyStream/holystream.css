@@ -28,7 +28,7 @@
 }
 
 .serachBarItem {
-    margin-top: 7px;
+   display: inline-block
 }
 
 /* make sidebar nav vertical */ 
