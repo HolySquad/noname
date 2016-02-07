@@ -17,6 +17,7 @@ namespace WebLayer.Controllers
         public SongController(IMediaFileRepository mediaFileRepository)
         {
             _mediaFileRepository = mediaFileRepository;
+
         }
 
         [HttpGet]
@@ -61,8 +62,9 @@ namespace WebLayer.Controllers
             }
             if (!files.Any()) return Json("No Files");
 
-            var songs = SongFactory.MultiCreateSong(files);
-            UpdateDb(songs);
+            var factory = new SongFactory(_mediaFileRepository);
+
+            var songs = factory.MultiCreateSong(files);
             return Json(songs.Select(x => x.Name).First() + " uploaded");
 
 
@@ -80,7 +82,6 @@ namespace WebLayer.Controllers
             return PartialView();
         }
 
-   
         public PartialViewResult SearchSong(string query)
         {
 
@@ -90,14 +91,6 @@ namespace WebLayer.Controllers
 
             var distinctSongs = resultSongs.Distinct().ToList();
             return PartialView(distinctSongs);
-        }
-
-    private void UpdateDb(IList<Song> songs)
-        {
-            foreach (var song in songs)
-            {
-                _mediaFileRepository.Save(song);
-            }
         }
     }
 }

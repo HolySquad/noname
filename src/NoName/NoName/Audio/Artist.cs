@@ -9,11 +9,13 @@ namespace Domain.Audio
         {
             Name = name;
             Description = description;
+            AlbumsList = new List<Album>();
         }
 
         public Artist(string name)
         {
             Name = name;
+            AlbumsList = new List<Album>();
         }
 
         [Obsolete]
@@ -25,5 +27,11 @@ namespace Domain.Audio
         public virtual string Name { get; protected set; }
         public virtual string Description { get; protected set; }
         public virtual IList<Album> AlbumsList { get; protected set; }
+
+
+        public virtual void AddAlbum(Album album)
+        {
+            AlbumsList.Add(album);
+        }
     }
 }

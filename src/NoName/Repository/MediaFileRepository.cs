@@ -125,5 +125,45 @@ namespace Repository
                 }
             }
         }
+
+        public Album SearchAlbumName(string albumName)
+        {      
+           using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    var albumResult = _session.QueryOver<Album>()
+                        .Where(x => x.AlbumName.IsLike(albumName, MatchMode.Anywhere)).Future();
+
+                    return albumResult.First();
+                }
+                catch (Exception ex)
+                {
+                    Logger.AddToLog("Method \'SearchAlbumName\' failed.", ex);
+                    tran.Rollback();
+                    return null;
+                }
+            }
+        }
+
+        public Artist SearchArtistName(string artistName)
+        {
+            using (var tran = _session.BeginTransaction())
+            {
+                try
+                {
+                    var artistResult = _session.QueryOver<Artist>()
+                        .Where(x => x.Name.IsLike(artistName, MatchMode.Anywhere)).Future();
+
+                    return artistResult.First();
+                }
+                catch (Exception ex)
+                {
+                    Logger.AddToLog("Method \'SearchAlbumName\' failed.", ex);
+                    tran.Rollback();
+                    return null;
+                }
+            }
+        }
     }
 }

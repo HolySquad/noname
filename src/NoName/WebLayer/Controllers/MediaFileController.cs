@@ -44,36 +44,36 @@ namespace WebLayer.Controllers
             return PartialView();
         }
 
-        [HttpPost]
-        public ActionResult AddFiles(List<HttpPostedFileBase> files)
-        {
-            try
-            {
-                if (Request.Files.Count <= 0) return RedirectToAction("Index");
-                foreach (string file in Request.Files)
-                {
-                    var hpf = Request.Files[file];
-                    if (hpf.ContentLength == 0)
-                        continue;
-                    var fileName = Path.GetFileName(hpf.FileName);
-                    if (fileName == null) continue;
-                    var path = Path.Combine(Server.MapPath("~/Content/Music/"), fileName);
+        //[HttpPost]
+        //public ActionResult AddFiles(List<HttpPostedFileBase> files)
+        //{
+        //    try
+        //    {
+        //        if (Request.Files.Count <= 0) return RedirectToAction("Index");
+        //        foreach (string file in Request.Files)
+        //        {
+        //            var hpf = Request.Files[file];
+        //            if (hpf.ContentLength == 0)
+        //                continue;
+        //            var fileName = Path.GetFileName(hpf.FileName);
+        //            if (fileName == null) continue;
+        //            var path = Path.Combine(Server.MapPath("~/Content/Music/"), fileName);
                            
-                    hpf.SaveAs(Path.GetFullPath(path));
-                    var item = SongFactory.CreateSong(path);
-                    _mediaFileRepository.AddMediaFile(item);
-                    return Content("{\"name\":\"" + fileName + "\"}", "application/json");
-                }
+        //            hpf.SaveAs(Path.GetFullPath(path));
+        //            var item = SongFactory.CreateSong(path);
+        //            _mediaFileRepository.AddMediaFile(item);
+        //            return Content("{\"name\":\"" + fileName + "\"}", "application/json");
+        //        }
 
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Message = ex.Message;
-                Logger.AddToLog(ex);
-                return RedirectToAction("AddFilesPartial");
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ViewBag.Message = ex.Message;
+        //        Logger.AddToLog(ex);
+        //        return RedirectToAction("AddFilesPartial");
+        //    }
+        //}
 
         [HttpGet]
         public PartialViewResult Delete(int id)

@@ -7,7 +7,7 @@ namespace Domain.Mapping
         public ArtistMap()
         {
             Map(x => x.Name).Not.Nullable();
-            Map(x => x.Description);
+            Map(x => x.Description).Nullable();
             HasMany(x => x.AlbumsList).Cascade.All();
         }
     }

@@ -1,0 +1,25 @@
+﻿@model WebLayer.Models.SearchModel
+
+
+@using (Html.BeginForm("SearchSong", "Song", FormMethod.Post,  new {id="SearchSubmitForm"}))
+{
+
+    <div class="form-group">
+
+        <div class="serachBarItem" style="margin-top: 10px;">
+            @Html.LabelFor(x => x.Query, new {@class = "control-label col-sm-4 col-md-4 "})
+        </div>
+
+        <div class="serachBarItem" style="margin-top: -10px;">
+            @Html.EditorFor(x => x.Query, new {htmlAttributes = new {@class = "form-control "}})
+
+        </div>
+    </div>
+
+}
+
+<script>
+
+    var searchManagement = new HolySearchVm();
+
+</script>

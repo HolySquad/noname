@@ -354,10 +354,6 @@
       <Project>{6b3a6a03-684a-494d-8a41-5fd314dec644}</Project>
       <Name>HolyStream.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Scanner\HolyStream.Scanner.csproj">
-      <Project>{aafb6ac1-3465-4e17-bf37-2a4c36419cb7}</Project>
-      <Name>HolyStream.Scanner</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Utils\HolyStream.Utils.csproj">
       <Project>{EF002C0F-BBB3-473D-ADCE-44A143C63C6D}</Project>
       <Name>HolyStream.Utils</Name>

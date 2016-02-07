@@ -8,27 +8,27 @@ namespace Scanner
 {
     public static class FileScanner
     {
-        public static void ScanFolder(string path)
-        {
-            //list of supported Files
-            var ext = new List<string> {".mp3", ".flac", ".m4a"};
-            // Process the list of files found in the directory.
-            var fileEntries = Directory.GetFiles(path)
-                .Where(f => ext.Any(x => f.EndsWith(x)));
+        //public static void ScanFolder(string path)
+        //{
+        //    //list of supported Files
+        //    var ext = new List<string> {".mp3", ".flac", ".m4a"};
+        //    // Process the list of files found in the directory.
+        //    var fileEntries = Directory.GetFiles(path)
+        //        .Where(f => ext.Any(x => f.EndsWith(x)));
 
-            foreach (var fileName in fileEntries)
-                ProcessFile(fileName);
+        //    foreach (var fileName in fileEntries)
+        //        ProcessFile(fileName);
 
-            // Recurse into subdirectories of this directory.
-            var subdirectoryEntries = Directory.GetDirectories(path);
-            foreach (var subdirectory in subdirectoryEntries)
-                ScanFolder(subdirectory);
-        }
+        //    // Recurse into subdirectories of this directory.
+        //    var subdirectoryEntries = Directory.GetDirectories(path);
+        //    foreach (var subdirectory in subdirectoryEntries)
+        //        ScanFolder(subdirectory);
+        //}
 
-        public static void ProcessFile(string path)
-        {
-            var song = SongFactory.CreateSong(path);
-            MediaFile.Files.Add(song);
-        }
+        //public static void ProcessFile(string path)
+        //{
+        //    var song = SongFactory.CreateSong(path);
+        //    MediaFile.Files.Add(song);
+        //}
     }
 }
