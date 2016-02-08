@@ -191,6 +191,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\HolyStream\holystream.css" />
     <Content Include="Content\Images\default-cover.png" />
+    <Content Include="Content\Images\giphy.gif" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery-ui.structure.css" />
